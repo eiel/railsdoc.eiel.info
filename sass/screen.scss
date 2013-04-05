@@ -1,0 +1,101 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+/* @import "compass/reset"; */
+
+body {
+    color: black;
+    font-size: 16px;
+    margin: 0px auto 0px auto;
+    width: 600px;
+}
+
+div#header {
+    border-bottom: 2px solid black;
+    margin-bottom: 30px;
+    padding: 12px 0px 12px 0px;
+}
+
+div#logo a {
+    color: black;
+    float: left;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+div#header #navigation {
+    text-align: right;
+}
+
+div#header #navigation a {
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 12px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+div#footer {
+    border-top: solid 2px black;
+    color: #555;
+    font-size: 12px;
+    margin-top: 30px;
+    padding: 12px 0px 12px 0px;
+    text-align: right;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+div.info {
+    color: #555;
+    font-size: 14px;
+    font-style: italic;
+}
+
+pre {
+    line-height: 1.4em;
+    padding: 1em;
+    background-color: #2c2c2c;
+    color: #c6c6c6;
+}
+
+/* syntax highlight */
+/* dark-blue comment */
+.sourceCode .co {
+    color: #9c9ca3;
+}
+
+/* green string */
+.sourceCode .st {
+    color: #87d46f;
+}
+
+/* red ot... */
+.sourceCode .ot {
+    color: #ff91a7;
+}
+
+/* orange dv value? */
+.sourceCode .dv {
+    color: #ffa667;
+}
+
+/* yellow keyword */
+.sourceCode .kw {
+    color: #f2e582;
+}
+
+/* aqua type? */
+.sourceCode .dt {
+    color: #6cd0dc;
+}
