@@ -10,13 +10,17 @@ main :: IO ()
 main = hakyll $ do
 
     match "images/*" $ do
-        route   idRoute
-        compile copyFileCompiler
+      route   idRoute
+      compile copyFileCompiler
 
     match "stylesheets/*.css" $ do
-        route   idRoute
-        compile compressCssCompiler
+      route   idRoute
+      compile compressCssCompiler
 
+    -- Google Webmaster Tools
+    match "google*.html" $ do
+      route idRoute
+      compile copyFileCompiler
 
     match "**/*.md" $ do
         let addIndex x = replaceBaseName x $ (takeBaseName x) ++ "/index"
@@ -25,7 +29,6 @@ main = hakyll $ do
         compile $ pandocCompiler
             >>= loadAndApplyTemplate "templates/default.html" defaultContext
             >>= relativizeUrls
-
 
     match "index.html" $ do
         route idRoute
