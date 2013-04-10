@@ -173,6 +173,7 @@ Rails環境で、`i18n` に対応していれば、日本語化なども可能�
 ```
 
 localeを使用する場合はこんな感じ:
+
 ```yaml
 ja:
   support:
@@ -281,7 +282,11 @@ Grouping
 
 グルーピングを行うメソッドが実装されている。
 
-https://github.com/rails/rails/blob/v4.0.0.beta1/activesupport/lib/active_support/core_ext/array/grouping.rb
+```ruby
+require 'active_support/core_ext/array/grouping'
+```
+
+[ソースコード](https://github.com/rails/rails/blob/v4.0.0.beta1/activesupport/lib/active_support/core_ext/array/grouping.rb)
 
 ### #in_groups_of
 
@@ -344,6 +349,7 @@ String#split と同様の動作をします。`value` に渡した値ごとに�
 ```
 
 引数もブロックも渡すとやや変態。このような使い方をする機会もなさそう。
+
 ```ruby
 (1..10).to_a.split(2) { |n| n % 3 == 0 } # => [[1], [], [4, 5], [7, 8], [10]]
 ```
@@ -382,7 +388,7 @@ requre 'active_support/core_ext/array/prepend_and_append'
 Uniq by
 ================================================================================
 
-廃止予定のファイル。 配列をユニークする uniq_by が実装されていますが、 Array#uniq に委譲するだけになってます。
+廃止予定のファイル。 配列をユニークする uniq_by が実装されていますが、 [Array#uniq](http://rurema.clear-code.com/query:Array%23uniq/) に委譲するだけになってます。
 
 [ソースコード](https://github.com/rails/rails/blob/v4.0.0.beta1/activesupport/lib/active_support/core_ext/array/uniq_by.rb)
 
@@ -404,6 +410,7 @@ Wrap
 Arrayのクラスメソッド wrap が実装されています。
 
 この機能のみ読み込みたい場合は:
+
 ```ruby
 require 'active_support/core_ext/array/wrap'
 ```
