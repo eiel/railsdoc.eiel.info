@@ -23,6 +23,9 @@ $ bundle exec ruby -r active_support -e 'puts ActiveSupport::VERSION::STRING'
 require 'active_support/core_ext/benchmark'
 ```
 
+インスタンスメソッド
+================================================================================
+
 ## ms {...}
 
 [Benchmark.realtime](http://rurema.clear-code.com/query:Benchmark.realtime/) の結果を ミリ秒で表示する `Benchmark.realtime` のラッパーです。
