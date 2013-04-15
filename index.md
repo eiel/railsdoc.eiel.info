@@ -2,20 +2,18 @@
 title: Home
 ---
 
-<h1>Rails メモ</h1>
+Rails メモ
+--------------------------------------------------------------------------------
 
-<p>
 ここは Rails の勉強メモとかになる予定です。
-</p>
+自分のメモなので間違いなどもたくさんあるかもしれませんので、参考にする程度にしておくことをオススメします。
 
-<p>
+基本的に Rails4 を想定しています。
+
 広島Ruby勉強会での資料。<br>
 ActiveSupport Core Ext のメソッド紹介。
-</p>
 
-<ul>
-  <li><a href="/active_support/core_ext/array">Core Ext - Array</a></li>
-  <li><a href="/active_support/core_ext/benchmark">Core Ext - Benchmark</a></li>
-  <li><a href="/active_support/core_ext/big_decimal">Core Ext - BigDecimal</a></li>
-  <li><a href="/active_support/core_ext/class">Core Ext - Class</a></li>
-</ul>
+* [Core Ext - Array](/active_support/core_ext/array)
+* [Core Ext - Benchmark](/active_support/core_ext/benchmark)
+* [Core Ext - BigDecimal](/active_support/core_ext/big_decimal)
+* [Core Ext - Class](/active_support/core_ext/class)
