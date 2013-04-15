@@ -27,13 +27,15 @@ Access
 
 配列内の要素へのアクセス方法を拡張する
 
-この機能のみ読み込みたい場合は:
+この機能のみ利用したい場合は:
 
 ```ruby
 require 'active_support/core_ext/array/access'
 ```
 
-[ソースコード](https://github.com/rails/rails/blob/v4.0.0.beta1/activesupport/lib/active_support/core_ext/array/access.rb)
+とします。
+
+[ソースコードはこちら](https://github.com/rails/rails/blob/v4.0.0.beta1/activesupport/lib/active_support/core_ext/array/access.rb)。
 
 ### #from
 
