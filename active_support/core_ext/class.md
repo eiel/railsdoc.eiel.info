@@ -138,3 +138,102 @@ Base.setting   # => :hoge
 
 Base.new.setting  # => NoMethodError: undefined method `setting' for #<Base:0x007fe0420b3ba8>
 ```
+
+AttributeAccessors
+================================================================================
+
+*クラス変数*に対するゲッタ・セッタを作成する `cattr_reader` `cattr_writer` `cattr_accessor` メソッドを定義します。
+*インスタンス変数*に対するゲッタ・セッタを作成する `attr_reader` `attr_writer` `attr_accessor` に `Class` の `c` をつけたもの考えられます。
+
+Class#class_attribute と同様にそのクラスのインスタンスやサブクラスからもアクセスできます。
+
+たとえば、以下のクラスがあるとします。
+
+```ruby
+class Base
+  cattr_accessor :setting
+end
+
+class Subclass < Base
+end
+```
+
+以下のように利用します。
+
+```ruby
+Base.setting = :hoge
+
+# 以下は class_attribute のときと同じ挙動
+
+Subclass.setting      # => :hoge
+Base.new.setting      # => :hoge
+Subclass.new.setting  # => :hoge
+
+# 以下は class_attribute と挙動が違う
+
+Subclass.setting = :goro
+
+Base.setting         # => :goro  # class_attribute のときは :hoge
+Base.new.setting     # => :goro  # 同様
+Subclass.new.setting # => :goro
+```
+
+この機能のみ利用したい場合は:
+
+```ruby
+require 'active_support/core_ext/class/attribute_accessors'
+```
+
+とします。
+
+[ソースコードはこちら](https://github.com/rails/rails/blob/v4.0.0.beta1/activesupport/lib/active_support/core_ext/class/attribute_accessors.rb)。
+
+### #cattr_reader(*syms)
+
+クラス変数のゲッタを作成します。
+引数の `syms` に複数のシンボルを渡すことで、まとめて作成することができます。
+
+option として
+
+* instance_reader
+* instance_accessor
+
+が利用できます。
+デフォルトでは `true` で `false` を設定することで、インスタンスからのクラス変数へのアクセスを制限できます。
+instance_reader, instance_accessor どちらを設定しても同じ効果になります。
+
+### #cattr_writer(*syms)
+
+クラス変数のセッタを作成します。
+引数の `syms` に複数のシンボルを渡すことで、まとめて作成することができます。
+
+また、ブロックを渡すことで、初期値を設定することができます。
+
+```ruby
+class Base
+  cattr_writer :setting do
+    [:mogu, :goro]
+  end
+
+  def setting
+    @@setting
+  end
+end
+
+Base.setting     # => [:mogu, :goro]```
+
+引数のoption として
+
+* instance_writer
+* instance_accessor
+
+の2つを使うことができます。
+デファルトで `true` になっています。
+
+### #cattr_accessor(*syms, &blk)
+
+クラス変数のセッタ・ゲッタを作成します。
+引数の `syms` に複数のシンボルを渡すことで、まとめて作成することができます。
+
+また、ブロックを渡すことで、初期値を設定することができます。
+Class#cattr_write へ委譲されます。
