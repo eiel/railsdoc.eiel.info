@@ -237,3 +237,75 @@ Base.setting     # => [:mogu, :goro]```
 
 また、ブロックを渡すことで、初期値を設定することができます。
 Class#cattr_write へ委譲されます。
+
+
+DelegatingAttributes
+================================================================================
+
+スーパークラスに委譲する属性を作成する？
+
+Attribute との違いがあまりわからなかったです。
+まず、`reader` と `writer` がなく `accessor` しかありません。
+ふたつめはインスタンスからの場合は代入ができません。
+みっつめは、先頭にアンダースコアがついたアクセッサが作成されます。
+よっつめは、配列を渡してまとめて定義することができません。
+
+Attribute と同様サブクラスで値を上書きすると、スーパークラスに影響はありません。
+
+
+この機能のみ読み込みたい場合は
+
+```ruby
+require 'active_support/core_ext/class/delegating_attributes'
+```
+
+とします。
+
+[ソースコードはこちら](https://github.com/rails/rails/blob/v4.0.0.beta1/activesupport/lib/active_support/core_ext/class/delegating_attributes.rb)
+
+### #superclass_delegating_accessor(name, options = {})
+
+第1引数に作成する属性名、`options` には `instance_reader` を設定できます。
+デフォルトでは true と同様の動作します。
+
+以下のクラスがあったとします。
+
+```ruby
+class Base
+   superclass_delegating_accessor :setting
+end
+
+class Subclass < Base
+end
+````
+
+利用してみます。
+
+```ruby
+Base.setting = :hoge
+Base.setting          # => :hoge
+Base.new.setting      # => :hoge
+Subclass.setting      # => :hoge
+Subclass.new.setting  # => :hoge
+
+# Baseの値を変更。Subclass も変わる
+Base.setting = :foo
+Base.setting          # => :foo
+Base.new.setting      # => :foo
+Subclass.setting      # => :foo
+Subclass.new.setting  # => :foo
+
+# Subclassの値を変更。 Base はそのまま。
+Subclass.setting = :goro
+Base.setting          # => :foo
+Base.new.setting      # => :foo
+Subclass.setting      # => :goro
+Subclass.new.setting  # => :goro
+
+# Base の値を変更。Subclass は影響がでない
+Base.setting = :hoge
+Base.setting         # => :hoge
+Base.new.setting     # => :hoge
+Subclass.setting     # => :goro
+Subclass.setting     # => :goro
+```
