@@ -309,3 +309,68 @@ Base.new.setting     # => :hoge
 Subclass.setting     # => :goro
 Subclass.setting     # => :goro
 ```
+Subclasses
+--------------------------------------------------------------------------------
+サブクラスの一覧を取得できるメソッド `subclasses` が定義されている。
+`subclasses` 実装のための補助メソッド `descendante` も定期されている。
+こちらは子孫クラスの一覧を取得できます。
+
+この機能のみ読み込みたい場合は
+
+```ruby
+require 'active_support/core_ext/class/subclasses'
+```
+
+とします。
+
+[ソースコードはこちら](https://github.com/rails/rails/blob/v4.0.0.beta1/activesupport/lib/active_support/core_ext/class/subclass.rb)
+
+### #descendants
+
+`:nodoc` が指定されてるので使用が固まってないのかもしれない。
+子孫クラスの一覧が取得できる。
+
+### #subclasses
+
+子クラスの一覧を取得できます。
+`ActiveRecord::Base` の `subclasses` を見ると便利そうな気がしましたが、クラス定義が呼び出すまで遅延するので、ちょっとだけ微妙。
+デバッグには役立ちそうです。
+
+### ちょっと実験
+
+以下のクラスが定義されているとします。
+
+```ruby
+class Base
+end
+
+class SubClass < Base
+end
+
+class SubSubClass < SubClass
+end
+```
+
+この時の `descendants` の挙動は以下のとおりです。
+
+```ruby
+Base.descendants        # => [SubSubClass, SubClass]
+
+SubClass.descendants    # => [SubSubClass]
+
+SubSubClass.descendants # => []
+```
+
+Baseを継承してるすべてのクラスを返します。
+
+また、この時の `subclasses` の共同は以下のとおりです。
+
+```ruby
+Base.subclasses        # => [SubClass]  # ここが`descendants`と違う
+
+SubClass.subclasses    # => [SubSubClass]
+
+SubSubClass.subclasses # => []
+```
+
+と、直下の子クラスのみ返すようになっています。
