@@ -5,6 +5,8 @@ import           Hakyll
 import           System.Environment (withArgs)
 import           System.Cmd (system)
 import           System.FilePath
+import           Hakyll.Core.Compiler
+import           Text.Pandoc
 --------------------------------------------------------------------------------
 main :: IO ()
 main = hakyll $ do
@@ -24,9 +26,14 @@ main = hakyll $ do
 
     match "**/*.md" $ do
         let addIndex x = replaceBaseName x $ (takeBaseName x) ++ "/index"
+            writerOptions = defaultHakyllWriterOptions {
+              writerTableOfContents = True,
+              writerTemplate = "<h2>目次</h2>\n$toc$\n$body$",
+              writerStandalone = True
+              }
         route   $ customRoute $
             addIndex . (`replaceExtension` "html") . toFilePath
-        compile $ pandocCompiler
+        compile $ pandocCompilerWith defaultHakyllReaderOptions writerOptions
             >>= loadAndApplyTemplate "templates/default.html" defaultContext
             >>= relativizeUrls
 
