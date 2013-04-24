@@ -161,3 +161,104 @@ Date.new(2013, 12,1).advance(days: 10)  # => Wed, 11 Dec 2013
 Date.new(2013,12,1).change(day: 10) # => Tue, 10 Dec 2013
 Date.new(2013,12,1).change(year: 2014) # => Mon, 01 Dec 2014
 ```
+
+Coversions
+--------------------------------------------------------------------------------
+
+別の形式に変換するメソッドが実装されています。
+
+この機能のみ利用したい場合は:
+
+```ruby
+require 'active_support/core_ext/date/conversions'
+```
+
+とします。
+
+[ソースコードはこちら](https://github.com/rails/rails/blob/v4.0.0.beta1/activesupport/lib/active_support/core_ext/date/conversinos.rb)
+
+require される ライブラリ
+
+* [active_support/inflector/methods](active_support/inflector#methods)
+* [active_support/core_ext/date/zones](#zones)
+* [active_support/core_ext/module/remove_method](active_support/core_ext/module#remove_method)
+
+### DATE_FORMATS
+
+5つの Date フォーマット形式が定義されています。
+
+例は 2013年3月4日 の場合の実行結果になります。
+
+* :short         - " 4 Mar"
+* :long          - " March 4, 2012"
+* :db            - "2012-03-04"
+* :number        - "20120304"
+* :long_ordinary - "March 4th, 2012"
+* :rfc822        - " 4 Mar 2012"
+
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.beta1/activesupport/lib/active_support/core_ext/date/conversions.rb#L7-L17)
+
+### #to_formatted_s(format = :default)
+
+引数format に シンボルを渡すことで整形することができます。
+DATE_FORMATS で定義されてるシンボルが利用できます。
+:default の場合は :db と同じ形式です。
+
+to_s は このメソッドに置き換えられます。
+
+元の to_s を使用したい場合は `to_default_s` を使用します。
+
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.beta1/activesupport/lib/active_support/core_ext/date/conversions.rb#L25-L59)
+
+### #readable_inspect
+
+読める `inspect`。
+
+`Sun, 04 Mar 2012`のような文字列を返します。
+
+`inspect` メソッドはこのメソッドに置き換えられます。
+元のメソッドは `default_inspect` でアクセスできます。
+
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.beta1/activesupport/lib/active_support/core_ext/date/conversions.rb#L61-L66)
+
+### #to_time(form = :local)
+
+時刻(Time)へ変換します。
+引数 form には :utc も使うことができます。
+
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.beta1/activesupport/lib/active_support/core_ext/date/conversions.rb#L68-L79)
+
+### #xmlschema
+
+xmlで使用する文字列に変換します。
+
+`2012-03-04T00:00:00+09:00`のような文字列を返します。
+
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.beta1/activesupport/lib/active_support/core_ext/date/conversions.rb#L81-L83)
+
+Zones
+--------------------------------------------------------------------------------
+
+この機能のみ利用したい場合は:
+
+```ruby
+require 'active_support/core_ext/date/zones'
+```
+
+とします。
+
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.beta1/activesupport/lib/active_support/core_ext/date/zones.rb)
+
+require されるライブラリ
+
+* [active_support/core_ext/time/zones](active_support/core_ext/time#zones)
+
+### in_time_zone(zone = ::Time.zone)
+
+Time.zone の値を元に 時刻へと変換する。
+第1引数に指定することで特定のタイムゾーンで行うこともできます。
+
+引数に無効な zone を渡した場合 ArgumentError 例外が発生します。
+
+
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.beta1/activesupport/lib/active_support/core_ext/date/zones.rb#L20-L36)
