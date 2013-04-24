@@ -179,9 +179,11 @@ require 'active_support/core_ext/date/conversions'
 
 require される ライブラリ
 
-* [active_support/inflector/methods](active_support/inflector#methods)
+* [active_support/inflector/methods](/active_support/inflector#methods)
 * [active_support/core_ext/date/zones](#zones)
-* [active_support/core_ext/module/remove_method](active_support/core_ext/module#remove_method)
+* [active_support/core_ext/module/remove_method](/active_support/core_ext/module#remove_method)
+
+`remove_possible_method` を利用するのに `remove_method` を require していてみたいだけど今は利用されていないみたい。
 
 ### DATE_FORMATS
 

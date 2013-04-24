@@ -17,3 +17,4 @@ ActiveSupport Core Ext のメソッド紹介。
 * [Core Ext - Benchmark](/active_support/core_ext/benchmark)
 * [Core Ext - BigDecimal](/active_support/core_ext/big_decimal)
 * [Core Ext - Class](/active_support/core_ext/class)
+* [Core Ext - Date](/active_support/core_ext/date)
