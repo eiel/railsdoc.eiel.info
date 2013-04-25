@@ -20,6 +20,50 @@ Module へ機能を追加する方法
 require 'active_support/core_ext/module'
 ```
 
+Aliasing
+--------------------------------------------------------------------------------
+
+規則に沿ったメソッド名で指定しておくことで、メソッドを置き換えることができます。
+
+この機能のみ利用したい場合は:
+
+```ruby
+require 'active_support/core_ext/module/aliasing'
+```
+
+[ソースコードはこちら](https://github.com/rails/rails/blob/v4.0.0.beta1/activesupport/lib/active_support/core_ext/module/aliasing.rb)
+
+
+### #alias_method_chain(target, feature)
+
+`foo` メソッドを `foo_with_feature` というメソッドに置き換えをする場合に、元の`foo` メソッドを `foo_without_feature` という名前に変更しておいてくれるメソッドです。
+
+`alias_method_chain(:foo, :feature)` のように使用します。
+
+接尾語に `?` がつくようなメソッドの場合は `foo_without_feature?` のように最後に `?` がつきます。
+
+```ruby
+alias_method_chain :foo?, :feature
+```
+
+は、以下と等価です。
+
+```ruby
+alias_method :foo_without_feature?, :foo?
+alias_method :foo?, :foo_with_feature?
+```
+
+`?` 以外には  `!` や `=` も同様です。
+
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.beta1/activesupport/lib/active_support/core_ext/module/aliasing.rb#L2-L43)
+
+利用先
+
+* [active_support/core_ext/date/infinite_comparable](/active_support/core_ext/date#Infinite Comparable)
+
+
+### #alias_attribute(new_name, old_name)
+
 Remove Method
 --------------------------------------------------------------------------------
 

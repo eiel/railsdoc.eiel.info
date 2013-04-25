@@ -185,6 +185,8 @@ require される ライブラリ
 
 `remove_possible_method` を利用するのに `remove_method` を require していてみたいだけど今は利用されていないみたい。
 
+* [pull request してみた](https://github.com/rails/rails/pull/10339)
+
 ### DATE_FORMATS
 
 5つの Date フォーマット形式が定義されています。
@@ -237,6 +239,26 @@ xmlで使用する文字列に変換します。
 `2012-03-04T00:00:00+09:00`のような文字列を返します。
 
 * [ソースコード](https://github.com/rails/rails/blob/v4.0.0.beta1/activesupport/lib/active_support/core_ext/date/conversions.rb#L81-L83)
+
+Infinite Comparable
+--------------------------------------------------------------------------------
+
+Date が Float::INFINITY などと比較できるようにします。
+
+この機能のみ利用したい場合は:
+
+```ruby
+require 'active_support/core_ext/date/infinite_comparable'
+```
+
+とします。
+
+[ソースコードはこちら](https://github.com/rails/rails/blob/v4.0.0.beta1/activesupport/lib/active_support/core_ext/date/infinite_comparable.rb)
+
+require される ライブラリ
+
+* [active_support/core_ext/infinite_comparable](/active_support/core_ext/infinite_comparable)
+
 
 Zones
 --------------------------------------------------------------------------------
