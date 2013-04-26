@@ -14,10 +14,10 @@ $ bundle exec ruby -r active_support -e 'puts ActiveSupport::VERSION::STRING'
 4.0.0.beta1
 ```
 
-Array へ機能を追加する方法
+Date へ機能を追加する方法
 
 ```ruby
-require 'active_support/core_ext/array'
+require 'active_support/core_ext/date'
 ```
 
 ActsLike
@@ -45,7 +45,7 @@ Calculations
 
 日付計算に関連したメソッドが実装されています。
 
-`DateAndTime::Calculations` が include されています。
+`[DateAndTime::Calculations](/active_support/core_ext/date_and_time)` が include されています。
 
 この機能のみ利用したい場合は:
 
@@ -71,6 +71,8 @@ require 'active_support/core_ext/date/calculations'
 週の始めの曜日を返します。
 default では :monday を返します。
 `beginning_of_week_default` の値で default 値が変更できます。
+
+Beginning_of_week など週のはじめや、終わりを返すメソッドの結果に影響を与えます。
 
 ### .beginning_of_week=(week_start)
 
@@ -136,7 +138,7 @@ default では :monday を返します。
 エイリアスとして `-` がある。もともとの - は`minus_without_duration` でアクセスできる。
 引数other が `ActiveSupport::Duration の場合の処理が追加されているのでこのような名前になってると考えられる。
 
-### #advance
+### #advance(options)
 
 年、月、週、日 といった単位で日付を進めるメソッド。
 キーワードを使うことで値を渡す。
@@ -277,7 +279,11 @@ require されるライブラリ
 
 * [active_support/core_ext/time/zones](active_support/core_ext/time#zones)
 
-### in_time_zone(zone = ::Time.zone)
+### #to_time_in_current_zone
+
+*depcated* です。代わりに to_time_zone を使いましょう。
+
+### #in_time_zone(zone = ::Time.zone)
 
 Time.zone の値を元に 時刻へと変換する。
 第1引数に指定することで特定のタイムゾーンで行うこともできます。
