@@ -1,6 +1,8 @@
 ---
 title: Core Ext Object
 ---
+ActiveSupport 拡張で追加される Object のメソッド
+================================================================================
 
 
 試した環境
@@ -20,6 +22,28 @@ Object へ機能を追加する方法
 ```ruby
 require 'active_support/core_ext/object'
 ```
+
+Acts Like
+--------------------------------------------------------------------------------
+
+acts_like? を定義しています。
+
+### #acts_like?(duck)
+
+ダックタイピングをアシストするためのメソッド。
+このメソッドは `acts_linke_date?` のようなメソッドが定義されていれば、
+acts_like? :date が true を返します。
+
+```ruby
+require 'active_support/core_ext'
+Date.new.acts_like? :date       # => true
+Date.new.acts_like? :time       # => false
+DateTime.new.acts_like? :date   # => true
+DateTime.new.acts_like? :time   # => true
+```
+
+のように使えます。
+
 
 Try
 --------------------------------------------------------------------------------
