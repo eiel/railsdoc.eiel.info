@@ -181,3 +181,31 @@ Conversions
 to_s はこのメソッドでおきかれられます。もとの to_s は to_defaults_s メソッドから使用できます。
 
 
+### #formatted_offset
+
+* formatted_offset(colon = true, alternate_utc_string = nil)
+
+オフセットをフォーマット済みの文字列を返します。
+
+### #readable_inspect
+
+読める形式文字列を返す inspect 。
+inspect  はこのメソッドでおきかれられます。
+もとの inspoct は `dfealut_inspec' メソッドから使用できます。
+
+### .civil_from_format(uts
+
+* civil_from_format(utc_or_local, year, month=1, day=1, hour=0, min=0, sec=0)
+
+引数utc_or_local に指定したオフセットを持つ DateTime オブジェクトを返します。
+
+
+### #to_f
+
+Float に変換します。
+UnixEpoch からの経過秒を返します。
+
+### #to_i
+
+int に変換します。
+UnixEpoch からの経過秒を返します。
