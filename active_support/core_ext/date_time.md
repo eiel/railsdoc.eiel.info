@@ -209,3 +209,22 @@ UnixEpoch からの経過秒を返します。
 
 int に変換します。
 UnixEpoch からの経過秒を返します。
+
+Infinite Comparable
+--------------------------------------------------------------------------------
+
+Date が Float::INFINITY などと比較できるようにします。
+
+この機能のみ利用したい場合は:
+
+```ruby
+require 'active_support/core_ext/date/infinite_comparable'
+```
+
+とします。
+
+[ソースコードはこちら](https://github.com/rails/rails/blob/v4.0.0.beta1/activesupport/lib/active_support/core_ext/date/infinite_comparable.rb)
+
+require される ライブラリ
+
+* [active_support/core_ext/infinite_comparable](/active_support/core_ext/infinite_comparable)

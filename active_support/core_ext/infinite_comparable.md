@@ -26,7 +26,8 @@ require 'active_support/core_ext/infinite_comparable'
 
 利用先
 
-* [active_support/core_ext/date/infinite_comparable]
+* [active_support/core_ext/date/infinite_comparable](/active_support/core_ext/date#Infinite Comparable)
+* [active_support/core_ext/datetime/infinite_comparable](/active_support/core_ext/date_time#Infinite Comparable)
 
 require するライブラリ
 
