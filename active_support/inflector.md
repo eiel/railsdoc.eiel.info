@@ -12,7 +12,7 @@ ruby 2.0.0p0 (2013-02-24 revision 39474) [x86_64-darwin12.2.1]
 
 ```
 $ bundle exec ruby -r active_support -e 'puts ActiveSupport::VERSION::STRING'
-4.0.0.beta1
+4.0.0.rc1
 ```
 
 inflections
@@ -29,7 +29,7 @@ require 'active_support/inflector/methods'
 
 とします。
 
-[ソースコードはこちら](https://github.com/rails/rails/blob/v4.0.0.beta1/activesupport/lib/active_support/inflector/methods.rb)
+[ソースコードはこちら](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/inflector/methods.rb)
 
 ### .ordinalize
 
@@ -41,4 +41,4 @@ ActiveSupport::Inflector.ordinalize(2)  # => "2nd"
 ActiveSupport::Inflector.ordinalize(3)  # => "3rd"
 ```
 
-* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.beta1/activesupport/lib/active_support/inflector/methods.rb#L277-L299)
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/inflector/methods.rb#L277-L299)

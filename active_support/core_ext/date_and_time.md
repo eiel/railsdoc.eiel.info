@@ -11,7 +11,7 @@ ruby 2.0.0p0 (2013-02-24 revision 39474) [x86_64-darwin12.2.1]
 
 ```
 $ bundle exec ruby -r active_support -e 'puts ActiveSupport::VERSION::STRING'
-4.0.0.beta1
+4.0.0.rc1
 ```
 
 Date や Time などに機能を追加されているものなので単体で読込むことはあまりなさそう。
@@ -33,7 +33,7 @@ include してるクラス
 Calculations
 --------------------------------------------------------------------------------
 
-[ソースコードはこちら](https://github.com/rails/rails/blob/v4.0.0.beta1/activesupport/lib/active_support/core_ext/date_and_time/calculations.rb)
+[ソースコードはこちら](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/date_and_time/calculations.rb)
 
 ### DAYS_INTO_WEEK
 
@@ -41,7 +41,7 @@ Calculations
 
 :monday が 0 ではじまって、:sunday は 6 となる
 
-* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.beta1/activesupport/lib/active_support/core_ext/date_and_time/calculations.rb#L3-L10)
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/date_and_time/calculations.rb#L3-L10)
 
 ### #yesterday
 

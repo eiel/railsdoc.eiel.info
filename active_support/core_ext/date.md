@@ -11,7 +11,7 @@ ruby 2.0.0p0 (2013-02-24 revision 39474) [x86_64-darwin12.2.1]
 
 ```
 $ bundle exec ruby -r active_support -e 'puts ActiveSupport::VERSION::STRING'
-4.0.0.beta1
+4.0.0.rc1
 ```
 
 Date へ機能を追加する方法
@@ -33,7 +33,7 @@ require 'active_support/core_ext/date/acts_like'
 
 とします。
 
-[ソースコードはこちら](https://github.com/rails/rails/blob/v4.0.0.beta1/activesupport/lib/active_support/core_ext/date/acts_like.rb)
+[ソースコードはこちら](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/date/acts_like.rb)
 
 ### #acts_like_date?
 
@@ -55,7 +55,7 @@ require 'active_support/core_ext/date/calculations'
 
 とします。
 
-[ソースコードはこちら](https://github.com/rails/rails/blob/v4.0.0.beta1/activesupport/lib/active_support/core_ext/date/calculations.rb)
+[ソースコードはこちら](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/date/calculations.rb)
 
 ### .beginning_of_week_default
 
@@ -177,7 +177,7 @@ require 'active_support/core_ext/date/conversions'
 
 とします。
 
-[ソースコードはこちら](https://github.com/rails/rails/blob/v4.0.0.beta1/activesupport/lib/active_support/core_ext/date/conversinos.rb)
+[ソースコードはこちら](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/date/conversinos.rb)
 
 require される ライブラリ
 
@@ -202,7 +202,7 @@ require される ライブラリ
 * :long_ordinary - "March 4th, 2012"
 * :rfc822        - " 4 Mar 2012"
 
-* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.beta1/activesupport/lib/active_support/core_ext/date/conversions.rb#L7-L17)
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/date/conversions.rb#L7-L17)
 
 ### #to_formatted_s(format = :default)
 
@@ -214,7 +214,7 @@ to_s は このメソッドに置き換えられます。
 
 元の to_s を使用したい場合は `to_default_s` を使用します。
 
-* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.beta1/activesupport/lib/active_support/core_ext/date/conversions.rb#L25-L59)
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/date/conversions.rb#L25-L59)
 
 ### #readable_inspect
 
@@ -225,14 +225,14 @@ to_s は このメソッドに置き換えられます。
 `inspect` メソッドはこのメソッドに置き換えられます。
 元のメソッドは `default_inspect` でアクセスできます。
 
-* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.beta1/activesupport/lib/active_support/core_ext/date/conversions.rb#L61-L66)
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/date/conversions.rb#L61-L66)
 
 ### #to_time(form = :local)
 
 時刻(Time)へ変換します。
 引数 form には :utc も使うことができます。
 
-* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.beta1/activesupport/lib/active_support/core_ext/date/conversions.rb#L68-L79)
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/date/conversions.rb#L68-L79)
 
 ### #xmlschema
 
@@ -240,7 +240,7 @@ xmlで使用する文字列に変換します。
 
 `2012-03-04T00:00:00+09:00`のような文字列を返します。
 
-* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.beta1/activesupport/lib/active_support/core_ext/date/conversions.rb#L81-L83)
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/date/conversions.rb#L81-L83)
 
 Infinite Comparable
 --------------------------------------------------------------------------------
@@ -255,7 +255,7 @@ require 'active_support/core_ext/date/infinite_comparable'
 
 とします。
 
-[ソースコードはこちら](https://github.com/rails/rails/blob/v4.0.0.beta1/activesupport/lib/active_support/core_ext/date/infinite_comparable.rb)
+[ソースコードはこちら](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/date/infinite_comparable.rb)
 
 require される ライブラリ
 
@@ -273,7 +273,7 @@ require 'active_support/core_ext/date/zones'
 
 とします。
 
-* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.beta1/activesupport/lib/active_support/core_ext/date/zones.rb)
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/date/zones.rb)
 
 require されるライブラリ
 
@@ -291,4 +291,4 @@ Time.zone の値を元に 時刻へと変換する。
 引数に無効な zone を渡した場合 ArgumentError 例外が発生します。
 
 
-* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.beta1/activesupport/lib/active_support/core_ext/date/zones.rb#L20-L36)
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/date/zones.rb#L20-L36)

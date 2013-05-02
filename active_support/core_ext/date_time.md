@@ -13,7 +13,7 @@ ruby 2.0.0p0 (2013-02-24 revision 39474) [x86_64-darwin12.2.1]
 
 ```
 $ bundle exec ruby -r active_support -e 'puts ActiveSupport::VERSION::STRING'
-4.0.0.beta1
+4.0.0.rc1
 ```
 
 DateTime へ機能を追加する方法
@@ -42,7 +42,7 @@ Calculations
 
 日付計算を行うメソッドが定義されています。
 
-[ソースコードはこちら](https://github.com/rails/rails/blob/v4.0.0.beta1/activesupport/lib/active_support/core_ext/date_time/calculations.rb)
+[ソースコードはこちら](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/date_time/calculations.rb)
 
 ### .local_offset
 
@@ -54,7 +54,7 @@ DateTime.civil_from_format を使用しましょう。
 現在の時刻をタイムゾーン付きで返します。
 タイムゾーンが設定されていない場合は、現在時刻を返します。
 
-* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.beta1/activesupport/lib/active_support/core_ext/date_time/calculations.rb#L12-L18)
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/date_time/calculations.rb#L12-L18)
 
 ### #past?
 
@@ -89,7 +89,7 @@ DateTime.new(2013,12,1, 9,8,3).change(year: 2012) # => Sat, 01 Dec 2012 09:08:03
 DateTime.new(2013,12,1, 9,8,3).change(hour: 10) # =>  Sun, 01 Dec 2013 10:00:00 +0000
 ```
 
-* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.beta1/activesupport/lib/active_support/core_ext/date_time/calculations.rb#L44-L66)
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/date_time/calculations.rb#L44-L66)
 
 ### #advance
 
@@ -99,7 +99,7 @@ DateTime.new(2013,12,1, 9,8,3).change(hour: 10) # =>  Sun, 01 Dec 2013 10:00:00 
 
 :months, :weeks, :days, :hours, :minutes, :seconds を使って指定します。
 
-* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.beta1/activesupport/lib/active_support/core_ext/date_time/calculations.rb#L68-L85)
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/date_time/calculations.rb#L68-L85)
 
 ### #ago
 
@@ -223,7 +223,7 @@ require 'active_support/core_ext/date_time/infinite_comparable'
 
 とします。
 
-[ソースコードはこちら](https://github.com/rails/rails/blob/v4.0.0.beta1/activesupport/lib/active_support/core_ext/date/infinite_comparable.rb)
+[ソースコードはこちら](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/date/infinite_comparable.rb)
 
 require される ライブラリ
 

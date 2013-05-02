@@ -11,7 +11,7 @@ ruby 2.0.0p0 (2013-02-24 revision 39474) [x86_64-darwin12.2.1]
 
 ```
 $ bundle exec ruby -r active_support -e 'puts ActiveSupport::VERSION::STRING'
-4.0.0.beta1
+4.0.0.rc1
 ```
 
 Module へ機能を追加する方法
@@ -31,7 +31,7 @@ Aliasing
 require 'active_support/core_ext/module/aliasing'
 ```
 
-[ソースコードはこちら](https://github.com/rails/rails/blob/v4.0.0.beta1/activesupport/lib/active_support/core_ext/module/aliasing.rb)
+[ソースコードはこちら](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/module/aliasing.rb)
 
 
 ### #alias_method_chain(target, feature)
@@ -55,7 +55,7 @@ alias_method :foo?, :foo_with_feature?
 
 `?` 以外には  `!` や `=` も同様です。
 
-* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.beta1/activesupport/lib/active_support/core_ext/module/aliasing.rb#L2-L43)
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/module/aliasing.rb#L2-L43)
 
 利用先
 
@@ -67,7 +67,7 @@ alias_method :foo?, :foo_with_feature?
 Remove Method
 --------------------------------------------------------------------------------
 
-[ソースコードはこちら](https://github.com/rails/rails/blob/v4.0.0.beta1/activesupport/lib/active_support/core_ext/module/remove_method.rb)
+[ソースコードはこちら](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/module/remove_method.rb)
 
 ### #remove_possible_method(method)
 

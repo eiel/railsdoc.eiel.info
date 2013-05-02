@@ -13,7 +13,7 @@ ruby 2.0.0p0 (2013-02-24 revision 39474) [x86_64-darwin12.2.1]
 
 ```
 $ bundle exec ruby -r active_support -e 'puts ActiveSupport::VERSION::STRING'
-4.0.0.beta1
+4.0.0.rc1
 ```
 
 Array へ機能を追加する方法
@@ -35,7 +35,7 @@ require 'active_support/core_ext/array/access'
 
 とします。
 
-[ソースコードはこちら](https://github.com/rails/rails/blob/v4.0.0.beta1/activesupport/lib/active_support/core_ext/array/access.rb)。
+[ソースコードはこちら](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/array/access.rb)。
 
 ### #from
 
@@ -139,7 +139,7 @@ Conversions
 require 'active_support/core_ext/array/conversion'
 ```
 
-[ソースコード](https://github.com/rails/rails/blob/v4.0.0.beta1/activesupport/lib/active_support/core_ext/array/conversions.rb)
+[ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/array/conversions.rb)
 
 ### #to_sentence
 
@@ -255,7 +255,7 @@ Extract Options
 require 'active_support/core_ext/array/extract_options'
 ```
 
-[ソースコード](https://github.com/rails/rails/blob/v4.0.0.beta1/activesupport/lib/active_support/core_ext/array/extract_options.rb)
+[ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/array/extract_options.rb)
 
 ### #extract_options!
 
@@ -288,7 +288,7 @@ Grouping
 require 'active_support/core_ext/array/grouping'
 ```
 
-[ソースコード](https://github.com/rails/rails/blob/v4.0.0.beta1/activesupport/lib/active_support/core_ext/array/grouping.rb)
+[ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/array/grouping.rb)
 
 ### #in_groups_of
 
@@ -367,7 +367,7 @@ Prepend and Append
 requre 'active_support/core_ext/array/prepend_and_append'
 ```
 
-[ソースコード](https://github.com/rails/rails/blob/v4.0.0.beta1/activesupport/lib/active_support/core_ext/array/prepend_and_append.rb)
+[ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/array/prepend_and_append.rb)
 
 ### #append
 
@@ -392,7 +392,7 @@ Uniq by
 
 廃止予定のファイル。 配列をユニークする uniq_by が実装されていますが、 [Array#uniq](http://rurema.clear-code.com/query:Array%23uniq/) に委譲するだけになってます。
 
-[ソースコード](https://github.com/rails/rails/blob/v4.0.0.beta1/activesupport/lib/active_support/core_ext/array/uniq_by.rb)
+[ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/array/uniq_by.rb)
 
 ### #uniq_by
 
@@ -417,7 +417,7 @@ Arrayのクラスメソッド wrap が実装されています。
 require 'active_support/core_ext/array/wrap'
 ```
 
-[ソースコード](https://github.com/rails/rails/blob/v4.0.0.beta1/activesupport/lib/active_support/core_ext/array/wrap.rb)
+[ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/array/wrap.rb)
 
 ### .wrap
 

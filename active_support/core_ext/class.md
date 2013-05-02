@@ -13,7 +13,7 @@ ruby 2.0.0p0 (2013-02-24 revision 39474) [x86_64-darwin12.2.1]
 
 ```
 $ bundle exec ruby -r active_support -e 'puts ActiveSupport::VERSION::STRING'
-4.0.0.beta1
+4.0.0.rc1
 ```
 
 class へ機能を追加する方法。
@@ -35,7 +35,7 @@ require 'active_support/core_ext/class/attribute'
 
 とします。
 
-[ソースコードはこちら](https://github.com/rails/rails/blob/v4.0.0.beta1/activesupport/lib/active_support/core_ext/class/attribute.rb)。
+[ソースコードはこちら](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/class/attribute.rb)。
 
 ### .class_attribute(*attrs)
 
@@ -105,9 +105,9 @@ Base.setting    # => :hoge # :mogu にはならない
 b.setting       # => :mogu
 Base.new.setting # => :hoge  # :mogu にはならない
 
-Base.setting = :mogu
+Base.setting = :piyo
 Base.setting     # => :piyo
-Subclass.setting # => :mogu  # 上書きすると Base の影響を受けない
+Subclass.setting # => :goro  # 上書きすると Base の影響を受けない
 ```
 
 メソッド`class_attribute`の 引数attrs には クラスレベル属性にしたい名前を並べることで、まとめて作成できます。
@@ -186,7 +186,7 @@ require 'active_support/core_ext/class/attribute_accessors'
 
 とします。
 
-[ソースコードはこちら](https://github.com/rails/rails/blob/v4.0.0.beta1/activesupport/lib/active_support/core_ext/class/attribute_accessors.rb)。
+[ソースコードはこちら](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/class/attribute_accessors.rb)。
 
 ### #cattr_reader(*syms)
 
@@ -261,7 +261,7 @@ require 'active_support/core_ext/class/delegating_attributes'
 
 とします。
 
-[ソースコードはこちら](https://github.com/rails/rails/blob/v4.0.0.beta1/activesupport/lib/active_support/core_ext/class/delegating_attributes.rb)
+[ソースコードはこちら](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/class/delegating_attributes.rb)
 
 ### #superclass_delegating_accessor(name, options = {})
 
@@ -323,7 +323,7 @@ require 'active_support/core_ext/class/subclasses'
 
 とします。
 
-[ソースコードはこちら](https://github.com/rails/rails/blob/v4.0.0.beta1/activesupport/lib/active_support/core_ext/class/subclass.rb)
+[ソースコードはこちら](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/class/subclass.rb)
 
 ### #descendants
 

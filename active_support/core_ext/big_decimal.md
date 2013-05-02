@@ -13,7 +13,7 @@ ruby 2.0.0p0 (2013-02-24 revision 39474) [x86_64-darwin12.2.1]
 
 ```
 $ bundle exec ruby -r active_support -e 'puts ActiveSupport::VERSION::STRING'
-4.0.0.beta1
+4.0.0.rc1
 ```
 
 Array へ機能を追加する方法
@@ -29,7 +29,7 @@ Conversion
 
 変換に関するメソッドが集約されてます。他にないけど。
 
-[ソースコード](https://github.com/rails/rails/blob/v4.0.0.beta1/activesupport/lib/active_support/core_ext/big_decimal/conversions.rb)
+[ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/big_decimal/conversions.rb)
 
 ### encode_with(corder)
 
@@ -48,6 +48,15 @@ self を返すだけ。
 また、BigDecimal#to_s のフォーマットの文字列を渡してもちゃんと動作します。
 
 他の to_formatted_s と同様 to_s に差し替えられています。
+
+
+また、このメソッドにシンボルを渡したい場合は
+
+```ruby
+require 'active_support/core_ext/numeric/conversions'
+```
+
+しておく必要があります。
 
 ```ruby
 b = BigDecimal.new('0.1')
