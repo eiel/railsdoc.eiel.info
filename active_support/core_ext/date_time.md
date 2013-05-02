@@ -218,7 +218,7 @@ Date が Float::INFINITY などと比較できるようにします。
 この機能のみ利用したい場合は:
 
 ```ruby
-require 'active_support/core_ext/date/infinite_comparable'
+require 'active_support/core_ext/date_time/infinite_comparable'
 ```
 
 とします。
@@ -228,3 +228,30 @@ require 'active_support/core_ext/date/infinite_comparable'
 require される ライブラリ
 
 * [active_support/core_ext/infinite_comparable](/active_support/core_ext/infinite_comparable)
+
+Infinite Comparable
+--------------------------------------------------------------------------------
+
+タイムゾーン を含んだ時刻を生成できます。
+
+この機能のみ利用したい場合は:
+
+```ruby
+require 'date'
+require 'active_support/core_ext/date_time/calculations'
+require 'active_support/core_ext/date_time/zones'
+```
+
+### #in_time_zone(zone = ::Time.zone)
+
+現在設定されている タイムゾーン で、タイムゾーンを含んだ時刻へと変換します。
+引数zone に nil を渡すと何もしません。
+
+あらかじめ Time.zone= で設定しておくことで、引数なしで指定したタイムゾーンの時刻を生成することもできます。
+
+例:
+
+```ruby
+Time.zone='Tokyo'
+DateTime.new(2013).in_time_zone  # => Tue, 01 Jan 2013 09:00:00 JST +09:00
+```
