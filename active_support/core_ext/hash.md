@@ -39,16 +39,69 @@ require 'active_support/core_ext/hash/conversions'
 
 ### #to_xml
 
-todo
+* to_xml(options = {})
 
-### #from_xml
+Hash を XMLに変換します。
 
-todo
+以下のようなコードの場合は、
 
-### #from_trusted_xml
+```ruby
+{'foo' => 1, 'bar' => 2}.to_xml
+```
 
-todo
+以下のようなXMLを生成します。
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <foo type="integer">1</foo>
+  <bar type="integer">2</bar>
+</hash>
+```
 
-### ActiveSupport::XMLConverter::DisallowedType
+引数 options の :bulider を設定することで、生成するXMLを変更することができます。
+デフォルトでは Builder::XmlMarkup を 利用します。
+が、他になにが使えるのかよく知りません。
+また ブロックを渡すことで出力するXMLをカスタマイズすることもできます。
 
-todo
+### .from_xml
+
+* from_xml(xml, disallowed_types = nil)
+
+XML から Hash オブジェクトを生成することができます。
+
+処理 は ActiveSupport::XMLConverter に委譲されます。
+
+以下のXML あれば、
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<hash>
+  <foo type="integer">1</foo>
+  <bar type="integer">2</bar>
+</hash>
+```
+
+以下のような Hashが生成されます。
+```ruby
+{"hash"=>{"foo"=>1, "bar"=>2}}
+```
+
+### .from_trusted_xml
+
+from_xml とほとんど同じように動作しますが、type が yaml や symbol の値が利用できるようになります。
+
+```ruby
+Hash.from_xml "<hoge type='symbol'>1</hoge>"  # raise ActiveSupport::XMLConverter::DisallowedType
+
+```ruby
+Hash.from_trusted_xml "<hoge type='symbol'>1</hoge>" #=> {"hoge"=>:"1"}
+```
+
+### ActiveSupport::XMLConverter
+
+* initialize(xml, disallowed_types = nil)
+
+XMLに変換するためのクラス
+
+引数disallowed_types は デフォルトでは [:yaml,:symbol] となります。
+これを無効化したい場合は、引数disallowed_types に 空のリストを渡します。

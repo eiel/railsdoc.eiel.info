@@ -41,7 +41,7 @@ value が Method か Proc オブジェクトの場合はオブジェクトがcal
 2つめの value に to_xml が実装されている場合は、to_xml を実行。
 引数には、引数optionsの値に root と skip_instruct を加えたものを渡してコールバックします。
 
-3つめの それ以外の場合は options[:buildr] を利用して構築します。
+3つめの それ以外の場合は options[:builder] を利用して構築します。
 options ですが実質必要引数になります。
 
 このメソッドを利用しているファイル
