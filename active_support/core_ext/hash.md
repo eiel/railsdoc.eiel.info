@@ -105,3 +105,45 @@ XMLに変換するためのクラス
 
 引数disallowed_types は デフォルトでは [:yaml,:symbol] となります。
 これを無効化したい場合は、引数disallowed_types に 空のリストを渡します。
+
+Deep Merge
+--------------------------------------------------------------------------------
+
+merge メソッドを要素に Hash がある場合再帰的に mergeする deep_merge が実装されています。
+
+この機能だけ読み込む方法
+
+```ruby
+require 'active_support/core_ext/hash/deep_merge'
+```
+
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/hash/deep_merge.rb)
+
+### #deep_merge
+
+* deep_merge(other_hash, &block)
+
+基本的には Hash#merge と代わりません。
+引数 other_hash は merge する hashで 引数 block は同じキーの値が存在した場合の処理を渡すことができます。
+block の引数は key, oldvalue, newvalue となります。
+
+Hash#merge と違う点は value が Hash の インスタンスの場合、再帰的に実行していく違いがあります。mergeの場合は単に上書きをします。
+
+例:
+
+```ruby
+{a: 1, b: {x: [2], y: 1}}.deep_merge({b: {x: [3] }})
+# => {:a=>1, :b=>{:x=>[3], :y=>1}}
+
+{a: 1, b: {x: [2], y: 1}}.merge({b: {x: [3] }})
+# => {:a=>1, :b=>{:x=>[3]}}
+```
+
+deep_merge のほうは キーy の値が残りますが、merge のほうは単に キーb の値を上書きをしているので、なくなってしまいます。
+
+### #deep_merge!
+
+* deep_merge(other_hash, &block)
+
+deep_merge の破壊的バージョン。
+新しい配列を使わず、self を書き換えます。
