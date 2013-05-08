@@ -147,3 +147,31 @@ deep_merge のほうは キーy の値が残りますが、merge のほうは単
 
 deep_merge の破壊的バージョン。
 新しい配列を使わず、self を書き換えます。
+
+
+Diff
+--------------------------------------------------------------------------------
+
+このファイルには廃止される可能性のあるメソッドしかありません。
+
+この機能だけ読み込む方法
+
+```ruby
+require 'active_support/deprecation'
+require 'active_support/core_ext/hash/diff'
+```
+
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/hash/deep_merge.rb)
+
+### #diff
+
+* diff(other)
+
+other との 違いを調べることができます。
+
+```ruby
+{hoge: 2}.diff(hoge: 2)          # => {}
+{hoge: 2}.diff(goro: 3)          # => {:hoge=>2, :goro=>3}
+{}.diff(goro: 3)              # => {:goro => 3}
+{hoge: 2, goro: 4}.diff(hoge: 2) # => {:goro => 4}
+```
