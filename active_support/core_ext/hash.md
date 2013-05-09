@@ -175,3 +175,49 @@ other との 違いを調べることができます。
 {}.diff(goro: 3)              # => {:goro => 3}
 {hoge: 2, goro: 4}.diff(hoge: 2) # => {:goro => 4}
 ```
+
+Except
+--------------------------------------------------------------------------------
+Hash から特定のキー を取り除くメソッド `except` を実装しています。
+
+この機能だけ読み込む方法
+
+```ruby
+require 'active_support/core_ext/hash/except'
+```
+
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/hash/except.rb)
+
+### #except
+
+* except(*keys)
+
+Hash から 引数keys に指定した キー を削除した Hash を返します。
+
+例:
+
+```ruby
+{a: 1, b: 2}.except(:a)      # => {:b => 2}
+{a: 1, b: 2}.except(:a, :b)  # => {}
+
+h = {a: 1, b: 2}
+h.except(:a)     # => {:b => 2)
+h                # => {:a => 1, :b => 2}
+```
+
+### #except!
+
+* except(!*keys)
+
+'[except](#except-1)'メソッドの破壊的に動作するバージョンです。
+
+例:
+
+```ruby
+{a: 1, b: 2}.except!(:a)      # => {:b => 2}
+{a: 1, b: 2}.except!(:a, :b)  # => {}
+
+h = {a: 1, b: 2}
+h.except!(:a)     # => {:b => 2)
+h                 # => {:b => 2}
+```
