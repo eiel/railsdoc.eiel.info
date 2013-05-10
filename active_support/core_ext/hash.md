@@ -221,3 +221,24 @@ h = {a: 1, b: 2}
 h.except!(:a)     # => {:b => 2)
 h                 # => {:b => 2}
 ```
+
+Indiffernt Access
+--------------------------------------------------------------------------------
+
+Hash から [ActiveSupport::HashWithIndifferentAccess](/active_upport/hash_with_indiffrent_access) を生成する `with_indifferent_access` を実装しています。
+
+このクラスは キーがシンボルでも文字列でも、同じ値へアクセスすることができます。
+
+この機能だけ読み込む方法
+
+```ruby
+require 'active_support/core_ext/hash/indifferent_access'
+```
+
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/hash/indifferent_access.rb)
+
+### #with_indifferent_access
+
+[ActiveSupport::HashWithIndifferentAccess](/active_upport/hash_with_indiffrent_access)に変換したオブジェクトを返します。
+
+`nested_under_indifferent_access`というエイリアスもあります。
