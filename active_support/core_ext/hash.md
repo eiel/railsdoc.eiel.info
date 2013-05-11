@@ -242,3 +242,108 @@ require 'active_support/core_ext/hash/indifferent_access'
 [ActiveSupport::HashWithIndifferentAccess](/active_upport/hash_with_indiffrent_access)に変換したオブジェクトを返します。
 
 `nested_under_indifferent_access`というエイリアスもあります。
+
+Keys
+--------------------------------------------------------------------------------
+
+Hash の key に対し操作を行うメソッドが実装されています。
+
+この機能だけ読込む方法
+
+```ruby
+require 'active_support/core_ext/hash/keys'
+```
+
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/hash/keys.rb)
+
+### #transform_keys
+
+ブロックは必須です。
+
+ブロックを利用して、キーを変更した Hash を返します。
+
+例:
+```ruby
+hash = { name: 'Rob', age: '28' }
+
+hash.transform_keys{ |key| key.to_s.upcase }
+# => { "NAME" => "Rob", "AGE" => "28" }
+```
+
+### #transform_keys!
+
+transform_keys の 破壊的バージョンです。
+
+### #stringify_keys
+
+キーを文字列に変換した Hashを返します。
+
+`transform_keys` を利用して実装されています。
+
+例:
+```ruby
+hash = { name: 'Rob', age: '28' }
+
+hash.stringify_keys
+#=> { "name" => "Rob", "age" => "28" }
+```
+
+### #stringify_keys!
+
+`stringify_keys` の破壊的バージョンです。
+
+### #symbolize_keys
+
+キーをシンボルに変換した Hashを返します。
+
+`transform_keys` を利用して実装されています。
+
+```ruby
+hash = { 'name' => 'Rob', 'age' => '28' }
+
+hash.symbolize_keys
+#=> { name: "Rob", age: "28" }
+```
+
+### #symbolize_keys!
+
+`symbolize_keys` の破壊的バージョンです。
+
+### #assert_valid_keys
+
+* assert_valid_keys(*valid_keys)
+
+self が持つ キー が valid_keys に一致しない場合に ArgumentError が発生します。
+
+```ruby
+{ name: 'Rob', age: '28' }.assert_valid_keys(:name, :age) # return self
+{ name: 'Rob', age: '28' }.assert_valid_keys(:name, :years) # raise ArgmentError
+{ name: 'Rob', age: '28' }.assert_valid_keys(:name) # raise ArgmentError
+{ name: 'Rob', age: '28' }.assert_valid_keys('name', 'age') # raise ArgmentError
+
+
+### #deep_transform_keys
+
+`trasform_keys` のネストしていても辿るバージョンです。
+
+block は必須です。
+
+### #deep_transform_keys!
+
+`deep_transform_keys`の破壊的バージョンです。
+
+### #deep_stringify_keys
+
+`deep_string_keys` のネストしていても辿るバージョンです。
+
+### #deep_stringify_keys!
+
+`deep_string_keys`の破壊的バージョンです。
+
+### #deep_symbolize_keys
+
+`deep_symbolize_keys` のネストしていても辿るバージョンです。
+
+### #deep_symbolize_keys!
+
+`deep_symbolize_keys`の破壊的バージョンです。
