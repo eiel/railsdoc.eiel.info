@@ -386,3 +386,54 @@ options.reverse_merge(size: 25, velocity: 10)
 reverse_merge の破壊的操作バージョンです。
 
 `reverse_update` という別名があります。
+
+Slice
+--------------------------------------------------------------------------------
+
+指定したキーだけのHash を生成する slice メソッドが実装されています。
+
+この機能だけ読込む方法
+
+```ruby
+require 'active_support/core_ext/hash/slice'
+```
+
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/hash/slice.rb)
+
+### #slice
+
+* slice(*keys)
+
+このメソッドは与えられた 引数keys だけの Hash を返します。
+option で、有効なキーのみ残したい場合に利用します。
+
+また、引数keys のそれぞれのkey は convert_key というメソッドをもっている場合、このメソッドによって変換されます。
+
+
+例:
+
+```ruby
+{a: 0, b: 1}.slice(:a)
+# => {:a => 0 }
+```
+
+### #slice!
+
+このメソッドは slice とは逆に、与えたれた 引数 keys をと一致するキーを削除した Hash を返します。
+
+例:
+
+```ruby
+{a: 0, b: 1}.slice!(:a)
+# => {:b => 0 }
+```
+
+### #extract!
+
+このメソッド は slice と同様に動作します。
+違う点は convert_key を利用しない点です。
+
+```ruby
+{a: 0, b: 1}.extract!(:a)
+# => {:a => 0}
+```
