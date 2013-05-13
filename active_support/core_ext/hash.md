@@ -347,3 +347,42 @@ block は必須です。
 ### #deep_symbolize_keys!
 
 `deep_symbolize_keys`の破壊的バージョンです。
+
+Reverse Merge
+--------------------------------------------------------------------------------
+
+`Hash` の インスタンスメソッド のレシーバと対象を入れかえた `merge` である `reverse_merge` メソッドが実装されています。
+
+この機能だけ読込む方法
+
+```ruby
+require 'active_support/core_ext/hash/reverse_merge'
+```
+
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/hash/reverse_merge.rb)
+
+### #reverse_merge
+
+* reverse_merge(other_hash)
+
+`other_hash.merge(self)` と同等の動作をします。
+
+options のデフォルト値を用意する際に引数にかけてシンプルに見えます。
+
+例:
+
+```ruby
+options = { size: 30 }
+options.reverse_merge(size: 25, velocity: 10)
+# => {:size=>30, :velocity=>10}
+
+options = {}
+options.reverse_merge(size: 25, velocity: 10)
+# => {:size=>25, :velocity=>10}
+```
+
+### #reverse_merge!
+
+reverse_merge の破壊的操作バージョンです。
+
+`reverse_update` という別名があります。
