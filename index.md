@@ -26,6 +26,7 @@ Rails メモ
 * [Core Ext - File](/active_support/core_ext/file)
 * [Core Ext - Hash](/active_support/core_ext/hash)
 * [Core Ext - InfiniteComparable](/active_support/core_ext/infinite_comparable)
+* [Core Ext - integer](/active_support/core_ext/integer)
 * [Core Ext - Module](/active_support/core_ext/module)
 * [Core Ext - Object](/active_support/core_ext/object)
 * [Core Ext - Time](/active_support/core_ext/time)
