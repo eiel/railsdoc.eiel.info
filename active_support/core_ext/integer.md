@@ -44,3 +44,34 @@ require 'active_support/core_ext/integer/inflections'
 `1st` や `'2nd` などの序数形式にする場合に付加する文字列を替えします。
 
 [ActiveSupport::Inflector.ordinalize](/active_support/inflector#ordinalize) に丸投げします。
+
+Multiple
+--------------------------------------------------------------------------------
+
+その数で割ったときに余りがないかどうかチェックするメソッド `multiple_of?`が実装されています。
+
+この機能だけ読み込みする方法
+
+```ruby
+require 'active_support/core_ext/integer/multiple'
+```
+
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/integer/multiple.rb)
+
+### #multiple_of?
+
+* multiple_of?(number)
+
+self が 引数number で割り切れるかどうかを確認するメソッドです。
+引数number が 0の場合は必ず `false` を返します。
+
+```ruby
+10.multiple_of? 0
+# => false
+10.multiple_of? 1
+# => true
+10.multiple_of? 2
+# => true
+10.multiple_of? 3
+# => false
+```
