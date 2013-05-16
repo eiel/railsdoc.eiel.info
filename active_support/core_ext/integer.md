@@ -75,3 +75,50 @@ self が 引数number で割り切れるかどうかを確認するメソッド�
 10.multiple_of? 3
 # => false
 ```
+
+Time
+--------------------------------------------------------------------------------
+
+`months` や `years` というメソッドを実装しています。このメソッドのおかげで、`1.months` のような書き方ができます。
+実際に生成される値の型は `ActiveSupport::Duration` です。
+
+この機能だけ読み込みする方法
+
+```ruby
+require 'active_support/core_ext/integer/time'
+```
+
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/integer/time.rb)
+
+読み込みするファイル
+
+* [ActiveSupport::Duration](/active_support/duration)
+
+### #months
+
+`self` ヶ月間を表す秒数を返します。
+
+例:
+
+```ruby
+2.months
+# => 5184000
+2 * 30 * 24 * 60 * 60
+# => 5184000
+```
+
+`month` というエイリアスがあります。
+
+### #years
+
+`self`年間を表す秒数を返します。
+うるう年が考慮されていて、365日と4分の1日という扱いです。
+
+```ruby
+2.years
+# => 63115200.0
+2 * 365.25 * 24 * 60 * 60
+# => 63115200.0
+```
+
+`year` というエイリアスがあります。
