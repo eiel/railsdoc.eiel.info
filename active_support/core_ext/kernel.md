@@ -55,11 +55,13 @@ Reporting
 --------------------------------------------------------------------------------
 
 標準出力や標準出力などに書き込みする際に影響を与えるメソッドが定義されている。
+
 この機能だけ読み込みする方法
 
 ```ruby
 require 'active_support/core_ext/kernel/reporting'
 ```
+
 * [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/kernel/reporting.rb)
 
 ### #silence_warning
