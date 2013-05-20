@@ -100,3 +100,50 @@ silence というエイリアスがあります。
 ### #quietly
 
 ブロック内での、標準出力、標準エラー出力への書き込みを捨てることができます。
+
+Singleton Class
+--------------------------------------------------------------------------------
+
+シングルトンクラスに対する eval を提供する class_eval が実装されています。
+
+この機能だけ読み込みする方法
+
+```ruby
+require 'active_support/core_ext/kernel/singleton_class'
+```
+
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/kernel/singleton_class.rb)
+
+### #class_eval
+
+* class_eval(*args, &block)
+
+`singleton_class.class_eval` と等価。
+
+オブジェクトのシングルトンクラスのコンテキストでevalができます。
+
+```ruby
+h = "hoge"
+h.class_eval do
+  # h が 指すオブジェクトに `a`メソッド と `a=` メソッドを定義
+  attr_accessor :a
+end
+
+
+h.a = 'goro'
+h.a           # => 'goro'
+"hoge".a      # => raise NoMethodError
+```
+
+以下のコードとスコープが違いますが、できることは同じです。
+
+```ruby
+h = "hoge"
+class << h
+  attr_accessor :a
+end
+
+h.a = 'goro'
+h.a           # => 'goro'
+"hoge".a      # => raise NomethodError
+```
