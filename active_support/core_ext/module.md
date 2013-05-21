@@ -62,7 +62,18 @@ alias_method :foo?, :foo_with_feature?
 * [active_support/core_ext/date/infinite_comparable](/active_support/core_ext/date#Infinite Comparable)
 
 
-### #alias_attribute(new_name, old_name)
+### #alias_attrib ute
+* alias_attribute(new_name, old_name)
+
+属性のエイリアスを作成することができます。`new_name`, `new_name?`, `new_name=` メソッドが定義されます。
+
+```ruby
+class User
+  # name という属性があるとする
+  alias_attribute :user_name, :name
+  # user_name, user_name?, user_name=(x) メソッドが追加されます
+end
+```
 
 Remove Method
 --------------------------------------------------------------------------------
