@@ -31,7 +31,7 @@ Aliasing
 require 'active_support/core_ext/module/aliasing'
 ```
 
-[ソースコードはこちら](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/module/aliasing.rb)
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/module/aliasing.rb)
 
 
 ### #alias_method_chain(target, feature)
@@ -74,6 +74,25 @@ class User
   # user_name, user_name?, user_name=(x) メソッドが追加されます
 end
 ```
+
+Annoymous
+--------------------------------------------------------------------------------
+
+無名モジュールかどうか確認する`anoymous?` というメソッドを定義しています。
+
+この機能のみ利用したい場合は:
+
+```ruby
+require 'active_support/core_ext/module/anonymous'
+```
+
+とします。
+
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/module/anonymous.rb)
+
+### #anonymous?
+
+無名モジュールかどうか確認します。
 
 Remove Method
 --------------------------------------------------------------------------------
