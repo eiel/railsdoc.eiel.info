@@ -94,6 +94,19 @@ require 'active_support/core_ext/module/anonymous'
 
 無名モジュールかどうか確認します。
 
+```ruby
+module M
+end
+
+M.anonymous?    # => false
+
+m = Module.new
+m.anonymous?    # => true
+
+N = Module.new
+N.anonymous?    # => false
+```
+
 Remove Method
 --------------------------------------------------------------------------------
 
