@@ -107,10 +107,103 @@ N = Module.new
 N.anonymous?    # => false
 ```
 
+Attr Internal
+--------------------------------------------------------------------------------
+
+クラス内部で利用するのを目的とした属性に対するメソッドが実装されています。
+
+この機能のみ利用したい場合は:
+
+```ruby
+require 'active_support/core_ext/module/attr_internal'
+```
+
+とします。
+
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/module/attr_internal.rb)
+
+### #attr_internal_reader
+
+* attr_internal_reader(*attrs)
+
+引数attrs の内部属性へのゲッターを作成します。
+
+例えば:
+
+```ruby
+class Hoge
+  attr_internal_reader :goro
+
+  def initialize
+    @_goro = 'mogumogu'
+  end
+end
+
+Hoge.new.goro  # => 'mogumogu'
+```
+
+のように インスタンス変数`@_goro` へのゲッターを作成してくれます。
+対応するインスタンス変数は [.attr_internal_naming_format](#.attr_internal_naming_format) に依ります。
+
+### #attr_internal_writer
+
+* attr_internal_writer(*attrs)
+
+`attr_internal_reader`メソッド の セッターをバージョンです。
+
+例えば:
+
+```ruby
+class Hoge
+  attr_internal_writer :goro
+end
+
+h = Hoge.new
+h.goro = 'mogumogu'
+h.instance_variable_get :@_goro   # => "mogumogu"
+```
+
+のように インスタンス変数 `@_goro` へのセッタを作成してくれます。
+
+### #attr_internal_accessor
+
+* attr_internal_accessor(*attrs)
+
+引数attrs の内部属性のゲッター、セッターを作成します。
+
+`attr_internal_reader` と `attr_internal_wriwer` を呼ぶだけになっています。
+
+### .attr_internal_naming_format
+
+内部属性にするインスタンス変数名を決めるための文字列が入っています。
+デフォルトでは `@_%s` となっていて、先頭にアンダースコアがついた名前になります。
+
+### #attr_internal_ivar_name
+
+* attr_internal_ivar_name(attr)
+
+* attr_internal_ivar_name(attr)
+
+引数attr から `.attr_internal_naming` メソッドを利用して実際に変数の名前を作成します。
+
+例:
+
+```ruby
+class Hoge
+  attr_internal_ivar_name('goro')  # => "@_goro"
+end
+```
+
+### attr_internal_define
+
+* attr_internal_define(attr_name, type)
+
+`attr_internal_reader` メソッドや `attr_internal_writer` メソッドの実装の共通部分がまとまっているメソッドです。
+
 Remove Method
 --------------------------------------------------------------------------------
 
-[ソースコードはこちら](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/module/remove_method.rb)
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/module/remove_method.rb)
 
 ### #remove_possible_method(method)
 
