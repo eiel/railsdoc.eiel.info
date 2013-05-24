@@ -255,6 +255,97 @@ Hoge.new.goro   # => raise NoMethodError
 インスタンスからもアクセスができるように同名のメソッドが定義されます。
 インスタンスメソッドを定義したくない場合は、オプションとして `:instance_reader` または `:instance_writer`、`:instance_accessor` をfalse に指定することで細かく調整することができます。
 
+Delegate
+--------------------------------------------------------------------------------
+
+自分が受けたメッセージを別のオブジェクトに丸投げして、結果をそのまま返すような委譲(delegate)という機能を提供する。
+
+この機能だけ読み込む方法
+
+```ruby
+require 'active_support/core_ext/module/delegation'
+```
+
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/module/delegation.rb)
+
+### #delegate
+
+* delegate(*methods)
+
+引数の最後にオプションを指定できます。
+オプションといいながらも `:to` は必須です。
+他に指定可能なオプションは `:allow_nil` と `:prefix`です。
+
+オブジェクトに 引数`methods` のメソッドが呼ばれた場合、`:to` に指定したオブジェクトにそのメソッドを呼びだし、結果をそのまま返します。
+
+例:
+
+```ruby
+class Hoge
+  def hoge
+    'hogehoge'
+  end
+end
+
+class HogeChild
+  delegate :hoge, to: :@hoge
+
+  def initialize
+    @hoge = Hoge.new
+  end
+end
+
+HogeChild.new.hoge    # => "hogehoge"
+```
+
+`:allow_nil` オプションに `true` を指定すると `:to` の指すオブジェクトが `nil` の場合は `nil` を返すようになります。
+指定しない場合は `NoMethodError` が発生します。
+
+```ruby
+class Hoge
+  delegate :hoge, to: :@hoge
+
+  def initiliaze
+    @hoge = nil
+  end
+end
+
+Hoge.new.hoge   # => raise NoMethodError
+
+class Hoge
+  delegate :hoge, to: :@hoge, allow_nil: true
+
+  def initiliaze
+    @hoge = nil
+  end
+end
+
+Hoge.new.hoge   # => nil
+```
+
+:prefix オプションに `true` を指定すると作成するメソッドに `:to` で指定した名前が先頭につきます。
+
+```ruby
+class Hoge
+  def hoge
+    'hogehoge'
+  end
+end
+
+class HogeChild
+  delegate :hoge, to: :hoge, prefix: true
+  attr_accessor :hoge
+
+  def initilaize
+    @hoge = Hoge.new
+  end
+end
+
+HogeChild.new.hoge_hoge   # => "hogehoge"
+```
+
+`:prefix` オプションを使う場合は `:to` に指定するシンボルは小文字もしくはアンダースコアではじまる必要があります。
+
 Remove Method
 --------------------------------------------------------------------------------
 
