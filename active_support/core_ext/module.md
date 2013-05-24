@@ -200,6 +200,61 @@ end
 
 `attr_internal_reader` メソッドや `attr_internal_writer` メソッドの実装の共通部分がまとまっているメソッドです。
 
+Attribute Accessors
+--------------------------------------------------------------------------------
+
+Module レベルの属性を定義するメソッドが実装されています。
+[Class にも同様の機能があります。](class#Attribute Accessors)
+Classの時が 頭に `c` がついていた代わりに `m` がついています。
+
+この機能だけ読み込みたい場合:
+
+```ruby
+require 'active_support/core_ext/module/attribute_accessors'
+```
+
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/module/attribute_accessors.rb)
+
+### #mattr_reader
+
+* mattr_reader(*syms)
+
+引数`syms` に渡した名前でゲッターを作成します。
+インスタンスからもアクセスができるように同名のメソッドが定義されます。
+これを定義したくない場合は、オプションとして `:instance_reader` または`:instance_accessor` を false に指定します。
+
+例:
+
+```ruby
+class Hoge
+  mattr_reader(:hoge)
+  mattr_reader(:goro, instance_reader: false)
+end
+
+Hoge.hoge       # => nil
+Hoge.new.hoge   # => nil
+
+Hoge.goro       # => nil
+Hoge.new.goro   # => raise NoMethodError
+```
+
+### #mattr_writer
+
+* mattr_reader(*syms)
+
+引数`syms`に渡した名前でセッターを作成します。
+インスタンスからもアクセスができるように同名のメソッドが定義されます。
+`mattr_reader`メソッド と同様にインスタンスメソッドを定義したくない場合は、オプションとして `:instance_writer` または `:instance_accessor` を false に指定します。
+
+### #mattr_accessor
+
+* mattr_accesor(*syms)
+
+引数`syms` で`mattr_reader`、`mattr_writer` を呼び出します。
+セッターとゲッターを定義します。
+インスタンスからもアクセスができるように同名のメソッドが定義されます。
+インスタンスメソッドを定義したくない場合は、オプションとして `:instance_reader` または `:instance_writer`、`:instance_accessor` をfalse に指定することで細かく調整することができます。
+
 Remove Method
 --------------------------------------------------------------------------------
 
