@@ -346,6 +346,47 @@ HogeChild.new.hoge_hoge   # => "hogehoge"
 
 `:prefix` オプションを使う場合は `:to` に指定するシンボルは小文字もしくはアンダースコアではじまる必要があります。
 
+Deprecation
+--------------------------------------------------------------------------------
+
+あるメソッドが deprecation であることを設定する簡単な方法を提供する `deprecate` が実装されています。
+
+この機能だけ読み込む方法
+
+```ruby
+require 'active_support/core_ext/module/deprecation'
+```
+
+しかし、バグがあって動かなかった。
+
+```ruby
+require 'active_support/deprecation'
+require 'active_support/core_ext/module/deprecation'
+```
+
+であれば、動作する。
+
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/module/deprecation.rb)
+
+### #deprecate
+
+* deprecate(*method_names)
+
+引数method_names を deprecate メッセージが出るように変更する。
+
+
+例:
+```ruby
+class Hoge
+  def hoge
+    'hogehoge'
+  end
+  deprecate :hoge
+end
+
+Hoge.new.hoge  # 標準エラー出力に DEPRECATION WARNING: hoge is deprecated and will be removed from Rails 4.1.
+```
+
 Remove Method
 --------------------------------------------------------------------------------
 
