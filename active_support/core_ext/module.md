@@ -387,6 +387,90 @@ end
 Hoge.new.hoge  # 標準エラー出力に DEPRECATION WARNING: hoge is deprecated and will be removed from Rails 4.1.
 ```
 
+Introspection
+--------------------------------------------------------------------------------
+
+モジュールの情報を取得するメソッドが実装されています。
+
+
+この機能だけ読み込む方法
+
+```ruby
+require 'active_support/core_ext/module/introspection'
+```
+
+* [ソースコード](https://github.com/rails/rails/blob/master/activesupport/lib/active_support/core_ext/module/introspection.rb)
+
+
+### #parent_name
+
+親モジュールの名前を取得します。親モジュールがない場合は `nil` を返します。
+
+```ruby
+module Hoge
+  module Mogu
+  end
+end
+
+Hoge::Mogu.parent_name   # => 'Hoge'
+Hoge.parent_name         # => nil
+```
+
+### #parent
+
+親モジュールのオブジェクトを取得します。親モジュールがない場合は `Object` を返します。
+
+```ruby
+module Hoge
+  module Mogu
+  end
+end
+
+Hoge::Mogu.parent    # => Hoge
+Hoge.parent          # => Object
+```
+
+### #parents
+
+すべての親モジュールを返します。
+
+```ruby
+module Hoge
+  module Mogu
+  end
+end
+
+Hoge::Mogu.parents  # => [Hoge, Object]
+```
+
+### #local_constants
+
+モジュール内の定数名をシンボルで取得できます。
+
+```ruby
+module Hoge
+  module Mogu
+  end
+end
+
+Hoge.local_constants  # => [:Mogu]
+```
+
+### #local_constant_names
+
+廃止予定のメソッドです。 代わりに、 local_contsnts を使用してください。
+モジュール内の定数名を取得できます。
+
+```ruby
+module Hoge
+  module Mogu
+  end
+end
+
+Hoge.local_constants  # => ["Mogu"]
+```
+
+
 Remove Method
 --------------------------------------------------------------------------------
 
