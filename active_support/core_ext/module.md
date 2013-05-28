@@ -469,7 +469,38 @@ end
 
 Hoge.local_constants  # => ["Mogu"]
 ```
+Qualified Const
+--------------------------------------------------------------------------------
 
+定数を操作するためのメソッドが定義されている。
+ここで定義されているメソッドを使う場合、絶対パスを利用した方法で取得しようとすると NameErrorが発生するのが特徴です。
+
+この機能だけ読み込む方法
+
+```ruby
+require 'active_support/core_ext/module/introspection'
+```
+
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/module/qualified_const.rb)
+
+### #qualified_const_defined?
+
+* oqualified_const_defined?(path, search_parents=true)
+
+引数path が示す定数が定義されている。 オプション引数search_parentsを false にすると、下位モジュールのみに限定できます。
+
+
+### #qualified_const_get
+
+* qualified_const_get(path)
+
+引数path が示す定数の値を取得します。
+
+### #qualified_const_set
+
+* qualified_const_set(path, value)
+
+引数path が示す定数にvalue を設定します。
 
 Remove Method
 --------------------------------------------------------------------------------
