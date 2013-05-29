@@ -502,6 +502,29 @@ require 'active_support/core_ext/module/introspection'
 
 引数path が示す定数にvalue を設定します。
 
+Reachable
+--------------------------------------------------------------------------------
+
+このモジュールが定数としてアクセス可能なモジュールかどうかを確認する `reachable?` メソッドが実装されています。
+
+この機能だけ読み込みする方法
+
+```ruby
+require 'active_support/core_ext/module/reachable'
+```
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/module/reachable.rb)
+
+### #reachable?
+
+reachbale になるには
+
+* 匿名モジュールではない。
+* [ActiveSupport::Inflector.safe_constantize](/active_support/inflector.html#.safe_constantize) を使用した場合、同じ名前になる
+
+という条件で確認します。
+
+reachable というのは 定数でアクセスできる。というような意味だと考えられそうです。
+
 Remove Method
 --------------------------------------------------------------------------------
 
