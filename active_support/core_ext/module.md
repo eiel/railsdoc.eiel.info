@@ -528,12 +528,24 @@ reachable というのは 定数でアクセスできる。というような意
 Remove Method
 --------------------------------------------------------------------------------
 
+メソッドを無効にしたり再定義する機能が実装されています。
+
+この機能だけ読み込みする方法
+
+```ruby
+require 'active_support/core_ext/module/remove_method'
+```
+
 * [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/module/remove_method.rb)
 
-### #remove_possible_method(method)
+### #remove_possible_method
+
+* remove_possible_method(method)
 
 引数 method が定義されていれば undef 状態にするメソッドです。
 
-### #redefine_method(method, &block)
+### #redefine_method
+
+* redefine_method(method, &block)
 
 引数 method を再定義する。メソッドの実装は 引数 block となります。
