@@ -1,5 +1,5 @@
 ---
-title: Core Ext Module
+title: Core Ext Numeric
 ---
 
 試した環境
@@ -28,6 +28,8 @@ Byte, KByte などを便利に扱うメソッドが定義されています。
 ```ruby
 require 'active_support/core_ext/numeric/bytes'
 ```
+
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/numeric/bytes.rb)
 
 ### #bytes
 
@@ -98,3 +100,29 @@ self エクサバイトが何バイトか返します。
 ```
 
 exabyte というエイリアスがあります。
+
+
+Conversions
+--------------------------------------------------------------------------------
+
+数値から別の型へ変換するメソッドが定義されています。
+
+この機能だけ読み込む方法
+
+```ruby
+require 'active_support/core_ext/numeric/conversions'
+```
+
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/numeric/conversions.rb)
+
+### to_formatted_s
+
+* to_formatted_s(format = :default, options = {})
+
+数値を文字列に変換します。
+引数formatには :phone, :currency, :percentage, :delimited, :rounded, :human, human_size を与えることができます。
+それぞれの処理は `ActiveSupport::NumberHelper.number_to_xxxxx` に委譲されます。
+
+Numeric だけでなく Float Fixnum Bignum BigDecimal も同じメソッドが定義されます。
+
+* [ActiveSupport::NumberHelper](/active_support/number_helper)
