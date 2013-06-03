@@ -126,3 +126,22 @@ require 'active_support/core_ext/numeric/conversions'
 Numeric だけでなく Float Fixnum Bignum BigDecimal も同じメソッドが定義されます。
 
 * [ActiveSupport::NumberHelper](/active_support/number_helper)
+
+Infinite Comparable
+--------------------------------------------------------------------------------
+
+Float BigDecimal が Float::INFINITY などと比較できるようにします。
+
+この機能のみ利用したい場合は:
+
+```ruby
+require 'active_support/core_ext/numeric/infinite_comparable'
+```
+
+とします。
+
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/numeric/infinite_comparable.rb)
+
+require される ライブラリ
+
+* [active_support/core_ext/infinite_comparable](/active_support/core_ext/infinite_comparable)
