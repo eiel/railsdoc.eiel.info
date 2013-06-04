@@ -145,3 +145,67 @@ require 'active_support/core_ext/numeric/infinite_comparable'
 require される ライブラリ
 
 * [active_support/core_ext/infinite_comparable](/active_support/core_ext/infinite_comparable)
+
+Time
+--------------------------------------------------------------------------------
+
+数値から`期間`を示す[ActiveSupport::Duraction](/active_support/dulation/)を生成するメソッドが実装されています。
+`from_now` や `ago` にメソッドチェインすると日付オブジェクトを生成できます。
+
+この機能のみ利用したい場合は:
+
+```ruby
+require 'active_support/Core_ext/numeric/time'
+```
+
+### seconds
+
+`self` 秒間を返します。
+
+second というエイリアスがあります。
+
+### minutes
+
+`self` 分間を返します。
+
+minute というエイリアスがあります。
+
+### hours
+
+`self` 時間を返します。
+
+hour というエイリアスがあります。
+
+### days
+
+`self` 日間を返します。
+
+day というエイリアスがあります。
+
+### weeks
+
+`self` 週間を返します。
+
+week というエイリアスがあります。
+
+### fortnights
+
+`self` * 2週間を返します。
+
+fortnight というエイリアスがあります。
+
+### ago
+
+* ago(time = ::Time.current)
+
+引数timeから `self` 秒前を返します。
+
+until というエイリアスがあります。
+
+### since
+
+* since(time = ::Time.current)
+
+引数timeから `self` 秒後を返します。
+
+from_now というエイリアスがあります。
