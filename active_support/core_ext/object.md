@@ -28,6 +28,14 @@ Acts Like
 
 acts_like? を定義しています。
 
+この機能だけ読み込む方法
+
+```ruby
+require 'active_support/core_ext/object/acts_like'
+```
+
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/object/acts_like.rb)
+
 ### #acts_like?(duck)
 
 ダックタイピングをアシストするためのメソッド。
@@ -44,6 +52,43 @@ DateTime.new.acts_like? :time   # => true
 
 のように使えます。
 
+Blank
+--------------------------------------------------------------------------------
+
+中身があるかどうかを判定する `blank?` メソッドやそれに関係するメソッドが実装されています。
+
+この機能だけ読み込む方法
+
+```ruby
+require 'active_support/core_ext/object/blank'
+```
+
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/object/blank.rb)
+
+### #blank?
+
+空のようなものは true を変えします。該当するものは
+
+* nil
+* false
+* ''
+* ' ' -     空白の文字列'
+* []
+* {}
+
+です。
+
+実装的には empty? メソッドが存在するかどうか。empty? が true を返すかどうかによって変わります。
+
+基本的なクラスには empty? が実装されます。
+
+### presenct?
+
+blankの逆に何か有効な値は True を返します。
+
+### presence
+
+空ではない場合、値を返すバージョンです。
 
 Try
 --------------------------------------------------------------------------------
