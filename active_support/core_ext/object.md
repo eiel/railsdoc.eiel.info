@@ -90,6 +90,26 @@ blankの逆に何か有効な値は True を返します。
 
 空ではない場合、値を返すバージョンです。
 
+Conversions
+--------------------------------------------------------------------------------
+
+オブジェクトを別の型に変換する。他のファイルを読み込みするだけ。
+
+* [Object#to_param](#to_param)
+* [Object#to_query](#to_query)
+* [Array Conversions](/active_support/core_ext/array/conversions)
+* [Hash Conversions](/active_support/core_Ext/hash/conversions)
+
+あたりを読み込む。
+
+これだけ読み込むには:
+
+```ruby
+require 'active_support/core_ext/object/conversions'
+```
+
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/object/conversions.rb)
+
 Try
 --------------------------------------------------------------------------------
 
