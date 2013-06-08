@@ -110,6 +110,41 @@ require 'active_support/core_ext/object/conversions'
 
 * [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/object/conversions.rb)
 
+Deep Dup
+--------------------------------------------------------------------------------
+
+深いコピーを提供する `deep_dup` メソッドが実装されています。
+`deep_dup` メソッド は `Object`、 `Array`、 `Hash` へ追加されます。
+コピーできないシングルトンなオブジェクトなどはコピーをせずに参照を渡します。
+
+この機能だけ読み込むには:
+
+```ruby
+require 'active_support/core_ext/object/deep_dup'
+```
+
+# deep_dup
+
+深いコピーを提供します。
+dup と動作比較をします。
+
+```ruby
+a = ["a","b","c"]
+b = a.dup
+b[1] << "b"
+b     # => ["a","bb","c"]
+a     # => ["a","bb","c"]
+
+a = ["a","b","c"]
+b = a.deep_dup
+b[1] << "b"
+b     # => ["a","bb","c"]
+a     # => ["a","b","c"]
+```
+
+前者は 配列の要素は同じオブジェクトを指しています。
+後者は 配列の要素は新しいオブジェクトになっています。
+
 Try
 --------------------------------------------------------------------------------
 
