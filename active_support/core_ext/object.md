@@ -123,7 +123,7 @@ Deep Dup
 require 'active_support/core_ext/object/deep_dup'
 ```
 
-# deep_dup
+### #deep_dup
 
 深いコピーを提供します。
 dup と動作比較をします。
@@ -144,6 +144,31 @@ a     # => ["a","b","c"]
 
 前者は 配列の要素は同じオブジェクトを指しています。
 後者は 配列の要素は新しいオブジェクトになっています。
+
+Duplicable
+--------------------------------------------------------------------------------
+
+オブジェクトのコピーができるかどうかを確認する `duplicable?` メソッドを実装します。
+
+この機能だけ読み込みする方法:
+
+```ruby
+require 'active_support/core_ext/object/duplicable'
+```
+
+### #duplicable?
+
+オブジェクトのコピーができるかどうか確認するメソッドです。
+Object を継承しているオブジェクトは基本的に true を返します。
+
+以下のクラスのインスタンスは `false` を返します。
+
+* NilClass
+* FalseClass
+* TrueClass
+* Symbol
+* Numeric
+* BigDecimal
 
 Try
 --------------------------------------------------------------------------------
