@@ -204,6 +204,55 @@ Array#include? を利用して実装されています。
 :hoge.in? 1      # raise: ArgumentError: The single parameter passed to #in? must respond to #include?
 ```
 
+Instance Variables
+--------------------------------------------------------------------------------
+
+インスタンス変数に関する情報を取得するメソッドが実装されちます。
+
+この機能だけ読み込みたい場合:
+
+```ruby
+require 'active_support/core_ext/object/instance_variables'
+```
+
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/object/instance_variables.rb)
+
+
+### #instance_values
+
+インスタンス変数の一覧を Hash で返すメソッドです。
+key にインスタンス変数名 value に値が入ります。
+key には @ のつかない名前が入ります。
+
+```ruby
+class Hoge
+  def initialize
+    @x, @y = 1, 2
+  end
+end
+
+Hoge.new.instance_values # => {"x"=>1, "y"=>2}
+```
+
+### #instance_variable_names
+
+インスタンス変数名の一覧を文字列で返します。
+@ がついている変数名が返ります。
+
+似たメソッドとして Object#instance_variables があります。
+こちら文字列ではなく、シンボルを返します。
+
+```ruby
+class Hoge
+  def initialize
+    @x, @y = 1, 2
+  end
+end
+
+Hoge.new.instance_variable_names # => ["@x", "@y"]
+
+```
+
 Try
 --------------------------------------------------------------------------------
 
