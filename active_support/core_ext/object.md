@@ -14,7 +14,7 @@ ruby 2.0.0p0 (2013-02-24 revision 39474) [x86_64-darwin12.2.1]
 
 ```
 $ bundle exec ruby -r active_support -e 'puts ActiveSupport::VERSION::STRING'
-4.0.0.rc1
+4.0.0.rc2
 ```
 
 Object へ機能を追加する方法
@@ -174,6 +174,7 @@ Inclusion
 --------------------------------------------------------------------------------
 
 オブジェクトが対象に含まれているか確認するメソッド `in?` が定義されています。
+4.0.0.rc2 で Deprecated になりました。変わりに Object#include? を利用しましょう。
 
 この機能だけ読み込みする方法
 
