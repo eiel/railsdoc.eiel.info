@@ -253,6 +253,46 @@ Hoge.new.instance_variable_names # => ["@x", "@y"]
 
 ```
 
+To JSON
+--------------------------------------------------------------------------------
+
+Object に to_json メソッドを実装します。
+実際のJSON への エンコード は [ActiveSupport::JSON](/active_support/json/ )で実装されています。
+
+`json` ライブラリを読込み後に Object, Array, FalseClass, Float, Hash, Integer, NilClass, String, TrueClass クラスで to_json メソッドを上書きするという少しトリッキーなことをしていました。
+
+また to_json するための hash は as_json というメソッドを利用するようです。
+
+この機能だけ読込むには:
+
+
+```ruby
+require 'active_support/json/encoding'
+```
+
+依存関係の問題で、'active_support/json/encoding' を読込むことになります。
+
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc2/activesupport/lib/active_support/core_ext/object/to_json.rb)
+
+
+### #to_json
+
+* to_json(option = nil)
+
+オブジェクトを JSON に変換します。
+処理自体は [ActiveSupport::JSON.encode](/active_support/json/) へ委譲することになります。
+
+option は ActiveSupport::JSON のインスタンス変数となります。as_jsonメソッド などにも伝搬されます。
+
+
+### Process::Status#as_json
+
+* as_json(options = nil)
+
+Process::Status を encode_json メソッドが実装されているオブジェクトに変換します。
+ここに定義されてる理由は謎。
+
+
 Try
 --------------------------------------------------------------------------------
 
