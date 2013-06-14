@@ -346,6 +346,31 @@ Hashの場合は key=value 形式になります。key でソートされるた�
 {mogu:1, hoge: 0}.to_param  # => "hoge=0&mogu=1"
 ```
 
+To Query
+--------------------------------------------------------------------------------
+
+オブジェクトを QUERY_STRING で利用する文字列に変換します。key1=value2&key2=value2 のような構造をとります。
+
+この機能だけ読み込みする方法
+
+```ruby
+require 'active_support/core_ext/object/to_query'
+```
+
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc2/activesupport/lib/active_support/core_ext/object/to_query.rb)
+
+### #to_query
+
+* to_query(key)
+
+QUERY_STRING を構築します。
+key を指定することで key-value の関係を作成します。
+この形式である必要があるので key は必須になります。
+
+レシーバがHash の場合は key が必須でなくなります。
+Hash はすでに key-value の形式になっているからです。
+また、この時は to_param メソッドのエイリアスになっているだです。key を指定した場合は Hash#to_param と同じ動作をします。
+
 Try
 --------------------------------------------------------------------------------
 
