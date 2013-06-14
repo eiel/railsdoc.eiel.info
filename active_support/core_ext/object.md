@@ -293,6 +293,58 @@ option は ActiveSupport::JSON のインスタンス変数となります。as_j
 Process::Status を encode_json メソッドが実装されているオブジェクトに変換します。
 ここに定義されてる理由は謎。
 
+To Param
+--------------------------------------------------------------------------------
+
+オブジェクトを URL や QUERY_STRING へ変換するメソッド `to_param` が実装されています。
+`url_for` などのメソッドを利用して URL を作成する場合に利用されます。
+
+この機能だけ読み込みする方法
+
+```ruby
+require 'active_support/core_ext/object/to_param'
+```
+
+ただし、 Hash#to_param が to_guery を利用するため、
+
+```ruby
+require 'active_support/core_ext/object/to_query'
+```
+
+とするほうが気兼ねなく使えます。
+
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc2/activesupport/lib/active_support/core_ext/object/to_param.rb)
+
+### #to_param
+
+Object, Nilclass, TrueClass, FalseClass, Array, Hash に `to_param` メソッドが提供されています。
+Objectの `to_param` の実装は、to_s のエイリアスとなっています。`to_s` とは挙動を変えたい場合は、サブクラスで `to_param` をオーバーライドすることになります。
+自然なURLを作成したい場合にオーバーライドすることになります。
+
+```ruby
+Object.new.to_param # => "#<Object:0x007ff263abf600>"
+nil.to_param        # => nil
+true.to_param       # => true
+false.to_param      # => false
+```
+
+Arrayの場合は `/` で区切られます。
+
+```ruby
+[].to_param         # => ""
+[:hoge,:mogu].to_param # => "hoge/mogu"
+```
+
+Hashの場合は key=value 形式になります。key でソートされるため、パーマリンクも作りやすい。
+引数にオプションとして namespace を設定することができます。
+うまく使うとモデルのないフォームも扱いやすくなりそうです。
+
+```ruby
+{}.to_param                 # => ""
+{hoge: 0}.to_param          # => "hoge=0"
+{hoge: 0, mogu:1}.to_param  # => "hoge=0&mogu=1"
+{mogu:1, hoge: 0}.to_param  # => "hoge=0&mogu=1"
+```
 
 Try
 --------------------------------------------------------------------------------
