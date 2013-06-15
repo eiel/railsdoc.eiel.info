@@ -374,12 +374,40 @@ Hash はすでに key-value の形式になっているからです。
 Try
 --------------------------------------------------------------------------------
 
-### #try(*a, &b)
+self が nil の場合、なにもせず、nilじゃない場合は 指定したメソッドを呼びだす try メソッドが実装されています。
+
+この機能だけ読込みをする方法:
+
+```ruby
+require 'active_support/core_ext/object/try'
+```
+
+### #try
+
+* try(*a, &b)
 
 `nil` に対し必ず `nil` を呼び、それ以外のオブジェクトの場合は 引数a の名前のメソッドを呼びだします。
 
 nil になる可能性があるオブジェクトに対して、nilの場合はなにもしないという状況では if などを使用せずに完結に書けます。
 
+```ruby
+1.try(:to_s)    # => "1"
+nil.try(:to_s)  # => nil
+```
+
+blockは 呼び出すメソッドに渡します。ただいそうa 引数aがない場合は ブロックが実行されます。
+
+```ruby
+1.try { |n| n * 2}   # => 2
+nil.try { |n| n * 2} # => nil
+```
+
+NilClass と Object に try にメソッドを実装することで実現しています。
+
 * [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/object/try.rb#L2-L47)
 
-### #try!(*a, &b)
+### #try!
+
+* try!(*a, &b)
+
+tryメソッドとほとんど同じ道斎をしますが、指定したメソッドがない場合は `NoMethodError`` が発生します。
