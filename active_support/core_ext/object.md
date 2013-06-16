@@ -411,3 +411,42 @@ NilClass と Object に try にメソッドを実装することで実現して�
 * try!(*a, &b)
 
 tryメソッドとほとんど同じ道斎をしますが、指定したメソッドがない場合は `NoMethodError`` が発生します。
+
+With Options
+--------------------------------------------------------------------------------
+
+同じオプションをメソッドに指定する場合、まとめることができる `with_options` というメソッドが実装されています。
+
+この機能だけ読み込みする方法
+
+```ruby
+require 'active_support/core_ext/object/with_options'
+```
+
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc2/activesupport/lib/active_support/core_ext/object/with_options.rb)
+
+### #with_options
+
+* with_options(options)
+
+同じオプションをメソッドへのオプションを指定するのに便利するメソッドです。ブロックは必須です。
+
+普通に記述すると
+
+```ruby
+hoge aaa: 1, bbb: 2, zzz: 3
+hoge aaa: 1, bbb: 2, zzz: 4
+```
+となる場合、この `with_options`を使用して
+
+```ruby
+with_options aaa: 1, bbb:2 do |this|
+  this.hoge zzz: 3
+  this.hoge zzz: 4
+end
+```
+
+と書くことができます。
+
+ブロックの引数には、with_options の self のような感覚で使えばよさそうです。
+実際には [ActiveSupport::OptionMerger](active_support/option_merger) のインスタンスで、処理もこのクラスに記述されています。
