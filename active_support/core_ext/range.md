@@ -46,3 +46,33 @@ require 'active_support/core_ext/range/conversions'
 :db は `BETWEEN A AND B` という形式になります。
 
 `to_s` はこのメソッドに置き換わります。また、もとのto_s を利用したい場合は `to_default_` メソッドを利用します。
+
+Include Range
+--------------------------------------------------------------------------------
+
+Range#include? メソッドに Range を対応させます。元のinclude メソッドは include_without_range? となります。
+
+この機能だけ読み込みする方法
+
+```ruby
+require 'active_support/core_ext/range/include_range'
+```
+
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc2/activesupport/lib/active_support/core_ext/range/include_range.rb)
+
+### #include_with_range?
+
+* include_with_range?(value)
+
+実際には alias_method_chain されるので include? でアクセスできます。
+include? メソッドの value に Range オブジェクトを渡しても機能するようになります。
+value の最初の値と最後の値を使い判定する実装になっています。
+
+例:
+
+```ruby
+(1..3).include? 1..2                # => true
+(1..3).include_with_range? 1..2     # => true
+(1..3).include_without_range? 1..2  # => false
+
+```
