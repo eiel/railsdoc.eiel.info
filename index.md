@@ -31,6 +31,7 @@ Rails メモ
 * [Core Ext - Module](/active_support/core_ext/module)
 * [Core Ext - Numeric](/active_support/core_ext/numeric)
 * [Core Ext - Object](/active_support/core_ext/object)
+* [Core Ext - Range](/active_support/core_ext/range)
 * [Core Ext - Time](/active_support/core_ext/time)
 
 ### ActiveSupport に定義されているクラス/モジュール
