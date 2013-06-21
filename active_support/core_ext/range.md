@@ -76,3 +76,30 @@ value の最初の値と最後の値を使い判定する実装になってい�
 (1..3).include_without_range? 1..2  # => false
 
 ```
+
+Overlaps
+--------------------------------------------------------------------------------
+
+Range 同士が重なりあうかどうか確認する overlaps? メソッドが実装されています。
+
+この機能だけ読み込みする方法
+
+```ruby
+require 'active_support/core_ext/range/overlaps'
+```
+
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc2/activesupport/lib/active_support/core_ext/range/overlaps.rb)
+
+### #overlaps?
+
+* overlaps?(other)
+
+self と other の範囲が重なる部分があるかどうかを調べます。
+
+例:
+
+```ruby
+(1..3).overlaps?(2..4)   # => true
+(2..4).overlaps?(1..3)   # => true
+(1..3).overlaps?(4..5)   # => false
+```
