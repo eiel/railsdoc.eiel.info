@@ -109,3 +109,31 @@ require 'active_support/core_ext/string/behavior'
 ```ruby
 String.new.acts_like? :string  # => true
 ```
+
+Conversions
+--------------------------------------------------------------------------------
+
+文字列を別のオブジェクトに変換するメソッドが実装されています。
+
+この機能だけ読み込みする方法
+
+```ruby
+require 'active_support/core_ext/string/conversions'
+```
+
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc2/activesupport/lib/active_support/core_ext/string/conversions.rb)
+
+### #to_time
+
+* to_time(form = :local)
+
+文字列を日時へと変換します。パースエラーの場合はnilを返します。
+また、文字列を引数formには :utc を渡すとUTCを返します。
+
+### #to_date
+
+日付に変更へと変換します。 `Date.parse` に丸投げです。
+
+### #to_datetime
+
+文字列を日時へと変換します。 `DateTime.parse` へ丸投げです。
