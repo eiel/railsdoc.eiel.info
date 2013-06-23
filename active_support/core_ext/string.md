@@ -79,3 +79,33 @@ limitを指定すると、返す文字列の数が増えます。
 "hello".last   # => "o"
 "hello".last 3 # => "llo"
 ```
+
+Behavior
+--------------------------------------------------------------------------------
+
+[Object#acts_like?](/active_support/core_ext/object/#acts-like) メソッドのためのメソッドが定義されています。
+
+この機能だけ読み込みする方法
+
+```ruby
+require 'active_support/core_ext/string/behavior'
+```
+
+acts_like? も読み込む場合
+
+```ruby
+require 'active_support/core_ext/object/acts_like'
+require 'active_support/core_ext/string/behavior'
+```
+
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc2/activesupport/lib/active_support/core_ext/string/behavior.rb)
+
+### #acts_like_string?
+
+文字列のように扱えるかどうかを返します。Stringなので当然 `true` を返します。
+
+このメソッドは `Object#acts_like?` の振舞いに影響を与えます。
+
+```ruby
+String.new.acts_like? :string  # => true
+```

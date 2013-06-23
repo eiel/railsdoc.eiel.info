@@ -36,7 +36,9 @@ require 'active_support/core_ext/object/acts_like'
 
 * [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/object/acts_like.rb)
 
-### #acts_like?(duck)
+### #acts_like?
+
+* acts_linke?(duck)
 
 ダックタイピングをアシストするためのメソッド。
 このメソッドは `acts_linke_date?` のようなメソッドが定義されていれば、
