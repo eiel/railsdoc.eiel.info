@@ -155,3 +155,23 @@ require 'active_support/core_ext/string/encoding'
 ### #encoding_aware?
 
 deprecate。現在は常に true を返します。
+
+Exclude
+--------------------------------------------------------------------------------
+
+include? の逆の動作をする exclude? が実装されています。
+
+この起動だけ読み込みする方法
+
+```ruby
+require 'active_support/core_ext/string/exclude'
+```
+
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc2/activesupport/lib/active_support/core_ext/string/exclude.rb)
+
+### #exclude?
+
+* exclude?(string)
+
+include? を呼びだして、否定をとる。include?の逆の動作をするだけのメソッドです。
+引数string を含まない場合に true を返します。
