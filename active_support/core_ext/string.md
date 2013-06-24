@@ -137,3 +137,21 @@ require 'active_support/core_ext/string/conversions'
 ### #to_datetime
 
 文字列を日時へと変換します。 `DateTime.parse` へ丸投げです。
+
+
+Encoding
+--------------------------------------------------------------------------------
+
+Deprecate なメソッドしか定義されていません。
+
+この機能だけ読み込みする方法
+
+```ruby
+require 'active_support/core_ext/string/encoding'
+```
+
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc2/activesupport/lib/active_support/core_ext/string/encoding.rb)
+
+### #encoding_aware?
+
+deprecate。現在は常に true を返します。
