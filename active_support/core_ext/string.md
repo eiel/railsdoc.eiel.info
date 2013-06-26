@@ -161,7 +161,7 @@ Exclude
 
 include? の逆の動作をする exclude? が実装されています。
 
-この起動だけ読み込みする方法
+この機能だけ読み込みする方法
 
 ```ruby
 require 'active_support/core_ext/string/exclude'
@@ -175,3 +175,55 @@ require 'active_support/core_ext/string/exclude'
 
 include? を呼びだして、否定をとる。include?の逆の動作をするだけのメソッドです。
 引数string を含まない場合に true を返します。
+
+Filters
+--------------------------------------------------------------------------------
+
+文字列のためのフィルタが実装されています。
+
+この機能だけ読み込みする方法
+
+```ruby
+require 'active_support/core_ext/string/filters'
+```
+
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc2/activesupport/lib/active_support/core_ext/string/filters.rb)
+
+### #squish
+
+文字列の前後にある ホワイトスペース を削除して、文字の間にあるホワイトスペーツをひとつにまとめます。
+
+例:
+
+```ruby
+"   hoge \n \t goro   ".squish # => "hoge goro"
+```
+
+### #squish!
+
+String#squish の破壊的バージョンです。
+
+### #truncate
+
+* truncate(truncate_at, options = {})
+
+長い文字列を短くするメソッドです。短かくなった場合 '...' が後ろにつきます。
+'...' を含めて文字列の長さが 引数truncate_at になるようにします。
+
+options には :omission と :separator を指定することができます。
+
+:omission は後ろにつける `...` を変えることができます。
+
+:seprator は文字列を短くする際に区切りにする部分を指定します。引数trruncate_at に指定した部分より前で削除されます。
+
+truncat_at が :omission より短い場合、バグがある。
+
+```ruby`
+"hoge goro mogu".truncate 10  # => "hoge go..."
+"hoge goro mogu".truncate 10, omission: '..'  # => "hoge gor.."
+"hoge goro mogu".truncate 10, separator: ' '  # => "hoge..."
+"hoge goro mogu".truncate 10, separator: /o/   # => "hoge g..."
+
+# 削除されるものがない場合 :omission は付かない
+"hoge goro mogu".truncate 20   # => "hoge goro mogu"
+```
