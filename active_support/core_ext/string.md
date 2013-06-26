@@ -227,3 +227,48 @@ truncat_at が :omission より短い場合、バグがある。
 # 削除されるものがない場合 :omission は付かない
 "hoge goro mogu".truncate 20   # => "hoge goro mogu"
 ```
+
+Indent
+--------------------------------------------------------------------------------
+
+文字列をインデントしてくれる indent メソッドが実装されています。
+
+この機能だけ読み込みする方法
+
+```ruby
+require 'active_support/core_ext/string/indent'
+```
+
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc2/activesupport/lib/active_support/core_ext/string/indent.rb)
+
+### #indent
+
+* indent(amount, indent_string=nil, indent_empty_lines=false)
+
+### #indent!
+
+```
+def hoge
+  puts
+hoge
+```
+
+のような文字列を
+
+```
+  def hoge
+    puts
+  hoge
+```
+
+のようにインデントをつけることができるメソッド。
+
+引数amount の量だけ 引数indent_string を前方に挿入します。
+引数 indent_string はタブでインデントしてある文字列であればタブでインデントを行います。そうでない場合はデフォルトで スペースを利用します。
+明示することで好きな文字を使うことができます。
+
+引数 indent_empty_lines を true にすると空行もインデントを挿入できます。
+
+* indent!(amount, indent_string=nil, indent_empty_lines=false)
+
+`indent` メソッドの破壊的バージョン
