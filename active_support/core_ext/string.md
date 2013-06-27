@@ -272,3 +272,162 @@ hoge
 * indent!(amount, indent_string=nil, indent_empty_lines=false)
 
 `indent` メソッドの破壊的バージョン
+
+Inflections
+--------------------------------------------------------------------------------
+
+単数形や複数形といった別の形へと文字列を変化させるメソッドが実装されています。
+
+この機能だけ読み込みする方法
+
+```ruby
+require 'active_support/core_ext/string/inflections'
+```
+
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0/activesupport/lib/active_support/core_ext/string/inflections.rb)
+
+### #pluralize
+
+* pluralize(count = nil, locale = :en)
+
+文字列を複数形へ変化させます。引数count が1の場合は何もしません。
+第2引数には locale が渡せますが、第1引数に シンボルを渡した場合は locale として認識します。
+実際の処理は[ActiveSupport::Inflector](/active_support/inflector/)で行なわれます。
+
+```ruby
+'post'.pluralize  # => "posts"
+```
+
+### #singularize
+
+* singularize(locale = :en)
+
+`pluralize` の逆の動作をします。文字列を単数形へ変化させます。
+引数に locale を渡すことができます。
+実際の処理は[ActiveSupport::Inflector](/active_support/inflector/)で行なわれます。
+
+```ruby
+'posts'.singularize  # => "post"
+```
+
+### #constantize
+
+文字列と同じ定数名の値を取得します。見つからない場合は 例外NameError が発生します。
+実際の処理は[ActiveSupport::Inflector](/active_support/inflector/)で行なわれます。
+```ruby
+'Array'.constantize # => Array
+Hoge = 1
+'Hoge'.constantize  # => 1
+```
+
+### #safe_constantize
+
+`constantize` メソッドの例外が発生しないバージョンです。見つからない場合は nil が返ります。
+
+### #camelize
+
+* camelize(first_letter = :upper)
+
+キャメライズします。単語の切れ目を大文字にします。
+引数の first_letter で先頭の文字を大文字にするか小文字にするかが決まります。
+:upper か :lower が指定できて、それ以外の場合は nil を返すので注意してください。
+実際の処理は[ActiveSupport::Inflector](/active_support/inflector/)で行なわれます。
+
+`/` を含む場合は `::` で区切られます。クラス名を推測するのに役立ちます。
+
+camelcase という別名があります。
+
+```ruby
+'active_record'.camelize                # => "ActiveRecord"
+'active_record'.camelize(:lower)        # => "activeRecord"
+'active_record/errors'.camelize         # => "ActiveRecord::Errors"
+'active_record/errors'.camelize(:lower) # => "activeRecord::Errors"
+'active_record/errors'.camelize(:hoge)  # => nil
+```
+
+### #titleize
+
+文字列をタイトルに的した文字列に変換します。
+基本的には単語の先頭が大文字になります。
+実際の処理は[ActiveSupport::Inflector](/active_support/inflector/)で行なわれます。
+titlecase という別名があります。
+
+```ruby
+'hoge goro mogu'.titleize  # => "Hoge Goro Mogu"
+```
+
+### #underscore
+
+camelize の逆の動作をします。フォームなどに使用されています。
+実際の処理は[ActiveSupport::Inflector](/active_support/inflector/)で行なわれます。
+
+```ruby
+'ActiveModel'.underscore         # => "active_model"
+'ActiveModel::Errors'.underscore # => "active_model/errors"
+```
+
+### #dasherize
+
+`_` を `-` に置き換えます。
+実際の処理は[ActiveSupport::Inflector](/active_support/inflector/)で行なわれます。
+
+```ruby
+'hoge_goro'.dasherize  # => "hoge-goro"
+```
+
+### #deconstantize
+
+定数名の最も右側を取り除きます。
+実際の処理は[ActiveSupport::Inflector](/active_support/inflector/)で行なわれます。
+```ruby
+"Hoge::Goro".deconstantize  # => "Hoge"
+"::Hoge::Goro".deconstantize # => "::Hoge"
+"Hoge".deconstantize # => ""
+"".deconstantize # => ""
+```
+
+### #parameterize
+
+* parameterize(sep = '-')
+
+文字列をURLで使える文字列へと変換します。
+実際の処理は[ActiveSupport::Inflector](/active_support/inflector/)で行なわれます。
+
+```ruby
+"hoge goro mogu".parameterize # => hoge-goro-mogu
+```
+
+
+### #tableize
+
+文字列をデータベースのテーブル名へ変換します。
+アンダスコア化して複数形にします。
+実際の処理は[ActiveSupport::Inflector](/active_support/inflector/)で行なわれます。
+
+### #classify
+
+テーブル名からクラス名の文字列へ変換します。
+実際の処理は[ActiveSupport::Inflector](/active_support/inflector/)で行なわれます。
+### #humanize
+
+人間が読みやすい形に変換します。
+先頭を大文字にしたり id を取り除いたりします。
+実際の処理は[ActiveSupport::Inflector](/active_support/inflector/)で行なわれます。
+
+```ruby
+"hoge goro".humanize  # => "Hoge goro"
+"hoge_id".humanize    # => "Hoge"
+```
+
+### #foreign_key
+
+* foreign_key(separate_class_name_and_id_with_underscore = true)
+
+文字列を外部キー用の名前に変換します。
+引数separate_class_name_and_id_with_underscore を falseに指定するとid をアンダースコアで繋ぎません。
+
+```ruby
+"hoge".foreign_key       # => "hoge_id"
+"hoge".foreign_key false # => "hoge_id"
+"Goro::hoge".foreign_key # => "hoge_id"
+```
