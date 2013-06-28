@@ -431,3 +431,30 @@ camelize の逆の動作をします。フォームなどに使用されてい�
 "hoge".foreign_key false # => "hoge_id"
 "Goro::hoge".foreign_key # => "hoge_id"
 ```
+
+Inquiry
+--------------------------------------------------------------------------------
+
+問い合せ可能な文字列を生成する String#inquiry メソッドが実装されています。
+このメソッドが返す文字列は [ActiveSupport::StringInquiry](/active_supprt/string_inquiry/) のインスタンスで、Rails.env に代入されている文字列はこの文字列です。
+
+この機能だけ読み込みする方法
+
+```ruby
+require 'active_support/core_ext/string/inquiry'
+```
+
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0/activesupport/lib/active_support/core_ext/string/inquiry.rb)
+
+### #inquiry
+
+[ActiveSupport::StringInquiry](/active_supprt/string_inquiry/) に変換したオブジェクトを返します。
+
+この文字列は文字列に ? をつけたメソッドが true を返します。
+
+例
+
+```ruby
+'hoge'.inquiry.hoge? # => true
+'hoge'.inquiry.mogu? # => false
+```
