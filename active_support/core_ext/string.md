@@ -9,12 +9,12 @@ ActiveSupport 拡張で追加される String のメソッド
 
 ```
 $ ruby -v
-ruby 2.0.0p0 (2013-02-24 revision 39474) [x86_64-darwin12.2.1]
+ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
 ```
 
 ```
 $ bundle exec ruby -r active_support -e 'puts ActiveSupport::VERSION::STRING'
-4.0.0.rc2
+4.0.0
 ```
 
 String へ機能を追加する方法
@@ -458,3 +458,26 @@ require 'active_support/core_ext/string/inquiry'
 'hoge'.inquiry.hoge? # => true
 'hoge'.inquiry.mogu? # => false
 ```
+
+Multibyte
+--------------------------------------------------------------------------------
+
+マルチバイトな文字列のためのメソッドが実装されています。
+
+この機能だけ読み込みする方法
+
+```ruby
+require 'active_support/core_ext/string/multibyte'
+```
+
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0/activesupport/lib/active_support/core_ext/string/multibyte.rb)
+
+
+### #mb_chars
+
+Stirngのメソッドを Unicode セーフに使えるようにした `ActiveSupport::Multibyte::Chars` を作成する。
+ActiveSupport::Multibyteを読んでいないのでまだよくわかってない。
+
+### is_utf8?
+
+エンコーディングがutf8 のときはもちろん、utf8 として使えるエンコーディングであれば true を返す
