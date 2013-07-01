@@ -648,3 +648,31 @@ to_str した文字列を替えします。
 ### String#html_safe
 
 文字列を html_safe にするメソッドです。 escapeされないので、そのままの文字列を利用したい場合に利用します。
+
+Starts Ends With
+--------------------------------------------------------------------------------
+
+`starts_with?` と `ends_with?` メソッドが実装されています。
+このメソッドは `start_with?` と `ends_with?` のエイリアスです。
+
+この機能だけ読み込みする方法
+
+```ruby
+require 'active_support/core_ext/string/starts_ends_with'
+```
+
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0/activesupport/lib/active_support/core_ext/string/starts_ends_with.rb)
+
+### #starts_with?
+
+* start_with?([prefix])
+
+`start_with?` のエイリアスです。
+prefix がレシーバの先頭と一致するかどうかを確認します。
+
+### #ends_with?
+
+* end_with?([suffix])
+
+`end_with?` のエイリアスです。
+suffix がレシーバの末尾と一致するかどうかを確認します。
