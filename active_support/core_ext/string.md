@@ -676,3 +676,54 @@ prefix がレシーバの先頭と一致するかどうかを確認します。
 
 `end_with?` のエイリアスです。
 suffix がレシーバの末尾と一致するかどうかを確認します。
+
+Strip
+--------------------------------------------------------------------------------
+
+インデントを取り除く `strip_heredoc` メソッドが実装されています。ヒアドキュメントを使って作成した文字列に使うと便利です。
+
+この機能だけ利用する方法
+
+```ruby
+require 'active_support/core_ext/string/strip'
+```
+
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0/activesupport/lib/active_support/core_ext/string/strip.rb)
+
+### #strip_hearedoc
+
+インデントを取り除きます。
+ヒアドキュメントを使うコードをみやすくできます。
+`<<-` のヒアドキュメントは終了を示すラベルの先頭に空白があっても認識します。
+この書き方の場合、普通のコードと同じインデントになりよみやすいです。
+
+```ruby
+def hoge
+  <<-STRING
+    I can't speak Engilsh.
+    I can speak Japanese.
+  STRING
+end
+
+puts hoge
+#    I can't speak Engilsh.
+#    I can speak Japanese.
+
+puts hoge.strip_heredoc
+#I can't speak Engilsh.
+#I can speak Japanese.
+```
+
+このメソッドを使わない場合は
+
+
+```ruby
+def hoge
+  <<STRING
+I can't speak Engilsh.
+I can speak Japanese.
+STRING
+end
+```
+
+のようになるでしょう。
