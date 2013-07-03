@@ -8,32 +8,33 @@ ActiveSupport 拡張で追加される BigDecimal のメソッドの紹介
 
 ```
 $ ruby -v
-ruby 2.0.0p0 (2013-02-24 revision 39474) [x86_64-darwin12.2.1]
+ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
 ```
 
 ```
 $ bundle exec ruby -r active_support -e 'puts ActiveSupport::VERSION::STRING'
-4.0.0.rc1
+4.0.0
 ```
 
-Array へ機能を追加する方法
+BigDecimal へ機能を追加する方法
 
 ```ruby
 require 'active_support/core_ext/big_decimal'
 ```
 
 [BigDecimal](http://rurema.clear-code.com/query:BigDecimal/) は可変長不動小数点クラスです。
+要するに大きな数字や小さな数字を表現できる
 
 Conversion
 --------------------------------------------------------------------------------
 
-変換に関するメソッドが集約されてます。他にないけど。
+別の型への変換に関するメソッドが集約されてます。
 
 [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/big_decimal/conversions.rb)
 
 ### encode_with(corder)
 
-YAMLにエンコードする再に呼ばれるメソッドです。
+YAMLにエンコードする際に呼ばれるメソッドです。
 Infinity や NaN への対応処理がされてます。
 
 ### to_d
