@@ -327,7 +327,7 @@ require 'active_support/core_ext/class/subclasses'
 
 ### #descendants
 
-`:nodoc` が指定されてるので使用が固まってないのかもしれない。
+`:nodoc` が指定されてるので仕様が固まってないのかもしれない。
 子孫クラスの一覧が取得できる。
 
 ### #subclasses
@@ -363,7 +363,7 @@ SubSubClass.descendants # => []
 
 Baseを継承してるすべてのクラスを返します。
 
-また、この時の `subclasses` の共同は以下のとおりです。
+また、この時の `subclasses` の動作は以下のとおりです。
 
 ```ruby
 Base.subclasses        # => [SubClass]  # ここが`descendants`と違う

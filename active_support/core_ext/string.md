@@ -727,3 +727,36 @@ end
 ```
 
 のようになるでしょう。
+
+Zones
+--------------------------------------------------------------------------------
+
+タイムゾーン情報を含んだ時刻オブジェクトへの変換する `in_time_zone` メソッドが実装されています。
+
+この機能だけ読み込みする方法
+
+```ruby
+require 'active_support/core_ext/string/zones'
+```
+
+### #in_time_zone
+
+* in_time_zone(zone = ::Time.zone)
+
+文字列をタイムゾーンを含んだ時刻へ変換します。
+デフォルトと タイムゾーンが設定していない場合は、文字列を単に `to_time` します。
+
+* [::Time.zone](/active_support/core_ext/time/)
+
+しかし、文字列に to_time を実装しているのは conversions.rb なのでこれを読み込みしておく必要があるような気がする。
+
+`require 'active_support/core_ext/string/conversions'` をしておけないか確認する
+
+
+```ruby
+"12:00".in_time_zone "Tokyo"       # => Fri, 05 Jul 2013 12:00:00 JST +09:00
+"12:00".in_time_zone "London"      # => Thu, 04 Jul 2013 12:00:00 BST +01:00
+
+require 'active_support/core_ext/string/conversions'
+"12.00".in_time_zone
+```
