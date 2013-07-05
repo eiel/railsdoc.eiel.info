@@ -45,7 +45,7 @@ Calculations
 
 日付計算に関連したメソッドが実装されています。
 
-`[DateAndTime::Calculations](/active_support/core_ext/date_and_time)` が include されています。
+[DateAndTime::Calculations](/active_support/core_ext/date_and_time) が include されています。
 
 この機能のみ利用したい場合は:
 
