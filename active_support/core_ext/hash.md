@@ -50,6 +50,7 @@ Hash を XMLに変換します。
 ```
 
 以下のようなXMLを生成します。
+
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <hash>
@@ -82,6 +83,7 @@ XML から Hash オブジェクトを生成することができます。
 ```
 
 以下のような Hashが生成されます。
+
 ```ruby
 {"hash"=>{"foo"=>1, "bar"=>2}}
 ```
@@ -92,6 +94,7 @@ from_xml とほとんど同じように動作しますが、type が yaml や sy
 
 ```ruby
 Hash.from_xml "<hoge type='symbol'>1</hoge>"  # raise ActiveSupport::XMLConverter::DisallowedType
+```
 
 ```ruby
 Hash.from_trusted_xml "<hoge type='symbol'>1</hoge>" #=> {"hoge"=>:"1"}
@@ -281,6 +284,7 @@ transform_keys の 破壊的バージョンです。
 `transform_keys` を利用して実装されています。
 
 例:
+
 ```ruby
 hash = { name: 'Rob', age: '28' }
 
@@ -320,7 +324,7 @@ self が持つ キー が valid_keys に一致しない場合に ArgumentError �
 { name: 'Rob', age: '28' }.assert_valid_keys(:name, :years) # raise ArgmentError
 { name: 'Rob', age: '28' }.assert_valid_keys(:name) # raise ArgmentError
 { name: 'Rob', age: '28' }.assert_valid_keys('name', 'age') # raise ArgmentError
-
+```
 
 ### #deep_transform_keys
 
