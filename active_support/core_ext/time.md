@@ -6,19 +6,38 @@ title: Core Ext Time
 
 ```
 $ ruby -v
-ruby 2.0.0p0 (2013-02-24 revision 39474) [x86_64-darwin12.2.1]
+ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
 ```
 
 ```
 $ bundle exec ruby -r active_support -e 'puts ActiveSupport::VERSION::STRING'
-4.0.0.rc1
+4.0.0
 ```
 
-Array へ機能を追加する方法
+Time へ機能を追加する方法
 
 ```ruby
 require 'active_support/core_ext/time'
 ```
+
+Acts Like
+--------------------------------------------------------------------------------
+
+Timeオブジェクトのように振る舞うことを示すために `acts_like_time?` メソッドが実装されています。
+詳しくは [Object#acts_like?](/active_support/core_ext/object/#acts-like) を参照してください。
+
+この機能だけ利用したい場合は:
+
+```ruby
+require 'active_support/core_ext/time/acts_like'
+```
+
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0/activesupport/lib/active_support/core_ext/time/acts_like.rb)
+
+### #acts_like_time?
+
+時刻オブジェクトのように振る舞うことを示します。
+
 
 Zones
 --------------------------------------------------------------------------------
