@@ -132,47 +132,144 @@ DateTime を引数に使うには 'active_support/core_ext/date_time' が読み�
 
 ### #seconds_since_midnight
 
+0 時から何秒経過しているかを返しします。
+
+```ruby
+Time.new(2013,1,1, 0,0,10).seconds_since_midnight    # => 10
+```
+
 ### #seconds_until_end_of_day
+
+```ruby
+Time.new(2013,1,1, 23,59,10).seconds_until_end_of_day # => 49
+```
 
 ### #change
 
+* change(options)
+
+時刻を変更します。
+キーとバリューで指定します。
+
+例:
+
+```ruby
+Time.new(2013,2,1).change month: 4 # => 2013-04-01 00:00:00 +0900
+```
+
+指定できるのは
+
+* :year
+* :month
+* :day
+* :hour
+* :min
+* :sec
+* :usec
+
 ### #advance
+
+* advance(options)
+
+時間を進めます。
+`change` メソッドと同様に キーとバリューを使って変更します。
+
+指定できるのは
+
+* :years
+* :months
+* :weeks
+* :days
+* :hours
+* :minutes
+* :seconds
+
+です。
 
 ### #ago
 
+* ago(seconds)
+
+引数 `seconds` 秒前の時刻を返します
+
 ### #since
+
+* since(seconds)
+
+引数 `seconds` 秒後の時刻を返します。`in` というエイリアスがあります。
 
 ### #beginning_of_day
 
+その日の0時0分0秒の 時刻を返します。
+midnight at_midnight at_beginning_of_day というエイリアスがあります。
+
 ### #end_of_day
+
+その日の23時59分59秒の 時刻を返します。
+at_end_of_day というエイリアスがあります。
 
 ### #beginning_of_hour
 
+その時刻の `時` は変更せずに 0分0秒を返します。
+at_beginning_of_hour というエイリアスがあります。
+
 ### #end_of_hour
+
+その時刻の `時` は変更せずに 59分59秒を返します。
+at_end_of_day というエイリアスがあります。
 
 ### #beginning_of_minute
 
+その時刻の `分` は変更せずに 0秒を返します。
+at_beginning_of_minute というエイリアスがあります。
+
 ### #end_of_minute
+
+その時刻の `分` は変更せずに 59秒を返します。
+at_end_of_minute というエイリアスがあります。
 
 ### #all_day
 
+その時刻が示している日の一日中を示す Rangeオブジェクト を返します。
+
 ### #all_week
+
+* all_week(start_day = Date.beginning_of_week)
+
+その時刻が示している週全体を示す Rangeオブジェクトを返します。
+どの曜日を基準にするかは 引数 `start_day` で指定できます。
 
 ### #all_month
 
+その時刻が示している月全体を示す Rangeオブジェクトを返します。
+
 ### #all_quarter
+
+その時刻が示している四半期を示す Rangeオブジェクトを返します。
 
 ### #all_year
 
+その時刻が示している年全体を示す Rangeオブジェクトを返します。
+
 ### #plus_with_duration
+
+演算子 `+` を ActiveSupport::Duration が扱えるように機能拡張します。
 
 ### #minus_with_duration
 
+演算子 `-` を ActiveSupport::Duration が扱えるように機能拡張します。
+
 ### #minus_with_coercion
+
+演算子 `-` を ActiveSupport::TimeWithZone が扱えるように機能拡張します。
 
 ### #compare_with_coercion
 
+演算子 `<=>` を ActiveSupport::TimeWithZone が扱えるように機能拡張します。
+
 ### #eql_with_coercion
+
+eql? メソッド を ActiveSupport::TimeWithZone が扱えるように機能拡張します。
 
 
 Zones
