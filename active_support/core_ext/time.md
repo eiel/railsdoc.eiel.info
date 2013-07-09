@@ -271,6 +271,32 @@ at_end_of_minute というエイリアスがあります。
 
 eql? メソッド を ActiveSupport::TimeWithZone が扱えるように機能拡張します。
 
+Marshal
+--------------------------------------------------------------------------------
+
+Rubyのオブジェクトをファイルに書き出す機能に timezone も含めるように拡張します。
+
+この機能だけ読み込みする方法
+
+```ruby
+require 'active_support/core_ext/time/marshal'
+```
+
+* [ソースコード](https://github.com/rails/rails/blob/v4.0.0/activesupport/lib/active_support/core_ext/time/marshal.rb)
+
+### ._load
+
+* _load(marshaled_time)
+
+読み込みをしてオブジェクトを復元するメソッドです。
+元のメソッドを _load_without_zone と変更しメソッドを上書きしています。
+`@_zone` に ゾーン情報を残しておくことで実現しています。
+
+### ._dump
+
+書き込みするためにオブジェクトを変換するメソッドです。
+元のメソッド `_dump_without_zone`と変更しメソッドを上書きしています。
+`@_zone` というインスタンス変数を追加して dump することで実現しています。
 
 Zones
 --------------------------------------------------------------------------------
