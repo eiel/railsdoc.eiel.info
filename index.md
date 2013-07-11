@@ -23,6 +23,7 @@ Rails メモ
 * [Core Ext - Date](/active_support/core_ext/date)
 * [Core Ext - DateTime](/active_support/core_ext/date_time)
 * [Core Ext - Date and Time](/active_support/core_ext/date_and_time)
+* [Core Ext - Enumerable](/active_support/core_ext/enumerable)
 * [Core Ext - File](/active_support/core_ext/file)
 * [Core Ext - Hash](/active_support/core_ext/hash)
 * [Core Ext - InfiniteComparable](/active_support/core_ext/infinite_comparable)
