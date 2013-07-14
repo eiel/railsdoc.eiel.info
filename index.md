@@ -30,6 +30,7 @@ Rails メモ
 * [Core Ext - integer](/active_support/core_ext/integer)
 * [Core Ext - Kernel](/active_support/core_ext/kernel)
 * [Core Ext - LoadError](/active_support/core_ext/load_error)
+* [Core Ext - Marshal](/active_support/core_ext/marshal)
 * [Core Ext - Module](/active_support/core_ext/module)
 * [Core Ext - Numeric](/active_support/core_ext/numeric)
 * [Core Ext - Object](/active_support/core_ext/object)
