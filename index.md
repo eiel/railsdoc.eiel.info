@@ -33,6 +33,7 @@ Rails メモ
 * [Core Ext - Marshal](/active_support/core_ext/marshal)
 * [Core Ext - Module](/active_support/core_ext/module)
 * [Core Ext - Numeric](/active_support/core_ext/numeric)
+* [Core Ext - NameError](/active_support/core_ext/name_error)
 * [Core Ext - Object](/active_support/core_ext/object)
 * [Core Ext - Range](/active_support/core_ext/range)
 * [Core Ext - String](/active_support/core_ext/string)
