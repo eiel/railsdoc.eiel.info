@@ -36,6 +36,7 @@ Rails メモ
 * [Core Ext - NameError](/active_support/core_ext/name_error)
 * [Core Ext - Object](/active_support/core_ext/object)
 * [Core Ext - Range](/active_support/core_ext/range)
+* [Core Ext - Regexp](/active_support/core_ext/regexp)
 * [Core Ext - String](/active_support/core_ext/string)
 * [Core Ext - Time](/active_support/core_ext/time)
 
