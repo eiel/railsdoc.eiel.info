@@ -41,6 +41,7 @@ Rails メモ
 * [Core Ext - Struct](/active_support/core_ext/struct)
 * [Core Ext - Thead](/active_support/core_ext/thread)
 * [Core Ext - Time](/active_support/core_ext/time)
+* [Croe Ext - URI](/active_support/core_ext/uri)
 
 ### ActiveSupport に定義されているクラス/モジュール
 
