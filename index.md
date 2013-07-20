@@ -39,6 +39,7 @@ Rails メモ
 * [Core Ext - Regexp](/active_support/core_ext/regexp)
 * [Core Ext - String](/active_support/core_ext/string)
 * [Core Ext - Struct](/active_support/core_ext/struct)
+* [Core Ext - Thead](/active_support/core_ext/thread)
 * [Core Ext - Time](/active_support/core_ext/time)
 
 ### ActiveSupport に定義されているクラス/モジュール
