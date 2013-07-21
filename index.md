@@ -45,6 +45,7 @@ Rails メモ
 
 ### ActiveSupport に定義されているクラス/モジュール
 
+* [ActiveSupport::Autoload モジュール](/active_support/dependencies/autoload/)
 * [ActiveSupport::Concern モジュール](/active_support/concern)
 * [ActiveSupport::Deprecation クラスx](/active_support/deprecation)
 * [ActiveSupport::Inflector モジュール](/active_support/inflector)
