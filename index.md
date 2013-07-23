@@ -46,6 +46,7 @@ Rails メモ
 ### ActiveSUpport の機能
 
 * [Lazy Load Hooks](/active_support/lazy_load_hooks)
+* [LoggerSilencer](/active_support/logger_silencer)
 
 ### ActiveSupport に定義されているクラス/モジュール
 
