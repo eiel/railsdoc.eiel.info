@@ -54,5 +54,6 @@ Rails メモ
 * [ActiveSupport::Concern モジュール](/active_support/concern)
 * [ActiveSupport::Deprecation クラスx](/active_support/deprecation)
 * [ActiveSupport::Inflector モジュール](/active_support/inflector)
+* [ActiveSupport::Logger クラス](/active_support/logger)
 * [ActiveSupport::TimeWithZone クラス](/active_support/time_with_zone)
 * [ActiveSupport::XmlMini クラス](/active_support/xml_mini)
