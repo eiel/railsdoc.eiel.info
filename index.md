@@ -52,6 +52,7 @@ Rails メモ
 
 * [ActiveSupport::Autoload モジュール](/active_support/dependencies/autoload/)
 * [ActiveSupport::Concern モジュール](/active_support/concern)
+* [ActiveSupport::Dependencies モジュール](/active_support/dependencies)
 * [ActiveSupport::Deprecation クラスx](/active_support/deprecation)
 * [ActiveSupport::Inflector モジュール](/active_support/inflector)
 * [ActiveSupport::Logger クラス](/active_support/logger)
