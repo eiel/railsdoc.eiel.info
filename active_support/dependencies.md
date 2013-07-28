@@ -88,7 +88,36 @@ watch_namespaces を呼ぶたびに監視する名前空間をスタックしま
 ActiveSupport::Dependencies::ModuleConstMissing
 --------------------------------------------------------------------------------
 
-TODO
+`Module` クラスにインクルードされるモジュール。定数がみつからない場合の処理を追加します。`const_missing` メソッドが呼ばれるようになります。
+
+### .append_features
+
+* append_features(base)
+
+このモジュールを include したときに呼ばれるメソッド。
+
+`const_missing`メソッドを `@_const_missing` に保存して、メソッドを削除している。
+[const_missing](http://doc.ruby-lang.org/ja/1.8.7/method/Module/i/const_missing.html) は定義されていない定数を参照した時に呼ばれるメソッドです。
+
+### .exclude_from
+
+* exclude_from(base)
+
+`.append~feartures` の逆メソッド。 `@_const_missing` から `const_missing`メソッドを戻します。
+
+### #const_missing
+
+* const_missing(const_name)
+
+引数 `constname` をトップレベルのモジュールかどうか判断して、トップレベルなら `::Qbject` を `from_mod` にして `load_missing_constant` を呼びだす。
+
+### unloadble
+
+FIXME
+
+`ActiveSupport::Dependencies::Unlodable#unloadble` へのためのものと推測されるけどよくわからない。
+super に委譲するだけ。
+
 
 ActiveSupport::Dependencies::Loadable
 --------------------------------------------------------------------------------
