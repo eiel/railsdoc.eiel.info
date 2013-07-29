@@ -103,7 +103,8 @@ ActiveSupport::Dependencies::ModuleConstMissing
 
 * exclude_from(base)
 
-`.append~feartures` の逆メソッド。 `@_const_missing` から `const_missing`メソッドを戻します。
+`.append_feartures` の逆の動作をするメソッド。 `@_const_missing` から `const_missing`メソッドを戻します。
+`ActiveSupport::Dependencies`の効果を止める `unhook!` で呼ばれています。
 
 ### #const_missing
 
@@ -122,7 +123,39 @@ super に委譲するだけ。
 ActiveSupport::Dependencies::Loadable
 --------------------------------------------------------------------------------
 
-TODO
+Object に `include` されるモジュール。
+`Kernel#load` や `Kernel#require` の機能を拡張します。
+
+### .exclude_from
+
+`unhook!` した際に呼ばれる。
+
+`Kernel#load` のメソッドをとってきて `load` に上書きする。
+
+### #requre_or_load
+
+* require_or_load(file_name)
+
+`Dependencies.require_or_load` に丸投げ。
+
+### #require_dependency
+
+* require_dependency(file_name, message = "No such file to load -- %s")
+
+fise_name が文字列かどうかチェックして、文字列であれば、`Dependencies.depend_on`に丸投げします。
+
+
+### #load_dependency
+
+reload をするモードで、`Activesupport::Dependency::WatchStack の 定数の監視中であれば、`Activesupport::Dependency.new_constants_in` を利用して、そうでない場合は 普通に `load` または `require` を実行します。
+
+### #load
+
+`Kernel#load` を上書きして、 load_dependecy を使いloadするようにする。
+
+### #require
+
+`Kernel#require` を上書きして、 load_dependecy を使いrequireするようにする。
 
 ActiveSupport::Dependencies::ClassCache
 --------------------------------------------------------------------------------
