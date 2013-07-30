@@ -28,6 +28,31 @@ $ bundle exec ruby -r active_support -e 'puts ActiveSupport::VERSION::STRING'
 
 このファイルの読み込みの最後に`ActiveSupport::Dependencies.hook!`が実行されている。
 
+これによって未設定の定数をみつけた時に `ActiveSupport::Dependencies.autoload_paths` に登録したディレクトリから規約に沿ったファイルを自動的に読み込みます。
+
+例
+
+カレントディレクトに `hoge.rb` というファイルを用意して中身は
+
+```ruby
+class Hoge
+  def hoge
+    "hogehoge"
+  end
+end
+```
+
+とします。
+
+下記のコードを irb などで実行できます。
+
+```ruby
+require 'active_support/dependencies'
+ActiveSupport::Dependencies.autoload_paths << "."
+
+Hoge.new.hoge  # => "hogehoge"
+```
+
 ActiveSupport::Dependencies
 --------------------------------------------------------------------------------
 
@@ -156,6 +181,32 @@ reload をするモードで、`Activesupport::Dependency::WatchStack の 定数
 ### #require
 
 `Kernel#require` を上書きして、 load_dependecy を使いrequireするようにする。
+
+ActiveSupport::Dependecy::Blamable
+--------------------------------------------------------------------------------
+
+Exception クラスに include されるモジュール。
+読み込みに失敗したファイルを記録できるようにする。
+
+### #blame_file!
+
+* blame_file!(file)
+
+file を読み込みに失敗したファイルとして登録。
+
+### #blamed_files
+
+読み込みに失敗したファイルの一覧を取得。
+
+### #describe_blame
+
+読み込みに失敗したファイルの詳細を示す。
+
+### #copy_blame!
+
+* copy_blame!(exc)
+
+別の例外から読み込みに失敗したファイルの情報をコピーする。
 
 ActiveSupport::Dependencies::ClassCache
 --------------------------------------------------------------------------------
