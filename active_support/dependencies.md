@@ -56,7 +56,125 @@ Hoge.new.hoge  # => "hogehoge"
 ActiveSupport::Dependencies
 --------------------------------------------------------------------------------
 
-TODO
+`extend self` されているので実質モジュールメソッドのように使うことになる。
+
+### #hook!
+
+言わばエントリポイント。
+このメソッド呼ぶと自動読み込み機能が有効になる。
+
+### #unhook!
+
+`hook!` を解除する。
+
+### #load?
+
+読み込みモードが `load` かどうかを返す。
+他の読み込みモードには `require` がある。
+
+### #depend_on
+
+* depend_on(file_name, message = "No such file to load -- %s.rb")
+
+`file_name` を読みこみ、失敗したらエラーに情報を付加する。
+
+### #clear
+
+`loaded` を初期化して、自動読み込みしていた定数を削除する
+
+### #require_or_load
+
+* require_or_load(file_name, const_path = nil)
+
+すでに読み込みしてる場合はなにもしない。
+読み込みしたかどうかは モジュール変数`loaded` に保存されている
+モジュール変数mechnize が :load であれば `load` して、そうでない場合 `require` する。
+はじめてloadする場合は警告が出力されるモードになる。
+
+### #qualified_const_defined?
+
+* qualified_const_defined?(path)
+
+定数path が定義されてるかどうか確認する。
+`::Hoge::Mogu` を確認したい場合に先頭の `::` を削除して Object.qualified_const_defined? に問い合わせてしている。
+
+### #loadable_constants_for_path
+
+* loadable_constants_for_path(path, bases = autoload_paths)
+
+引数bases から定数パス を構築しリストで返す。
+ファイルが見つからなければ空のリストを返す。
+
+例:
+
+```
+$ tree hoge
+hoge
+├── goro
+│   └── hoge.rb
+└── mogu
+```
+
+```ruby
+require 'active_support/dependencies'
+ActiveSupport::Dependencies.loadable_constants_for_path('hoge/goro/hoge',['.'])  # HOGE::GORO::HOGE
+```
+
+### #search_for_file
+
+### #autoloadable_module?
+
+### #load_once_path?
+
+### #autoload_module!
+
+### #load_file
+
+### #qualified_name_for
+
+### #load_missing_constant
+
+### #remove_unloadable_constants!
+
+### #log_call
+
+* log_call(*args)
+
+`ActiveSupport::Dependencies` の log が有効であれば、
+
+`called 呼び出し元 引数をカンマでjoinしたもの`
+
+が出力されます。ログレベルは debug になります。
+
+### #log
+
+* log(msg)
+
+`ActiveSupport::Dependencies` の log が有効であれば、引数msg をログレベル debug で出力します。
+頭に`Dependencies: ` が付与されます。
+
+### #log_activity?
+
+`logger` にインスタンスが設定されており、`log_activity` が true であれば、有効状態になります。
+
+```ruby
+require 'active_support/dependencies'
+require 'logger'
+
+ActiveSupport::Dependencies.logger = Logger.new(STDOUT)
+ActiveSupport::Dependencies.log_activity = true
+
+# log メソッドが protected なので include した
+include ActiveSupport::Dependencies
+log 'hoge'
+```
+
+出力
+
+```
+D, [2013-07-31T11:57:59.350313 #23340] DEBUG -- : Dependencies: hoge
+```
+
 
 ActiveSupport::Dependencies::WatchStack
 --------------------------------------------------------------------------------
