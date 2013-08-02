@@ -117,24 +117,128 @@ hoge
 
 ```ruby
 require 'active_support/dependencies'
-ActiveSupport::Dependencies.loadable_constants_for_path('hoge/goro/hoge',['.'])  # HOGE::GORO::HOGE
+ActiveSupport::Dependencies.loadable_constants_for_path('hoge/goro/hoge',['.'])  # => [Hoge::Goro::Hoge]
 ```
 
 ### #search_for_file
 
+* search_for_file(path_suffix)
+
+`ActiveSupport::Dependencies.autoload_paths` から 引数path_suffix に該当するファイルを探す。
+`.rb` はあってもなくても補完されます。みつからない場合は nil を返す。
+
+例:
+
+```
+$ tree hoge
+hoge
+└── hoge.rb
+```
+
+```ruby
+require 'active_support/dependencies'
+ActiveSupport::Dependencies.autoload_paths << "."
+
+ActiveSupport::Dependencies.search_for_file("hoge.rb")      # => nil
+ActiveSupport::Dependencies.search_for_file("hoge/hoge.rb") # => "./hoge/hoge.rb"
+ActiveSupport::Dependencies.search_for_file("hoge/hoge")    # => "./hoge/hoge.rb"
+```
+
 ### #autoloadable_module?
+
+* autoloadable_module?(path_suffix)
+
+引数`path_suffix` が`ActiveSupport::Dependencies.autload_paths`内にあるディレクトリか確認します。
+モジュールのためのディレクトがあるか確認できます。
+みつかった場合の戻り値は `autoload_paths` の要素になります。
+
+```ruby
+require 'active_support/dependencies'
+
+ActiveSupport::Dependencies.autoload_paths << "."
+ActiveSupport::Dependencies.autoloadable_module? "hoge/mogu"  # => "."
+```
 
 ### #load_once_path?
 
+* load_once_path?(path)
+
+引数path が `ActiveSupport::Dependencies.autoload_once_pahs` に該当するものかどうか確認します。
+
 ### #autoload_module!
+
+* autoload_module!(into, const_name, qualified_name, path_suffix)
+
+引数qualified_name を定義するために 引数into モジュール に 引数const_name を定義します。
+引数path_suffix は実際のパスに対応します。
+
+`Hoge::Mogu` を読み込みするのに `Hoge` を提供する`hoge.rb`がなくても読み込めるのもの言えそう。
+
+読み込みしたものは autoloaded_constantns に記録。
 
 ### #load_file
 
+* load_file(path, const_paths = loadable_constants_for_path(path))
+
+引数path 読み込みします。
+引数const_paths から基準にするモジュールを探します。
+
 ### #qualified_name_for
+
+* qualified_name_for(mod, name)
+
+引数mod 親としたときの 引数name のフルネームを返します。
+トップレベルの場合 mod が Object になるので、これが表示されないようになっています。
+
+``ruby
+require 'active_support/dependencies'
+
+Hoge = Module.new
+
+ActiveSupport::Dependencies.qualified_name_for Object, "Mogu" # => "Mogu"
+ActiveSupport::Dependencies.qualified_name_for Hoge, "Mogu" # => "Hoge::Mogu"
+```
 
 ### #load_missing_constant
 
+* load_missing_constant(from_mod, const_name)
+
+定数の読み込みに失敗した時に自動読み込みを試みます。
+引数 from_mod に 引数const_name を読み込もうと試みます。
+このモジュールのコアと言えそう。
+
+* 読み込みがループしているようなら例外が飛ぶようになってる
+* 該当するファイルがみつからなくても `Hoge::Mogu` のHogeのような名前空間のためのものであればなんとかするようになってる
+* ファイルを読み込みしても該当する定数が定義されてなければ例外が発生する
+
 ### #remove_unloadable_constants!
+
+自動で読み込みしたものをすべて破棄します。
+
+下記のような `./hoge/mogu/goro.rb` を用意して
+
+```ruby
+module Hoge::Mogu
+  class Goro
+  end
+end
+
+puts 'gorogoro'
+```
+
+以下を実行したら、`RuntimeError: Circular dependency detected while autoloading constant Hoge::Mogu::Goro` が発生した。
+
+```ruby
+require 'active_support/dependencies'
+
+ActiveSupport::Dependencies.autoload_paths << "."
+Hoge::Mogu::Goro
+# outpus "gorogoro"
+ActiveSupport::Dependencies.remove_unloadable_constants!
+Hoge::Mogu::Goro
+```
+
+バグなのか調査したい。
 
 ### #log_call
 
