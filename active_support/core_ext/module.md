@@ -62,7 +62,8 @@ alias_method :foo?, :foo_with_feature?
 * [active_support/core_ext/date/infinite_comparable](/active_support/core_ext/date#Infinite Comparable)
 
 
-### #alias_attrib ute
+### #alias_attribute
+
 * alias_attribute(new_name, old_name)
 
 属性のエイリアスを作成することができます。`new_name`, `new_name?`, `new_name=` メソッドが定義されます。

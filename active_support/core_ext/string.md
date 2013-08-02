@@ -218,7 +218,7 @@ options には :omission と :separator を指定することができます。
 
 truncat_at が :omission より短い場合、バグがある。
 
-```ruby`
+```ruby
 "hoge goro mogu".truncate 10  # => "hoge go..."
 "hoge goro mogu".truncate 10, omission: '..'  # => "hoge gor.."
 "hoge goro mogu".truncate 10, separator: ' '  # => "hoge..."
@@ -379,6 +379,7 @@ camelize の逆の動作をします。フォームなどに使用されてい�
 
 定数名の最も右側を取り除きます。
 実際の処理は[ActiveSupport::Inflector](/active_support/inflector/)で行なわれます。
+
 ```ruby
 "Hoge::Goro".deconstantize  # => "Hoge"
 "::Hoge::Goro".deconstantize # => "::Hoge"

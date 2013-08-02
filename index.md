@@ -43,7 +43,7 @@ Rails メモ
 * [Core Ext - Time](/active_support/core_ext/time)
 * [Croe Ext - URI](/active_support/core_ext/uri)
 
-### ActiveSUpport の機能
+### ActiveSupport の機能
 
 * [Lazy Load Hooks](/active_support/lazy_load_hooks)
 * [LoggerSilencer](/active_support/logger_silencer)
