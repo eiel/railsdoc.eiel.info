@@ -7,12 +7,12 @@ title: ActiveSupport::Dependencies
 
 ```
 $ ruby -v
-ruby 2.0.0p0 (2013-02-24 revision 39474) [x86_64-darwin12.2.1]
+ruby 2.0.0p247 (2013-06-27 revision 41674) [x86_64-darwin12.4.0]
 ```
 
 ```
 $ bundle exec ruby -r active_support -e 'puts ActiveSupport::VERSION::STRING'
-4.0.0.rc1
+4.0.0
 ```
 
 `active_support` で Autoload されています。
@@ -432,5 +432,41 @@ file を読み込みに失敗したファイルとして登録。
 
 ActiveSupport::Dependencies::ClassCache
 --------------------------------------------------------------------------------
+スレッドセーフなキャッシュのラッパー。get や safe_get でキャッシュにある定数を取得。store で保存 clear! で削除する。
 
-TODO
+### #initialize
+
+`ThreadSafe::Cache` のインスタンスを内部に持ちます。
+
+### #empy?
+
+キャッシュが空かどうか確認する
+
+### #key?
+
+* key?(key)
+
+引数key がキャッシュにあるか確認する
+
+### #get
+
+* get(key)
+
+引数key に該当するクラスを返します。
+
+### safe_get
+
+* sefe_get?(key)
+
+安全に 引数key に該当するクラスを返します。
+例外が飛ばない。
+
+### #store(
+
+* store(class)
+
+キャッシュに 引数 class を登録します。
+
+### #clear!
+
+キャッシュを破棄します。
