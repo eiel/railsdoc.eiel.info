@@ -58,6 +58,42 @@ ActiveSupport::Dependencies
 
 `extend self` されているので実質モジュールメソッドのように使うことになる。
 
+### warnings_on_first_load
+
+mattr_accessor されている。
+デフォルト値はfalse。はじめて特定のファイルをロードする場合は log レベルが warning になる模様。
+
+### history
+
+mattr_accessor されている。
+型は Set。
+読み込んだファイルの履歴を記録する。
+Set なので順番は保存しない模様。
+履歴っぽくない。
+
+### loaded
+
+mattr_accessor されている。
+型は Set。
+history より先に登録される。
+clear メソッドにより空になることがある。
+
+### explicitly_unloadable_constants
+
+mattr_accessor されている。
+autoload する際に無視する定数を登録できる模様。
+
+### logger
+
+mattr_accessor されている。
+このモジュールで使用する logger を設定する。
+デフォルトでは何も設定されていない。
+
+### log_activity
+
+mattr_accessor されている。
+デフォルトは false で、logger を使用するかどうか切り替えることができる。
+
 ### #hook!
 
 言わばエントリポイント。
