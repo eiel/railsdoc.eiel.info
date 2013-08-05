@@ -279,6 +279,61 @@ log 'hoge'
 D, [2013-07-31T11:57:59.350313 #23340] DEBUG -- : Dependencies: hoge
 ```
 
+### #reference
+
+* reference(klass)
+
+引数klass を記録する
+
+### #constanize
+
+* constantize(name)
+
+引数name から `reference`メソッドで記録したクラスを取得する。
+
+### #safe_constatize
+
+* safe_constantize(name)
+
+引数Name に該当する定数がなくても例外が起きないバージョン
+
+### #autolloaded?
+
+* autoloaded?(desc)
+
+引数desc がオートロードされたものか確認する。
+
+### #wiss_unload?
+
+* will_unload?(const_desc)
+
+引数const_desc がロードされない定数の名前か確認する
+
+### #mark_for_unload
+
+* mark_for_unload(const_desc)
+
+引数const_desc を読み込みしない定数の名前として登録する
+
+### #new_constants_in
+
+* new_constants_in(*descs)
+
+このメソッドブロックで読み込みをすることで新しく追加された定数を認識することだげきる。
+
+### #to_constant_name
+
+* to_constant_name(desc)
+
+引数desc を定数の名前に変換する
+
+頭に ::`` ついている場合は取り除いたりする。
+
+### #remove_constant
+
+* remove_constant(const)
+
+引数const を取り除く。
 
 ActiveSupport::Dependencies::WatchStack
 --------------------------------------------------------------------------------
