@@ -78,6 +78,28 @@ mattr_accessor されている。
 history より先に登録される。
 clear メソッドにより空になることがある。
 
+### mechanism
+
+mattor_accessor されている。
+ファイルを読み込みするのに requireを使用するか load を使用するか。
+デフォルトでは、環境変数NO_RELOAD の値が true であれば `:require` でそれ以外の場合は`:load` に設定されます。
+
+### autoload_paths
+
+mattr_accesor されている。
+デフォルトでは空リスト。
+定数が見つからない場合にファイルを探査するディレクトリパスを登録します。
+
+### autoload_once_paths
+
+mattr_accessor されている。
+一度しか読み込みしないディレクトリパスを登録します。
+
+### autoloaded_constants
+
+mattr_acessor されている。
+読み込みした定数が記録されてる。
+
 ### explicitly_unloadable_constants
 
 mattr_accessor されている。
