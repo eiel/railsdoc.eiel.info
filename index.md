@@ -59,3 +59,8 @@ Rails メモ
 * [ActiveSupport::Logger クラス](/active_support/logger)
 * [ActiveSupport::TimeWithZone クラス](/active_support/time_with_zone)
 * [ActiveSupport::XmlMini クラス](/active_support/xml_mini)
+
+### 勉強会資料
+
+* [広島Ruby勉強会 #32](/hiroshimarb/22)
+* [広島Ruby勉強会 #33](/hiroshimarb/23)
