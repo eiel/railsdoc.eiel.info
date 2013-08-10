@@ -55,6 +55,7 @@ Rails メモ
 * [ActiveSupport::Dependencies モジュール](/active_support/dependencies)
 * [ActiveSupport::Deprecation クラス](/active_support/deprecation)
 * [ActiveSupport::DescendantsTracker モジュール](/active_support/descendants_tracker)
+* [ActiveSupport::FileUpdateChecker クラス](/active_support/file_update_checker)
 * [ActiveSupport::Inflector モジュール](/active_support/inflector)
 * [ActiveSupport::Logger クラス](/active_support/logger)
 * [ActiveSupport::TimeWithZone クラス](/active_support/time_with_zone)
