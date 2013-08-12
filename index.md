@@ -58,6 +58,7 @@ Rails メモ
 * [ActiveSupport::FileUpdateChecker クラス](/active_support/file_update_checker)
 * [ActiveSupport::Inflector モジュール](/active_support/inflector)
 * [ActiveSupport::Logger クラス](/active_support/logger)
+* [ActiveSupport::PerThreadRegistry モジュール](/active_support/per_thread_registry)
 * [ActiveSupport::TimeWithZone クラス](/active_support/time_with_zone)
 * [ActiveSupport::XmlMini クラス](/active_support/xml_mini)
 
