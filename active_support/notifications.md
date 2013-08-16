@@ -62,7 +62,8 @@ ActiveSupport::Notifications.instrument('hoge.mogu')
 この値は `subscribe` メソッドの第5引数に渡されます。
 
 通知する処理の管理には [ActiveSupport::Notifications::Fanout](/active_support/notifications/fanout) が使われています。
-通知の処理は `ActiveSupport::Notifications::Instrumenter`が使われています。instrumenter はスレッドごとに生成されます。
+通知の処理は [ActiveSupport::Notifications::Instrumenter](/active_support/notifications/instrumenter) が使われています。
+instrumenter はスレッドごとに生成されます。
 
 ActiveSupport::Notifications
 --------------------------------------------------------------------------------
