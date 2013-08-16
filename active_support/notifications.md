@@ -61,7 +61,7 @@ ActiveSupport::Notifications.instrument('hoge.mogu')
 `instrurment` メソッドは第2引数に `payload` を設定できます。
 この値は `subscribe` メソッドの第5引数に渡されます。
 
-通知する処理の管理には `ActiveSupport::Notifications::Fanout` が使われています。
+通知する処理の管理には [ActiveSupport::Notifications::Fanout](/active_support/notifications/fanout) が使われています。
 通知の処理は `ActiveSupport::Notifications::Instrumenter`が使われています。instrumenter はスレッドごとに生成されます。
 
 ActiveSupport::Notifications
