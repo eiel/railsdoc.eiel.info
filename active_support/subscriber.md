@@ -1,5 +1,5 @@
 ---
-title: ActiveSupport::Notifications::Subscriber
+title: ActiveSupport::Subscriber
 ---
 
 試した環境

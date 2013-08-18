@@ -58,6 +58,7 @@ Rails メモ
 * [ActiveSupport::FileUpdateChecker クラス](/active_support/file_update_checker)
 * [ActiveSupport::Inflector モジュール](/active_support/inflector)
 * [ActiveSupport::Logger クラス](/active_support/logger)
+* [ActiveSupport::LogSubscriber クラス](/active_support/log_subscriber)
 * [ActiveSupport::Notifications クラス](/active_support/notifications)
 * [ActiveSupport::PerThreadRegistry モジュール](/active_support/per_thread_registry)
 * [AcitveSupport::Subscribers クラス](/active_support/subscriber)
