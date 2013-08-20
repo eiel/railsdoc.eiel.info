@@ -51,6 +51,7 @@ Rails メモ
 ### ActiveSupport に定義されているクラス/モジュール
 
 * [ActiveSupport::Autoload モジュール](/active_support/dependencies/autoload/)
+* [ActiveSupport::BacktraceCleaner クラス](/active_support/backtrace_cleaner)
 * [ActiveSupport::Concern モジュール](/active_support/concern)
 * [ActiveSupport::Dependencies モジュール](/active_support/dependencies)
 * [ActiveSupport::Deprecation クラス](/active_support/deprecation)
