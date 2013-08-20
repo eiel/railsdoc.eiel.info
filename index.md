@@ -62,6 +62,7 @@ Rails メモ
 * [ActiveSupport::LogSubscriber クラス](/active_support/log_subscriber)
 * [ActiveSupport::Notifications クラス](/active_support/notifications)
 * [ActiveSupport::PerThreadRegistry モジュール](/active_support/per_thread_registry)
+* [ActiveSupport::ProxyObject](/active_support/proxy_object)
 * [AcitveSupport::Subscribers クラス](/active_support/subscriber)
 * [ActiveSupport::TimeWithZone クラス](/active_support/time_with_zone)
 * [ActiveSupport::XmlMini クラス](/active_support/xml_mini)
