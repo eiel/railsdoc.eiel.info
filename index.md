@@ -53,6 +53,7 @@ Rails メモ
 * [ActiveSupport::Autoload モジュール](/active_support/dependencies/autoload/)
 * [ActiveSupport::BacktraceCleaner クラス](/active_support/backtrace_cleaner)
 * [ActiveSupport::Benchmarkable](/active_support/benchmmarkable)
+* [ActiveSupport::Cache モジュール](/active_support/cache)
 * [ActiveSupport::Concern モジュール](/active_support/concern)
 * [ActiveSupport::Dependencies モジュール](/active_support/dependencies)
 * [ActiveSupport::Deprecation クラス](/active_support/deprecation)
