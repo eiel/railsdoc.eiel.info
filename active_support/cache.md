@@ -14,15 +14,18 @@ $ bundle exec ruby -r active_support -e 'puts ActiveSupport::VERSION::STRING'
 4.0.0
 ```
 
-キャッシュ機能を提供するクラス。
-キャッシュの保存先をいろいろ指定できるみたい。
+キャッシュ機能を提供すモジュール。
+
+実際には ActiveSuport::Cache::Store の継承クラスによってキャッシュの管理が行なわれる。
+使うクラスによってキャッシュの保存先を変えられる。
+Store の種類には以下のものがあります。
 
 * FileStore
 * MemoryStore
 * MemCacheStore
 * NullStore
 
-などなどある。
+などなどあります。
 
 ActiveSupport::Cache
 --------------------------------------------------------------------------------
@@ -43,3 +46,22 @@ ActiveSupport::Cache
 引数 namespace が先頭にやってきて、`:app_id` には、ENV["RAILS_CACHE_ID"] または ENV["RAILS_APP_VERSION"] の値が利用される。
 
 引数key にはリストやオブジェクトも渡せる。`cache_key` というメソッドがあれば、これを使い変換する。配列のばあいは再帰的によびだす。そうでない場合は to_param で変換します。
+
+ActiveSupport::Cache::Store
+--------------------------------------------------------------------------------
+
+抽象クラスなので継承して使います。
+
+### #silence!
+
+サイレンスモードをオンにする。
+
+### #mute
+
+このメソッドにブロックで渡した部分はサイレンスモードで実行されます。
+
+### .instrument
+
+true のとき、通知を発生させるようになります。
+デフォルトは false
+
