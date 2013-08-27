@@ -106,7 +106,7 @@ true のとき、通知を発生させるようになります。
 複数のキーをまとめてキャッシュから取り出し、ハッシュで値を返します。
 通知は発生しない。
 
-### fetch_multi
+### #fetch_multi
 
 * fetch_multi(*names)
 
@@ -128,30 +128,82 @@ name をキーに value をキャッシュとして保存します。
 `name` をキーとしたキャッシュを削除します。
 `cache_delete.active_suppor`という通知が発生します。
 
-### exist?
+### #exist?
 
 * exist?(name, options = nil)
 
 `name` をキーとしたキャッスが存在するか確認します。
 `cache_exist?.active_suppor`という通知が発生します。
 
-### delete_matched
+### #delete_matched
 
 * delete_matched(matcher, options = nil)
 
-マッチするエントリーをすべて削除する。サブクラスでオーバーライドする。
+マッチするエントリーをすべて削除する。
+サブクラスでオーバーライドされることを期待している。
+オーバライドされてない場合はその Store ではサポートされません。
 
-### increment
+### #increment
 
 * increment(name, amount = 1, options = nil)
 
-エントリーの値をインクリメントする。
+エントリーの値を増加させる。
+サブクラスでオーバーライドされることを期待している。
+オーバライドされてない場合はその Store ではサポートされません。
 
+### #decrement
+
+* decrement(name, amount = 1, options = nil)
+
+エントリーの値を現象させる。
+サブクラスでオーバーライドされることを期待している。
+オーバライドされてない場合はその Store ではサポートされません。
+
+### cleanup
+
+* cleanup(options = nil)
+
+無効になっているキャシュを破棄する。
+サブクラスでオーバーライドされることを期待している。
+オーバライドされてない場合はその Store ではサポートされません。
+
+### clear
+
+* clear(options = nil)
+
+キャッシュを破棄する。
+サブクラスでオーバーライドされることを期待している。
+オーバライドされてない場合はその Store ではサポートされません。
+
+### key_matcher
+
+* key_matcher(pattern, options)
+
+protected メソッド。
+引数パターンを namespace オプションに対応できるように再作成する。
+
+### read_entry
+
+* read_entry(key, options)
+
+protected メソッド。
+サブクラスで実装する必要のあるメソッド。
+引数 key に対応した情報を取り出す。
+
+
+### write_entry
+
+* write_entry(key, entry, options)
+
+protected メソッド。
+サブクラスで実装する必要のあるメソッド。
+引数 key に情報を保存する。
 
 ### #merged_options
 
 * merged_options(call_options)
 
+privateメソッド。
 コンストラクタで設定されたオプションと各メソッドで渡されたオプションをマージした結果を返します。コピーされたものを返すので、利用する側は自由に書き換えられます。
 
 オプションには `:namespace, :compress, :compress_threshold, :expires_in, :race_condition_ttl` が使用できます。
@@ -160,3 +212,61 @@ expires_in はオプションのキャッシュ有効期限を設定します。
 
 namespace はキャッシュのキーにprefix をつけて切り換えることができます。
 ブロックを渡しておくと、必要な時に実行してnamespaceを切り替えることができます。
+
+### expanded_key
+
+* expanded_key(key)
+
+private メソッド。
+引数key をパラメータ化する。
+cache_key というメソッドがあればこの値を返す。
+
+
+### namespaced_key
+
+* namespaced_key(key, options)
+
+オプション namespace を反映した key へと変換する。
+
+### instrument
+
+* instrument(operation, key, options = nil)
+
+通知を作成する。
+引数operatoion に応じた通知が発生します。
+key はpayloadに追加され 通知先に伝搬されます。
+
+### log
+
+* log(operation, key, options = nil)
+
+ログを出力する。
+operation 応じた情報を付与する。
+
+### find_cached_entry
+
+* find_cached_entry(key, name, options)
+
+fetch を利用した場合の read 処理を行う。
+
+### handle_expired_entry
+
+* handle_expired_entry(entry, key, options)
+
+期限の切れたエントリを処理する。
+オプションrace_condition_ttl が設定している場合、再エントリされる。
+そうでない場合は破棄されてしまう。
+
+### get_entry_value
+
+* get_entry_value(entry, name, options)
+
+fetch で利用される。
+fetch_hit という通知を発生する。
+
+### save_block_result_to_cache
+
+* save_block_result_to_cache(name, options)
+
+fetch で利用される。
+キャッシュがヒットしなかった場合に値が保存するものがあれば実行される。
