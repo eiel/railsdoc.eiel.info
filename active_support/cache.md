@@ -135,6 +135,19 @@ name をキーに value をキャッシュとして保存します。
 `name` をキーとしたキャッスが存在するか確認します。
 `cache_exist?.active_suppor`という通知が発生します。
 
+### delete_matched
+
+* delete_matched(matcher, options = nil)
+
+マッチするエントリーをすべて削除する。サブクラスでオーバーライドする。
+
+### increment
+
+* increment(name, amount = 1, options = nil)
+
+エントリーの値をインクリメントする。
+
+
 ### #merged_options
 
 * merged_options(call_options)
