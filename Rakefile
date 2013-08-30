@@ -1,3 +1,5 @@
+require 'launchy'
+
 desc 'deploy'
 task :deploy do
   sh 'git rebase master deploy'
@@ -19,6 +21,12 @@ end
 
 desc 'preview'
 task :preview do
+  Thread.new do
+    sleep 1
+    Launchy.open 'http://localhost:4000/'
+  end
+
+end
   sh 'ghc --make site.hs && ./site preview'
 end
 
