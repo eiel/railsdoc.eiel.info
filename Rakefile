@@ -26,7 +26,6 @@ task :preview do
     Launchy.open 'http://localhost:4000/'
   end
 
-end
   sh 'ghc --make site.hs && ./site preview'
 end
 
