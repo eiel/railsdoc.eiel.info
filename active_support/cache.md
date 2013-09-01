@@ -14,7 +14,7 @@ $ bundle exec ruby -r active_support -e 'puts ActiveSupport::VERSION::STRING'
 4.0.0
 ```
 
-キャッシュ機能を提供すモジュール。
+キャッシュ機能を提供するモジュール。
 
 実際には ActiveSuport::Cache::Store の継承クラスによってキャッシュの管理が行なわれる。
 使うクラスによってキャッシュの保存先を変えられる。
@@ -23,7 +23,7 @@ Store の種類には以下のものがあります。
 * FileStore
 * MemoryStore
 * MemCacheStore
-* NullStore
+* [NullStore](/active_support/cache/null_store)
 
 などなどあります。
 
@@ -95,7 +95,7 @@ true のとき、通知を発生させるようになります。
 
 `name` をキーにしたキャッシュに保存された値を取り出します。
 キャッシュにヒットしたかどうかを通知する際に情報を付加します。
-`cache_read.active_suppor`という通知が発生します。
+`.instrument`が`true` であれば、`cache_read.active_suppor`という通知が発生します。
 通知の`payload` に`:hit` というエントリが追加され `true` か `false` を返します。
 
 
@@ -119,21 +119,21 @@ true のとき、通知を発生させるようになります。
 * write(name, value, options = nil)
 
 name をキーに value をキャッシュとして保存します。
-`cache_write.active_suppor`という通知が発生します。
+`.instrument`が`true` であれば、`cache_write.active_suppor`という通知が発生します。
 
 ### #delete
 
 * delete(name, options = nil)
 
 `name` をキーとしたキャッシュを削除します。
-`cache_delete.active_suppor`という通知が発生します。
+`.instrument`が`true` であれば、`cache_delete.active_suppor`という通知が発生します。
 
 ### #exist?
 
 * exist?(name, options = nil)
 
 `name` をキーとしたキャッスが存在するか確認します。
-`cache_exist?.active_suppor`という通知が発生します。
+`.instrument`が`true` であれば、`cache_exist?.active_suppor`という通知が発生します。
 
 ### #delete_matched
 
