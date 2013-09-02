@@ -1,5 +1,5 @@
 ---
-title: ActiveSupport::Cache
+title: ActiveSupport::Cache::NullStore
 ---
 
 試した環境

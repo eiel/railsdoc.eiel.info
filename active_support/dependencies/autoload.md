@@ -20,7 +20,7 @@ $ bundle exec ruby -r active_support -e 'puts ActiveSupport::VERSION::STRING'
 * [ソースコード](https://github.com/rails/rails/blob/v4.0.0/activesupport/lib/active_support/dependencies/autoload.rb)
 
 この モジュールを extend すると Rails の規約に従って autoload が動くようになります。
-autoload は ラス名から クラスが定義されているファイルを予測できるようになります。
+autoload は クラス名から クラスが定義されているファイルを予測できるようになります。
 また、eager load を提供します。
 eager load は `eager_load!` した際に autoload に指定された クラスをまとめて読み込みます。
 これを使うには `eager_outoload` に渡した block 内で autoload するのが基本的になります。
