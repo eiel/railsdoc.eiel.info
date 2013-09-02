@@ -20,9 +20,9 @@ $ bundle exec ruby -r active_support -e 'puts ActiveSupport::VERSION::STRING'
 使うクラスによってキャッシュの保存先を変えられる。
 Store の種類には以下のものがあります。
 
-* FileStore
+* [FileStore](/active_support/cache/file_store)
 * MemoryStore
-* MemCacheStore
+* [MemCacheStore](/active_support/cache/mem_cache_store) - Memcached を使用する
 * [NullStore](/active_support/cache/null_store)
 
 などなどあります。
