@@ -21,7 +21,7 @@ $ bundle exec ruby -r active_support -e 'puts ActiveSupport::VERSION::STRING'
 Store の種類には以下のものがあります。
 
 * [FileStore](/active_support/cache/file_store)
-* MemoryStore
+* [MemoryStore](/active_support/cache/memory_store)
 * [MemCacheStore](/active_support/cache/mem_cache_store) - Memcached を使用する
 * [NullStore](/active_support/cache/null_store)
 

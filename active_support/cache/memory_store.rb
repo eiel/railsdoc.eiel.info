@@ -16,8 +16,8 @@ $ bundle exec ruby -r active_support -e 'puts ActiveSupport::VERSION::STRING'
 
 キャッシュ機能を提供し保存方法を決定する [ActiveSupport::Cach::Store](/active_support/cache) の具象クラスのひとつです。
 
-保存先に Memcached を使用します。
-利用には dalli gem  を使用します。
+保存先にはメモリになります。
+複数のプロセスを起動して rails を運用している場合、プロセス間でキャッシュは共有できません。
 
-コンストラクタの引数は任意ですが、アクセスす Memcached を指定します。
-デフォルトでは `localhost:11211` にアクセスします。
+キャッシュはデフォルトで 32MB まで使用できます。
+コンストラクタに `:size` オプションを指定することで値を変更できます。
