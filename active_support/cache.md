@@ -27,6 +27,12 @@ Store の種類には以下のものがあります。
 
 などなどあります。
 
+また Middleware もあり機能強化もできるようです。
+
+* [Strategy::LocalCache](/active_support/cache/strategylocal_cache)
+
+この LocalCach は現状すべての Store に利用されているようです。
+
 cache を作成して、キャッシュがなければ、`read` は `nil` を返します。
 キャッシュに書き込みする場合は `write` を使います。
 
