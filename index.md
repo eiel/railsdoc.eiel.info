@@ -55,6 +55,7 @@ Rails メモ
 * [ActiveSupport::Benchmarkable](/active_support/benchmmarkable)
 * [ActiveSupport::Cache モジュール](/active_support/cache)
 * [ActiveSupport::Concern モジュール](/active_support/concern)
+* [ActiveSupport::Callbacks モジュール](/active_support/callbacks)
 * [ActiveSupport::Dependencies モジュール](/active_support/dependencies)
 * [ActiveSupport::Deprecation クラス](/active_support/deprecation)
 * [ActiveSupport::DescendantsTracker モジュール](/active_support/descendants_tracker)
