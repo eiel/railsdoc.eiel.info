@@ -88,6 +88,57 @@ ActiveSupport::Callbacks::Conditionals::Value
 ActiveSupport::Callbacks::Conditionals::Filters
 --------------------------------------------------------------------------------
 
+Environment, End, Before, After, Around, ENDING という定数が用意されている。
+
+Before, Afetr, Around にはそれぞれに build メソッドが用意しておりコールバックを生成する。
+これらは AciveSupport::Callbacks::Callback#apply で使用される。
+それぞれの違いは `simple' メソッドを比較するとわかりやすい。
+
 ### Environment
 
-構造体。target halted value run_block というメンバを持つ
+構造体。target, halted, value, run_block というメンバを持つ。
+call する際に様々なオブジェクトに渡される。
+halted には中断されたかどうかが保存される。
+
+### ENDING
+
+End のインスタンス。
+
+ActiveSupport::Callbacks::Conditionals::Filters::End
+--------------------------------------------------------------------------------
+
+### #call
+
+* call(env)
+
+`env.halted` が false であれば `env.run_block を起動します。
+
+ActiveSupport::Callbacks::Conditionals::Filters::Before
+--------------------------------------------------------------------------------
+
+### .build
+
+* build(next_callback, user_callback, user_conditions, chain_config, filter)
+
+コールバックを構築します。
+
+chain_config の :terminator に値がdって、終了状態になっていれば user_callback を呼ばないような処理を作成します。
+また、`user_conditions` に指定した条件を見たさない場合にも user_callback を呼ばないように処理されます。
+
+ActiveSupport::Callbacks::Conditionals::Filters::After
+--------------------------------------------------------------------------------
+
+### .build
+
+* build(next_callback, user_callback, user_conditions, chain_config, filter)
+
+Before と同様の動作するが user_callback より先に nexc_callback を利用するようにする。
+
+ActiveSupport::Callbacks::Conditionals::Filters::Around
+--------------------------------------------------------------------------------
+
+### .build
+
+* build(next_callback, user_callback, user_conditions, chain_config, filter)
+
+Before と同様の動作するが user_callback の 中で next_callback を実行するようにする
