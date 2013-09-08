@@ -55,3 +55,39 @@ Child.new.save
 # > saved
 # > after save
 ```
+
+ActiveSupport::Callbacks
+--------------------------------------------------------------------------------
+
+### CALLBACK_FILTER_TYPES
+
+コールバックのフィルターとして利用できる値の一覧 :before, :after, :around
+
+### run_callbacks
+
+* run_callbacks(kind, &block)
+
+実際にコールバックを行う場所で呼び出しをするメソッド。
+kind に設定されたコールバックを取得して、ブロックの前や後に処理を行う。
+
+"_#{kind}_callbacks"にCallbackChainのインスタンスを保存しておき、コールバックを実行するためのコンテキストを作成して実行を行う。
+
+### #halted_callback_hook
+
+* halted_callback_hook(filter)
+
+コールバックが停止したときに実行される hook。オーバライドしてデバッグやロギングに使える。
+
+
+ActiveSupport::Callbacks::Conditionals::Value
+--------------------------------------------------------------------------------
+
+ブロックを格納しておく、クラス。 call したときに第1引数を無視するのが特徴。
+利用箇所がみつけられない。
+
+ActiveSupport::Callbacks::Conditionals::Filters
+--------------------------------------------------------------------------------
+
+### Environment
+
+構造体。target halted value run_block というメンバを持つ
