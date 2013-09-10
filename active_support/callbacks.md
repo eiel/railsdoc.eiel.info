@@ -113,32 +113,99 @@ ActiveSupport::Callbacks::Conditionals::Filters::End
 
 `env.halted` が false であれば `env.run_block を起動します。
 
-ActiveSupport::Callbacks::Conditionals::Filters::Before
+ActiveSupport::Callbacks::Filters::Before
 --------------------------------------------------------------------------------
 
 ### .build
 
 * build(next_callback, user_callback, user_conditions, chain_config, filter)
 
-コールバックを構築します。
+コールバックを構築します。ブロックオブジェクトを返します。
 
 chain_config の :terminator に値がdって、終了状態になっていれば user_callback を呼ばないような処理を作成します。
 また、`user_conditions` に指定した条件を見たさない場合にも user_callback を呼ばないように処理されます。
 
-ActiveSupport::Callbacks::Conditionals::Filters::After
+ActiveSupport::Callbacks::Filters::After
 --------------------------------------------------------------------------------
 
 ### .build
 
 * build(next_callback, user_callback, user_conditions, chain_config, filter)
+
+コールバックを構築します。ブロックオブジェクトを返します。
 
 Before と同様の動作するが user_callback より先に nexc_callback を利用するようにする。
 
-ActiveSupport::Callbacks::Conditionals::Filters::Around
+ActiveSupport::Callbacks::Filters::Around
 --------------------------------------------------------------------------------
 
 ### .build
 
 * build(next_callback, user_callback, user_conditions, chain_config, filter)
 
+コールバックを構築します。ブロックオブジェクトを返します。
+
 Before と同様の動作するが user_callback の 中で next_callback を実行するようにする
+
+
+ActiveSupport::Callbacks::Callback
+--------------------------------------------------------------------------------
+
+登録されたコールバックを保持しておくためのクラス。
+
+### .build
+
+* build(chain, filter, kind, options)
+
+chain から インスタンスを作成します。chain の name と config を使います。
+
+### #filter
+
+filter の object_id を返します。
+
+### #raw_filter
+
+filter の指している、フィルタそのものを返します。
+
+### #merge
+
+* merge(chain, new_options)
+
+chain と new_options に変更した新しい Callback を作成します。
+
+### #matches?
+
+* matches?(_kind, _filter)
+
+フィルターの種類と利用するフィルータが引数のものと等しいか確認する。
+
+### #duplicates?
+
+コピーできるか確認します。
+
+### #apply
+
+* apply(next_callback)
+
+もっている情報からブロックオブジェクトを生成する。
+
+CallbackChain#compile で利用される。
+次に呼ぶコールバックが必要になるため、最後に呼ぶコールバックから畳み込みされるように使う。
+
+
+### #make_lambda
+
+* make_lambda(filter)
+
+プライペートメソッド。
+
+`#apply` で callback として lambda を生成するときに使うメソッド。
+
+### #conditions_lambdas
+
+プライペートメソッド。
+
+
+`#apply` で利用する。
+コールバック利用条件を満すときだけ動作するようにする。
+オプションに付加された :if や :unless の処理をするためのメソッド。
