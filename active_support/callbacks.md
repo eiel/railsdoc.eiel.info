@@ -209,3 +209,72 @@ CallbackChain#compile で利用される。
 `#apply` で利用する。
 コールバック利用条件を満すときだけ動作するようにする。
 オプションに付加された :if や :unless の処理をするためのメソッド。
+
+
+ActiveSupport::Callbacks::CallbackChain
+--------------------------------------------------------------------------------
+
+Enumerable がミックスインされています。
+@chain がリストなのでこれに委譲した感じになります。
+コールバックするオブジェクトを格納しています。
+@callbacks には compile 済みの実際に使用するブロックがキャッシュされます。
+
+### #initialize
+
+* initialize(name, config)
+
+config には scope に [:kind] が追加されます。
+
+
+### #each
+
+* each(&block)
+
+コールバックのリストを走査します。
+
+### #index
+
+* index(o)
+
+引数o が何番目のコールバックか確認します。
+
+### #empty?
+
+コールバックが空かどうかを確認します。
+
+### #insert
+
+* insert(index, o)
+
+index番目に 引数oをコールバックとしつ追加します。
+
+### #delete
+
+* delete(o)
+
+引数o をコールバックから外します。
+
+### #clear
+
+コールバックをすべて削除します。
+
+### #initialize_copy
+
+オブジェクトをコピーした際の初期化処理です。
+
+### #compile
+
+登録されているコールバックをまとめてブロックを作成します。
+@callbacks にキャッシュされます。
+
+### #append
+
+* append(*callbacks)
+
+コールバックを追加します。
+
+### #prepend
+
+* prepend(*callbacks)
+
+先頭にコールバックを追加します。
