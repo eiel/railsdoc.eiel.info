@@ -64,6 +64,7 @@ Rails メモ
 * [ActiveSupport::Logger クラス](/active_support/logger)
 * [ActiveSupport::LogSubscriber クラス](/active_support/log_subscriber)
 * [ActiveSupport::Notifications クラス](/active_support/notifications)
+* [ActiveSupport::OrderedOptions クラス](/active_support/ordered_options)
 * [ActiveSupport::PerThreadRegistry モジュール](/active_support/per_thread_registry)
 * [ActiveSupport::ProxyObject](/active_support/proxy_object)
 * [AcitveSupport::Subscribers クラス](/active_support/subscriber)
