@@ -63,6 +63,45 @@ ActiveSupport::Callbacks
 
 コールバックのフィルターとして利用できる値の一覧 :before, :after, :around
 
+### .normalize_callback_params
+
+* normalize_callback_params(filters, block)
+
+`.set_callback`メソッドに渡されたパラメータを調整するメソッド。
+
+### .__update_callbacks
+
+* __update_callbacks(name)
+
+引数`name` にひもづくコールバックを追加するメソッド。
+
+### .set_callback
+
+* set_callback(name, *filter_list, &block)
+
+コールバックを作成するメソッド。このクラスの主となるメソッドのひとつ。
+CallbackChain chain にコールバックを追加して再登録しなおすような実装。
+
+### .skip_callback
+
+* skip_callback(name, *filter_list, &block)
+
+登録済みのコールバックを削除したり、特定条件下で無視するようにできる。
+
+### .reset_callbacks
+
+* reset_callbacks(name)
+
+登録しているコールバックを削除できる。
+
+### .define_callbacks
+
+* define_callbacks(*names)
+
+`set_callback` できるようにする 引数`name`のコールバックを作成する。
+このクラスで主となるメソッド。
+
+
 ### run_callbacks
 
 * run_callbacks(kind, &block)
