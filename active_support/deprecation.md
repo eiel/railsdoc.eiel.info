@@ -34,6 +34,23 @@ Behaviors
 
 * [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/deprecation/behaviors.rb#L33-L36)
 
+### #behavior=
+
+* behavior=(behavior)
+
+廃止予定の場合の動作を設定します。設定できる項目は
+
+* raise
+* log
+* strerr
+* ontify
+* silence
+
+で、リストをわたすことで同時に複数設定することもできます。
+
+### debug
+
+true に設定することで debug のための出力を追加できます。
 
 Reporting
 --------------------------------------------------------------------------------
