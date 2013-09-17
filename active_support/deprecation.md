@@ -67,3 +67,12 @@ Reporting
 出力内容は `[ActiveSupport::Deprecation.behavior](#behavior)`を使って設定できます。
 
 * [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/deprecation/reporting.rb#L9-L21)
+
+MethodWrapper
+--------------------------------------------------------------------------------
+### deprecate_methods
+
+* deprecate_methods(target_module, *method_names)
+
+モジュール名とメソッド名を指定するだけでメソッドを deprecate メッセージを吐くようになります。
+引数 `method_names` は Hash で渡し `key` にメソッド名、`value` にメッセージを指定します。
