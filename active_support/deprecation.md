@@ -76,3 +76,29 @@ MethodWrapper
 
 モジュール名とメソッド名を指定するだけでメソッドを deprecate メッセージを吐くようになります。
 引数 `method_names` は Hash で渡し `key` にメソッド名、`value` にメッセージを指定します。
+
+DeprecatedObjectProxy
+--------------------------------------------------------------------------------
+Objectを deprecated なオブジェクトとしてマークできる。warn というメソッドが追加されメソッドを呼ぶ際に毎度呼ばれる。
+これが deprecated なメッセージを出力する。
+
+```ruby
+require 'active_support/deprecation'
+
+a = Activesupport::Deprecation::DeprecatedObjectProxy.new 10, 'this object is deprecate!'
+
+a.to_s # => "10"
+#-> DEPRECATION WARNING: this object is deprecate!. (called from irb_binding at (irb):7)
+a + 10 # => 20
+DEPRECATION WARNING: this object is deprecate!. (called from irb_binding at (irb):8)
+=> 20
+```
+
+DeprecatedInstanceVariableProxy
+--------------------------------------------------------------------------------
+deprecated なインスタンス変数を設定できる。
+
+DeprecatedConstantProxy
+--------------------------------------------------------------------------------
+
+deprecated な定数を設定できる。
