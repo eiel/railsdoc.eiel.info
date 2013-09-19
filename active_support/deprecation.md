@@ -102,3 +102,29 @@ DeprecatedConstantProxy
 --------------------------------------------------------------------------------
 
 deprecated な定数を設定できる。
+
+Reporting
+--------------------------------------------------------------------------------
+
+ActiveSupport::Deprecation.warn を提供するモジュール
+一時的に警告を無効化する scirence も用意されている。
+
+### silenced
+
+attr_accessor されている。 true にすると `warn` メソッドがメッセージを出力しなくなる。
+`silence` メソッドを使うとブロック内で この値を true にした状態にできる。
+
+### gem_name
+
+attr_accessor されている。
+gem の名前をいれておくことで warn のメッセージに gem_name が付加される。
+
+### #warn
+
+* warn(message = nil, callstack = nil)
+
+deprecate であることを通知するためのメソッド 引数を指定しなくてもメッセージは出力する。`
+
+### #silence
+
+ブロック内ではdeprecateメッセージを抑制できます。
