@@ -61,6 +61,7 @@ Rails メモ
 * [ActiveSupport::Deprecation クラス](/active_support/deprecation)
 * [ActiveSupport::DescendantsTracker モジュール](/active_support/descendants_tracker)
 * [ActiveSupport::FileUpdateChecker クラス](/active_support/file_update_checker)
+* [ActiveSupport::Gzip クラス](/active_support/gzip)
 * [ActiveSupport::Inflector モジュール](/active_support/inflector)
 * [ActiveSupport::Logger クラス](/active_support/logger)
 * [ActiveSupport::LogSubscriber クラス](/active_support/log_subscriber)
