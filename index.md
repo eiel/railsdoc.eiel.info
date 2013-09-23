@@ -63,6 +63,7 @@ Rails メモ
 * [ActiveSupport::FileUpdateChecker クラス](/active_support/file_update_checker)
 * [ActiveSupport::Gzip クラス](/active_support/gzip)
 * [ActiveSupport::Inflector モジュール](/active_support/inflector)
+* [ActiveSupport::I18n モジュール](/active_support/i18n)
 * [ActiveSupport::Logger クラス](/active_support/logger)
 * [ActiveSupport::LogSubscriber クラス](/active_support/log_subscriber)
 * [ActiveSupport::Notifications クラス](/active_support/notifications)
