@@ -7,15 +7,35 @@ title: ActiveSupport::Inflector
 
 ```
 $ ruby -v
-ruby 2.0.0p0 (2013-02-24 revision 39474) [x86_64-darwin12.2.1]
+ruby 2.1.0dev (2013-09-22 trunk 43011) [x86_64-darwin12.5.0]
 ```
 
 ```
 $ bundle exec ruby -r active_support -e 'puts ActiveSupport::VERSION::STRING'
-4.0.0.rc1
+4.0.0
 ```
 
-inflections
+言葉の変化に関連した機能を追加できます。
+
+* [ソースコード](https://github.com/rails/rails/blob/master/activesupport/lib/active_support/inflector.rb)
+
+
+ActiveSupport::inflector
+--------------------------------------------------------------------------------
+
+基本的な変換機能を備えた Inflections クラスとファクトリ `.inflections` メソッドが定義されている。
+
+* [ソースコード](https://github.com/rails/rails/blob/master/activesupport/lib/active_support/inflector/inflections.rb#L9-L155)
+
+### .inflections
+
+* inflections(locale = :en)
+
+`ActvieSupport::Inflectors::Inflections` のインスタンスを作り返す。
+locale別にキャッシュされる仕組みなのでこれを経由することで無駄なインスタンスを生成しなくてすみます。
+ブロックを渡すことで引数に インスタンスを渡してくれるので設定したい場合などにも利用できます。
+
+
 --------------------------------------------------------------------------------
 
 Methods
