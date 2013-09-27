@@ -39,7 +39,8 @@ locale別にキャッシュされる仕組みなのでこれを経由するこ�
 ActiveSupport::Inflectors::Inflections
 --------------------------------------------------------------------------------
 
-特殊な処理が必要な単語を記録しておき、そうでないは定型処理をする仕組みになっていて、このデータベースの役割をして、そういた単語を登録したりして利用する。
+特殊な処理が必要な単語を記録しておき、そうでないは定型処理をする仕組みになっていて、このデータベースの役割をして、そういた単語を登録したりして利用する。登録できる項目は、省略形、複数形、単数形、不可算名刺、人間のよみやすい形式への変換といった項目を追加することになります。
+
 実際に変換する場合は `ActiveSupprt::Inflectors::Methods` のメソッドを使うことになる。
 
 * [ソースコード](https://github.com/rails/rails/blob/master/activesupport/lib/active_support/inflector/inflections.rb#L9-L193)
@@ -62,6 +63,43 @@ inflections do |inf|
   p titleize "HTML"      # => "HTML"
 end
 ```
+
+### #plural
+
+* plural(rule, replacement
+
+複数形の登録を行います。
+
+### #singular
+
+* singular(rule, replacement)
+
+単数形の登録を行います。
+
+### #irregular
+
+* irregular(singular, plural)
+
+複数形が people のような person といった特殊な単語を登録します。
+
+### #uncountable
+
+* uncountabel(*worlds)
+
+money や infomation のような数えられない単語を登録します。
+
+### #human
+
+* human(rule, replacement)
+
+人間によみやすくなるように変換するものを登録します。引数 rule には正規表現を登録可能です。
+
+### #clear
+
+* clear(scope = :all)
+
+データベースを空にします。
+scope に@なしのインスタンス名をわたすとそれに対応したものを空にします。
 
 
 Methods
