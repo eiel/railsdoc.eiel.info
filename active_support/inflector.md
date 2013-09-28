@@ -333,3 +333,24 @@ ActiveSupport::Inflector.ordinalize(3)  # => "3rd"
 ```
 
 * [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/inflector/methods.rb#L277-L299)
+
+
+Transliterate
+--------------------------------------------------------------------------------
+
+非アスキー文字をアスキー文字へ変換する `transliterate` が実装されている。
+そもそもの目的は URL などで使用できる文字列を作成するための ``parameterize` のためにあるようにも間じる。
+
+### #transliterate
+
+* transliterate(string, replacement = "?")
+
+非アスキー文字を近いアスキー文字に変換する
+あまり日本語だと関係ないと思う。
+
+### #parameterize
+
+* parameterize(string, sep = '-')
+
+文字列をURLなどに利用するパラメータへ変換するメソッド。
+利用できない特殊な文字を含む場合はsepで置き換えがされます。
