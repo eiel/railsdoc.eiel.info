@@ -66,6 +66,7 @@ Rails メモ
 * [ActiveSupport::Inflector モジュール](/active_support/inflector)
 * [ActiveSupport::I18n モジュール](/active_support/i18n)
 * [ActiveSupport::JSON モジュール](/active_support/json)
+* [ActiveSupport::KeyGenerator](/active_support/key_generator)
 * [ActiveSupport::Logger クラス](/active_support/logger)
 * [ActiveSupport::LogSubscriber クラス](/active_support/log_subscriber)
 * [ActiveSupport::Notifications クラス](/active_support/notifications)
