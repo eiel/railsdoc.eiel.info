@@ -14,6 +14,8 @@ $ bundle exec ruby -r active_support -e 'puts ActiveSupport::VERSION::STRING'
 4.0.0
 ```
 
+* [ソースコード](https://github.com/rails/rails/blob/4-0-stable/activesupport/lib/active_support/key_generator.rb)
+
 [PBKDF2](http://d.hatena.ne.jp/tmatsuu/20120106/1325852543) を使うための OpenSSL へのラッパーの ActiveSupport::KeyGenerator とこのジェネレータを ActiveSupport::ThreadSafe::Cache を使うためのクラスが定義されている。
 
 `ActiveSupport::LegacyKeyGenerator`というものも定義されていて シークレットが30文字より小さいことと空でないことを確認してsaltを利用しないジェネレータも定義されている。
