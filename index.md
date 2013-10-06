@@ -70,6 +70,7 @@ Rails メモ
 * [ActiveSupport::Logger クラス](/active_support/logger)
 * [ActiveSupport::LogSubscriber クラス](/active_support/log_subscriber)
 * [ActiveSupport::MessageEncrypt](/active_support/message_encrypt)
+* [ActiveSupport::MessageVerifier](/active_support/message_verifier)
 * [ActiveSupport::Notifications クラス](/active_support/notifications)
 * [ActiveSupport::OrderedOptions クラス](/active_support/ordered_options)
 * [ActiveSupport::PerThreadRegistry モジュール](/active_support/per_thread_registry)
