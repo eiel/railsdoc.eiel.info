@@ -20,3 +20,11 @@ $ bundle exec ruby -r active_support -e 'puts ActiveSupport::VERSION::STRING'
 ActiveSupport::Multibyte::proxy_class でプロキシーされるクラスを取得して使うのかな？どこか必要になるところで実体は意識せずに使えるようにするのが目的な気がする。
 デフォルトでは ActiveSupport::Multibyte::Chars に設定されています。
 他にも `CharsForUTF32` などが指定できます。
+
+ActiveSupport::Multibyte::Chars
+--------------------------------------------------------------------------------
+String をラップしてマルチバイトに対応したメソッドを提供する。
+
+ActiveSupport::Multibyte::Unicode
+--------------------------------------------------------------------------------
+Unicode のためのいろんなもがはいってるっぽいけどちゃんと見てない。
