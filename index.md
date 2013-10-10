@@ -73,6 +73,7 @@ Rails メモ
 * [ActiveSupport::MessageVerifier](/active_support/message_verifier)
 * [ActiveSupport::Multibyte](/active_support/multibyte)
 * [ActiveSupport::Notifications クラス](/active_support/notifications)
+* [ActiveSupport::OptionMerger クラス](/active_support/option_merger)
 * [ActiveSupport::OrderedOptions クラス](/active_support/ordered_options)
 * [ActiveSupport::PerThreadRegistry モジュール](/active_support/per_thread_registry)
 * [ActiveSupport::ProxyObject](/active_support/proxy_object)
