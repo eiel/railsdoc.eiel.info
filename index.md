@@ -75,6 +75,7 @@ Rails メモ
 * [ActiveSupport::Notifications クラス](/active_support/notifications)
 * [ActiveSupport::OptionMerger クラス](/active_support/option_merger)
 * [ActiveSupport::OrderedOptions クラス](/active_support/ordered_options)
+* [ActiveSupport::OrderedHash クラス](/active_support/ordered_hash)
 * [ActiveSupport::PerThreadRegistry モジュール](/active_support/per_thread_registry)
 * [ActiveSupport::ProxyObject](/active_support/proxy_object)
 * [AcitveSupport::Subscribers クラス](/active_support/subscriber)
