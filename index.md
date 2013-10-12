@@ -78,6 +78,7 @@ Rails メモ
 * [ActiveSupport::OrderedHash クラス](/active_support/ordered_hash)
 * [ActiveSupport::PerThreadRegistry モジュール](/active_support/per_thread_registry)
 * [ActiveSupport::ProxyObject](/active_support/proxy_object)
+* [ActiveSupport::StringInquirer](/active_support/string_inquiry)
 * [AcitveSupport::Subscribers クラス](/active_support/subscriber)
 * [ActiveSupport::TimeWithZone クラス](/active_support/time_with_zone)
 * [ActiveSupport::XmlMini クラス](/active_support/xml_mini)
