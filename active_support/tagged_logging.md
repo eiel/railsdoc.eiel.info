@@ -95,4 +95,41 @@ formatter へ実質処理を委譲している。
 
 タグをすべて破棄して親クラスの動作に従う。
 
--
+ActiveSupport::TaggedLogging::Formatter
+-------------------------------------------------------------------------------
+loggerのformatter に タグの出力機能を追加する。
+タグのフォーマットは `[タグ名]` となる。
+
+
+### #call
+
+* call(severity, timestamp, progname, msg)
+
+このメソッドは logger のイベントがよばれた際に呼ばれるメソッドなので、
+メソッドをオーバライドして、タグの情報が付加されるようにしてある。
+
+### #tagged
+
+* tagged(*tags)
+
+一時的に `push_tags` をしておき ブロックの実行を終了すると、push したタグをすべて `pop_tags` するようになっている。
+
+### #push_tags
+
+* push_tags(*tags)
+
+空白のタグは捨てるようになっており、tagsに指定されたタグを追加する。
+
+### #pop_tags
+
+* pop_tags(size = 1)
+
+引数`size` だけ設定されているタグを破棄する。
+
+### #clear_tags!
+
+設定されているタグをすべて破棄する。
+
+### current_tags
+
+現在設定されているタグをすべて返す。
