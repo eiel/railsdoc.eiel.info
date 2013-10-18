@@ -45,6 +45,9 @@ Rails メモ
 
 ### ActiveSupport の機能
 
+ActiveSupport は Rails で利用されるユーティリティ集です。
+他の rails の gem には依存していません。
+
 * [Lazy Load Hooks](/active_support/lazy_load_hooks)
 * [LoggerSilencer](/active_support/logger_silencer)
 
@@ -84,6 +87,18 @@ Rails メモ
 * [ActiveSupport::TaggedLogging クラス](/active_support/tagged_logging)
 * [ActiveSupport::TimeWithZone クラス](/active_support/time_with_zone)
 * [ActiveSupport::XmlMini クラス](/active_support/xml_mini)
+
+### ActionPack
+
+ActionPack は ActiveSupport に依存しています。
+また
+
+* `AbstractController`
+* `ActienController`
+* `ActienDispatch`
+* `ActienView`
+
+をまとめたものになってます。
 
 ### 勉強会資料
 
