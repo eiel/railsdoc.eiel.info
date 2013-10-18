@@ -78,6 +78,7 @@ Rails メモ
 * [ActiveSupport::OrderedHash クラス](/active_support/ordered_hash)
 * [ActiveSupport::PerThreadRegistry モジュール](/active_support/per_thread_registry)
 * [ActiveSupport::ProxyObject](/active_support/proxy_object)
+* [ActiveSupport::Rescuable](/active_support/rescuable)
 * [ActiveSupport::StringInquirer](/active_support/string_inquiry)
 * [AcitveSupport::Subscribers クラス](/active_support/subscriber)
 * [ActiveSupport::TaggedLogging クラス](/active_support/tagged_logging)
