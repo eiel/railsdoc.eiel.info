@@ -100,6 +100,13 @@ ActionPack は ActiveSupport に依存しています。
 
 をまとめたものになってます。
 
+### AbstarctController
+
+ActionController と ActionMailer の同一コード部分をまとめたものと聞いたことがある。
+[AbstractController::Base](https://github.com/rails/rails/blob/4-0-stable/actionpack/lib/abstract_controller/base.rb) からみていくと良い。
+
+* [AbstractController::Base](/abstarct_controller/base)
+
 ### 勉強会資料
 
 * [広島Ruby勉強会 #32](/hiroshimarb/22)
