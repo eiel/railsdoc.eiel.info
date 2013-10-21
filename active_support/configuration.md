@@ -20,7 +20,7 @@ $ bundle exec ruby -r active_support -e 'puts ActiveSupport::VERSION::STRING'
 Rails 内では AbstractController::Base ぐらいにしか使われていない模様。
 `ActiveSupport::InheritableOptions`を継承しているので、基本的に好きな値を登録できます。
 
-config_accessor を利用すクラスから直接アクセスできます。
+config_accessor を利用するとクラスから直接アクセスできます。
 
 
 ActiveSupport::Configuration
