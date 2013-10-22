@@ -1,5 +1,5 @@
 ---
-title: ActiveSupport::OrderedHash
+title: AbstractController::Base
 ---
 
 ```
