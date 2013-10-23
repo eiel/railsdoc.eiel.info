@@ -106,6 +106,8 @@ ActionController と ActionMailer の同一コード部分をまとめたもの�
 [AbstractController::Base](https://github.com/rails/rails/blob/4-0-stable/actionpack/lib/abstract_controller/base.rb) からみていくと良い。
 
 * [AbstractController::Base](/abstarct_controller/base)
+* [AbstractController::Callbacks](/abstarct_controller/callbacks)
+* [AbstractController::Collector](/abstarct_controller/collector)
 
 ### 勉強会資料
 
