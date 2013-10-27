@@ -15,7 +15,7 @@ bundle exec ruby -r active_support -e 'puts ActiveSupport::VERSION::STRING'
 * [ソースコード](https://github.com/rails/rails/blob/4-0-stable/actionpack/lib/action_view/path_set.rb)
 
 view の保存先の一覧を記録するクラスで Enumerable がミックスインされている。
-path は [ActienView::OptimizedFileSystemResolver](/action_view/optimized_file_system_resolver) クラスのインスタンスとなっている。
+path は [ActienView::OptimizedFileSystemResolver](/action_view/template/resolver) クラスのインスタンスとなっている。
 
 `find`, `find_all`, `exist?` というメソッドが追加されている。
 登録されている path から目的のテンプレートファイルを探す。
