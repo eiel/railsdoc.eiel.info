@@ -12,7 +12,7 @@ bundle exec ruby -r active_support -e 'puts ActiveSupport::VERSION::STRING'
 4.0.0
 ```
 
-* [ソースコード](https://github.com/rails/rails/blob/4-0-stable/actionpack/lib/abstract_controller/callbacks.rb))
+* [ソースコード](https://github.com/rails/rails/blob/4-0-stable/actionpack/lib/abstract_controller/callbacks.rb)
 
 Controller に before_action, after_action, around_action といったフィルター機能を提供するモジュール。
 [ActiveSupport::Callbacks](/active_support/callbacks) を使い実装している。

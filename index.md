@@ -109,6 +109,9 @@ ActionController と ActionMailer の同一コード部分をまとめたもの�
 * [AbstractController::Callbacks](/abstarct_controller/callbacks)
 * [AbstractController::Collector](/abstarct_controller/collector)
 * [AbstractController::Helpers](/abstarct_controller/helpers)
+* [AbstractController::Layouts](/abstract_controller/layouts)
+* [AbstroctController::Rendering](/abstract_controller/rendering)
+* [AbstractController::ViewPaths](/abstract_controller/view_paths)
 
 ### 勉強会資料
 
