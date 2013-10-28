@@ -34,6 +34,10 @@ ActionView::Template.template_handler_extensions
 
 デフォルトで erb が利用され、 builder, raw, ruby にも最初から対応しています。
 
+Railsに添付されている Handller
+
+* [ActionView::Template::Handlers::ERB](/action_view/template/handlers/erb)
+
 ActienView::Template::Handlers
 --------------------------------------------------------------------------------
 ### .extensions
