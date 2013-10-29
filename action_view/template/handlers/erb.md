@@ -12,7 +12,7 @@ bundle exec ruby -r active_support -e 'puts ActiveSupport::VERSION::STRING'
 4.0.0
 ```
 
-* [ソースコード](https://github.com/rails/rails/blob/e20dd73df42d63b206d221e2258cc6dc7b1e6068/actionview/lib/action_view/template/handlers/erb.rb)
+* [ソースコード](https://github.com/rails/rails/blob/4-0-stable/actionpack/lib/action_view/template/handlers/erb.rb)
 
 拡張子が ERB の時にテンプレートを処理するクラスが実装されています。
 ::Eruby::Erubyを拡張した ActionVIew::Template::Handlers::Erubis が実装されていて ActionView::Template::Handlers::ERB の実際の処理はこちらに委譲されます。

@@ -36,7 +36,8 @@ ActionView::Template.template_handler_extensions
 
 Railsに添付されている Handller
 
-* [ActionView::Template::Handlers::ERB](/action_view/template/handlers/erb)
+* [ActionView::Template::Handlerses::ERB](/action_view/template/handlers/erb)
+* [ActionView::Template::Handlerses::Builder](/action_view/template/handlers/builder)
 
 ActienView::Template::Handlers
 --------------------------------------------------------------------------------
