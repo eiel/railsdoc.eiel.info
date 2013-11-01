@@ -38,6 +38,7 @@ Railsに添付されている Handller
 
 * [ActionView::Template::Handlerses::ERB](/action_view/template/handlers/erb)
 * [ActionView::Template::Handlerses::Builder](/action_view/template/handlers/builder)
+* [ActionView::Template::Handlerses::Raw](/action_view/template/handlers/raw)
 
 ActienView::Template::Handlers
 --------------------------------------------------------------------------------
