@@ -113,6 +113,10 @@ ActionController と ActionMailer の同一コード部分をまとめたもの�
 * [AbstroctController::Rendering](/abstract_controller/rendering)
 * [AbstractController::ViewPaths](/abstract_controller/view_paths)
 
+### ActionView
+
+* [ActionView::Resolver](/action_view/template/resolver)
+
 ### 勉強会資料
 
 * [広島Ruby勉強会 #32](/hiroshimarb/22)

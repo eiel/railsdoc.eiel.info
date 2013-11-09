@@ -38,6 +38,7 @@ ActionView::Resolver::Cache::SmallCache を key, name, prefix, partial という
 
 ActionView::Resolver
 --------------------------------------------------------------------------------
+抽象クラスで `find template` 子クラスをオーバライドして使う。
 
 ### .caching
 
@@ -46,3 +47,34 @@ ActionView::Resolver
 ### #find_all
 
 キモになるメソッドでキャッシュがあるかどうかでない場合は、テンプレートを探すように作成されている模様。
+
+ActionView::PathResolver
+--------------------------------------------------------------------------------
+ActionView::Resolver の具象クラスで、パラメータからファイルパスを決定する機能を備える。初期化時に pattern を指定することで独自のルールを定義できそう。
+find_templates の details は Hash なので、jp_mobile で使われているビューファイルに sp を加えるとスマートフォン用になったりする機能はここら辺をいじればよさそう。
+
+デフォルトのパターンは `:prefix/:action{.:locale,}{.:formats,}{.:handlers,}` となってる。
+
+details の key はすべてチェックして置換しようとしているのでそのまま使えそう。
+
+```ruby
+require 'action_view'
+
+open('hoge.mogu', 'w')
+
+resolver = ActionView::PathResolver.new(":prefix/:action{.:type}")
+resolver.find_all('hoge','',false,type: ['mogu']) # => ['./hoge.mogu']
+```
+
+ActionVIew::FileSystemResolver
+--------------------------------------------------------------------------------
+
+PathResolver を継承していて、基準となる path を保持して resolver 同士の比較が可能になっていたりする。
+
+ActionView::OptimizedFileSystemResolver
+--------------------------------------------------------------------------------
+ファイルパスを生成する build_query を Rails 用に特化した FileSystemResolver
+
+ActionVIew::FallbackFileSystemResolver
+--------------------------------------------------------------------------------
+virtual_path を無効した FileSystemResolver
