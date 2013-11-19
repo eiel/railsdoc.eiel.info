@@ -17,6 +17,8 @@ bundle exec ruby -r active_support -e 'puts ActiveSupport::VERSION::STRING'
 [AbstractController::ViewPaths](/abstract_controller/view_paths) をミックスインしている。
 レンダリングするものを見つけられないと困るからだろう。
 
+ActionView を単体で使う場合に参考になる部分でもある。
+
 AbstractController::DoubleRenderError
 --------------------------------------------------------------------------------
 

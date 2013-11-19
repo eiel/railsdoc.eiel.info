@@ -15,3 +15,7 @@ bundle exec ruby -r active_support -e 'puts ActiveSupport::VERSION::STRING'
 * [ソースコード](https://github.com/rails/rails/blob/4-0-stable/actionpack/lib/abstract_controller/layouts.rb))
 
 [AbstractController::Rendering](/abstract_controller/rendering) をミックスインしている。
+コントローラでViewで使うlayoutが指定できるようになる。
+
+動的に _layout というメソッドを書き換えるような仕組みになっている。
+_normalize_options に割り込み options[:layout] を勝手に設定することで動作する。
