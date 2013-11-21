@@ -12,7 +12,7 @@ bundle exec ruby -r active_support -e 'puts ActiveSupport::VERSION::STRING'
 4.0.0
 ```
 
-* [ソースコード](https://github.com/rails/rails/blob/4-0-stable/actionpack/lib/abstract_controller/layouts.rb))
+* [ソースコード](https://github.com/rails/rails/blob/4-0-stable/actionpack/lib/abstract_controller/layouts.rb)
 
 [AbstractController::Rendering](/abstract_controller/rendering) をミックスインしている。
 コントローラでViewで使うlayoutが指定できるようになる。
