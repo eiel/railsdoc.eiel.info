@@ -55,7 +55,7 @@ ActiveSupport は Rails で利用されるユーティリティ集です。
 
 * [ActiveSupport::Autoload モジュール](/active_support/dependencies/autoload/)
 * [ActiveSupport::BacktraceCleaner クラス](/active_support/backtrace_cleaner)
-* [ActiveSupport::Benchmarkable](/active_support/benchmmarkable)
+* [ActiveSupport::Benchmarkable](/active_support/benchmarkable)
 * [ActiveSupport::Cache モジュール](/active_support/cache)
 * [ActiveSupport::Callbacks モジュール](/active_support/callbacks)
 * [ActiveSupport::Concern モジュール](/active_support/concern)
