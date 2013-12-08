@@ -27,3 +27,9 @@ ActionDispatch::HTTP::Mime::Type:::AcceptItem
 AcceptItem ヘッダーのためのクラス。
 優先順位を保持して比較ができる。
 qが指定されていない場合は、Mime::ALLの時は0に初期化され、そうでない時は 100に設定される模様。
+
+ActionDispatch::HTTP::Mime::Type:::AcceptList
+--------------------------------------------------------------------------------
+
+AcceptItem ヘッダーのためのクラス。
+assort! メソッドで優先順位順に並び変え、xmlの時の処理がいろいろあるようだけど、よくわからない。
