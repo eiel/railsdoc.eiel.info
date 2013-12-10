@@ -21,15 +21,23 @@ ActionDispatch::HTTP::Mime::Mimes
 Array を継承していて利用可能な MimeType を保存しておくクラスと考えられる。map メソッドは実行結果をキャッシュするようになっている。
 破壊的操作をした場合、キャッシュはクリされる。
 
-ActionDispatch::HTTP::Mime::Type:::AcceptItem
+ActionDispatch::HTTP::Mime::Type::AcceptItem
 --------------------------------------------------------------------------------
 
-AcceptItem ヘッダーのためのクラス。
+Accept ヘッダーのためのクラス。
 優先順位を保持して比較ができる。
 qが指定されていない場合は、Mime::ALLの時は0に初期化され、そうでない時は 100に設定される模様。
 
-ActionDispatch::HTTP::Mime::Type:::AcceptList
+ActionDispatch::HTTP::Mime::Type::AcceptList
 --------------------------------------------------------------------------------
 
-AcceptItem ヘッダーのためのクラス。
+Accept ヘッダーのためのクラス。
 assort! メソッドで優先順位順に並び変え、xmlの時の処理がいろいろあるようだけど、よくわからない。
+
+
+ActionDispatch::HTTP::Mime::Type
+--------------------------------------------------------------------------------
+
+Acceptヘッダを解析して AcceptList を作成する `.parse` メソッドをもつ。
+また対応可能なmime_typeを設定する `.register` メソッドとエイリアスを作成する `.register_alias` メソッドもある。
+また、登録する際のコールバックとして `.register_callback` でブロックで追加することができる。
