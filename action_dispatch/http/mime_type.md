@@ -41,3 +41,6 @@ ActionDispatch::HTTP::Mime::Type
 Acceptヘッダを解析して AcceptList を作成する `.parse` メソッドをもつ。
 また対応可能なmime_typeを設定する `.register` メソッドとエイリアスを作成する `.register_alias` メソッドもある。
 また、登録する際のコールバックとして `.register_callback` でブロックで追加することができる。
+
+また、インスタンスはひとつひとつのmime_typeを示す。
+接尾に`?`がつくメソッドは method_missing で実装されている。
