@@ -1,5 +1,5 @@
 ---
-title: ActionDispatch::HTTP::MimeType
+title: Mime
 ---
 
 ```
@@ -15,27 +15,27 @@ bundle exec ruby -r active_support -e 'puts ActiveSupport::VERSION::STRING'
 * [ソースコード](https://github.com/rails/rails/blob/4-0-stable/actionpack/lib/action_dispatch/http/mime_type.rb)
 
 
-ActionDispatch::HTTP::Mime::Mimes
+Mime::Mimes
 --------------------------------------------------------------------------------
 
 Array を継承していて利用可能な MimeType を保存しておくクラスと考えられる。map メソッドは実行結果をキャッシュするようになっている。
 破壊的操作をした場合、キャッシュはクリされる。
 
-ActionDispatch::HTTP::Mime::Type::AcceptItem
+Mime::Type::AcceptItem
 --------------------------------------------------------------------------------
 
 Accept ヘッダーのためのクラス。
 優先順位を保持して比較ができる。
 qが指定されていない場合は、Mime::ALLの時は0に初期化され、そうでない時は 100に設定される模様。
 
-ActionDispatch::HTTP::Mime::Type::AcceptList
+Mime::Type::AcceptList
 --------------------------------------------------------------------------------
 
 Accept ヘッダーのためのクラス。
 assort! メソッドで優先順位順に並び変え、xmlの時の処理がいろいろあるようだけど、よくわからない。
 
 
-ActionDispatch::HTTP::Mime::Type
+Mime::Type
 --------------------------------------------------------------------------------
 
 Acceptヘッダを解析して AcceptList を作成する `.parse` メソッドをもつ。
@@ -46,7 +46,7 @@ Acceptヘッダを解析して AcceptList を作成する `.parse` メソッド�
 接尾に`?`がつくメソッドは method_missing で実装されている。
 
 
-ActionDispatch::HTTP::NullType
+Mime::NullType
 --------------------------------------------------------------------------------
 
 マッチするMimeTypeが存在しない時のためのクラス。シングルトンモジュールがミックスインされている。
