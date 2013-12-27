@@ -27,3 +27,4 @@ Rack::Request を継承して作られた Railsでの Requestクラス。
 
 XMLHttpRequest でのアクセスであるかどうか確認する xml_http_request? や request_id となる uuid や remote_ip といったメソッドが追加されてる。
 環境変数に保存されてる HTTP に関する値へアクセスするメソッドも多数定義されている。
+また HTTP のメソッドを判定するメソッドも追加されている。
