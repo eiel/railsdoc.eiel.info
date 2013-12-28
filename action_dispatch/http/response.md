@@ -20,4 +20,5 @@ bundle exec ruby -r active_support -e 'puts ActiveSupport::VERSION::STRING'
 
 monitor というのが require されてるけど知らないから調べたい。
 
-to_a メソッド rack へ対応した形式へ変換できる。
+to_a メソッド rack へ対応した形式へ変換できる。prepare! という別名がある。
+ステータスコードを自然言語に変換する message メソッドがある。
