@@ -14,7 +14,7 @@ bundle exec ruby -r active_support -e 'puts ActiveSupport::VERSION::STRING'
 
 * [ソースコード](https://github.com/rails/rails/blob/4-0-stable/actionpack/lib/action_dispatch/routing/inspector.rb)
 
-
+rake routes で返す文字列や、エラー画面に表示するルーティング画面を生成するためのクラス RoutesInspector が定義されています。
 
 
 ActionDispatch::Routing::RouteWrapper
@@ -51,13 +51,19 @@ ActionDispatch::Routing という接頭辞がつくクラスのオブジェク�
 
 ### verb
 
+出力を生成する際に利用する情報。
+
 名前から動詞を返すようだが…スーパークラスの source メソッドの返す文字列から $^ を削除したものを返す。
 
 ### path
 
+出力を生成する際に利用する情報。
+
 名前からして path を返すようだが…スーパークラスの spec メソッドの返すオブジェクトを文字列にするだけ。
 
 ### name
+
+出力を生成する際に利用する情報。
 
 スーパークラスの to_s を返す。
 
@@ -67,10 +73,14 @@ ActionDispatch::Routing という接頭辞がつくクラスのオブジェク�
 
 ### json_regexp
 
+出力を生成する際に利用する情報。
+
 名前から推察すると JSON 用の正規表現を作るようだけどよくわからない。
 regexp の結果を置換して正規表現を作成しなおしている。
 
 ### reqs
+
+出力を生成する際に利用する情報。
 
 endpoint の情報に加えて constraints の情報を組合せて、リクエストに必要なものを表現する文字列を生成する。
 
@@ -91,3 +101,24 @@ Rails に付属されている内部コントローラなのかを確認する�
 ### engine?
 
 Rails Engine なのかを確認する。 routes メソッドをもつかどうかで判断できるようです。
+
+
+ActionDispatch::Routing::RoutesInspector
+--------------------------------------------------------------------------------
+
+初期化には routes オブジェクトが必要。
+どのクラスのインスタンスを渡すのは別途調査する。
+routes は route のリストのようで、そのひとつひとつは RouteWrapper で被せて出力を作成する。
+
+### format
+
+* format(formatter, filter = nil)
+
+formatter によってコンソール用の出力を作成したり、HTMLを生成したりと処理を分ける。
+ConsoleFormatter と HTMLFormatter が定義されている。
+filter を利用すると表示する内容を制限できる。
+rake routes を使用した場合、引数でフィルタリングできる。
+
+前処理をして、routes から RailsEngine をみつけておいて、
+ヘッダー、セクション、エンジンの情報を作成して結果を作成する流れになっている。
+
