@@ -122,3 +122,16 @@ rake routes を使用した場合、引数でフィルタリングできる。
 前処理をして、routes から RailsEngine をみつけておいて、
 ヘッダー、セクション、エンジンの情報を作成して結果を作成する流れになっている。
 
+ActionDispatch::Routing::ConsoleFormatter
+--------------------------------------------------------------------------------
+
+コンソール向けフォーマッタ。特に変わったことはしてない。
+
+"#{r[:name].rjust(name_width)} #{r[:verb].ljust(verb_width)} #{r[:path].ljust(path_width)} #{r[:reqs]}"
+
+という形式で出力する。
+
+ActionDispatch::Routing::HtmlTableFormatter
+--------------------------------------------------------------------------------
+
+HTML 用になっただけで大したことはしてない。
