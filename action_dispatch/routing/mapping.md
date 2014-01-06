@@ -14,7 +14,7 @@ bundle exec ruby -r active_support -e 'puts ActiveSupport::VERSION::STRING'
 
 * [ソースコード](https://github.com/rails/rails/blob/4-0-stable/actionpack/lib/action_dispatch/routing/mapper.rb)
 
-Routing の中で一番重要なファイルになりそうな気がする。
+`config/routes.rb` のDSLを担当する部分を担当しており、最終的な仕事は Journey によって行われている模様。
 
 ActionDispatch::Routing::Mapper::Costraints
 --------------------------------------------------------------------------------
