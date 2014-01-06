@@ -18,6 +18,9 @@ bundle exec ruby -r active_support -e 'puts ActiveSupport::VERSION::STRING'
 `Rails.application.routes` で返すのがこのクラスのインスタンスになる。
 必要な機能の多くは別のクラスに委譲しており実際ルータの役目は Journey によて行われていたりする。
 
+ソースコード中に登場する route は [ActionDispatch::Journey::Route](action_dispatch/journey/route) のインスタンスの模様。
+このオブジェクトが要求されるメソッドは`required_parts`, `optimized_path`, `requirements` `segment_keys` `defaults` だった。
+
 ActionDispatch::Routing::RouteSet::Dispatcher
 --------------------------------------------------------------------------------
 
@@ -30,3 +33,18 @@ defoults[:controller] に値が値が設定されていて、Contorller がみ�
 glob は glob が含まれている パラメータを指定することができる模様。
 
 action はデフォルトで index になっていて、指定しなくても動作する。
+
+ActionDispatch::Routeing::RouteSet::NamedRouteCollection
+--------------------------------------------------------------------------------
+
+viewで使用するhelperが定義されているモジュールを作成したり、その元になる名前を保持しているクラス。
+
+`Rails.app.routes.named_routes` でアクセスできる。
+モジュールには `Rails.app.routes.named_routes.module` でアクセスできる。
+
+Enumerable なオブジェクトである。
+コレクションとしての値は `@routes` に Hash で格納されている。
+
+helper は define_named_route_methods メソッドによって作成するが実際には URLHelper や OptimizedUrlHelper などが担当している。
+
+`[]=` した時点でメソッドが作成される。`add`メソッドのエイリアスになっている。
