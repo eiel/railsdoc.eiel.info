@@ -19,7 +19,7 @@ bundle exec ruby -r active_support -e 'puts ActiveSupport::VERSION::STRING'
 必要な機能の多くは別のクラスに委譲しており実際ルータの役目は Journey によて行われていたりする。
 
 ソースコード中に登場する route は [ActionDispatch::Journey::Route](action_dispatch/journey/route) のインスタンスの模様。
-このオブジェクトが要求されるメソッドは`required_parts`, `optimized_path`, `requirements` `segment_keys` `defaults` だった。
+このオブジェクトが要求されるメソッドは`required_parts`, `optimized_path`, `requirements` `segment_keys` `defaults` `url_for` だった。
 
 ActionDispatch::Routing::RouteSet::Dispatcher
 --------------------------------------------------------------------------------
@@ -48,3 +48,35 @@ Enumerable なオブジェクトである。
 helper は define_named_route_methods メソッドによって作成するが実際には URLHelper や OptimizedUrlHelper などが担当している。
 
 `[]=` した時点でメソッドが作成される。`add`メソッドのエイリアスになっている。
+
+ActionDispatch::Routeing::RouteSet::NamedRouteCollection::UrlHelper
+--------------------------------------------------------------------------------
+
+### .create
+
+* create(route, options)
+
+route が optimize_helper かどうか確認して、OptimizedUrlHelper か UrlHelper を作成する。
+必須項目が :controller と :action 以外のものがなけれぼ optimize_helper の模様。
+
+
+### .optimize_helper?
+
+* optimize_helper?(route)
+
+route が optimize_helper なのか確認する。
+
+### #call
+
+* call(t, args)
+
+t.url_for を使用してurlを作成するが、自身がもっている情報を利用する。
+t は route オブジェクト
+
+
+ActionDispatch::Routeing::RouteSet::NamedRouteCollection::OptimizedUrlHelper
+--------------------------------------------------------------------------------
+
+UrlHelper を継承してる。
+こちらは オプションだけでURLが作成できるものになる感じの実装になっている。
+条件を満さない場合は UrlHelper と同じ挙動に。
