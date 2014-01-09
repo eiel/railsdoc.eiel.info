@@ -80,3 +80,68 @@ ActionDispatch::Routeing::RouteSet::NamedRouteCollection::OptimizedUrlHelper
 UrlHelper を継承してる。
 こちらは オプションだけでURLが作成できるものになる感じの実装になっている。
 条件を満さない場合は UrlHelper と同じ挙動に。
+
+ActionDispatch::Routeing::RouteSet
+-------------------------------------------------------------------------------
+ルーティングの中心。ファサードになるのかなぁ。
+
+属性メモ
+
+* formatter - Journey::Formatter
+* set - Journey::Routes
+* routes - set のエイリアス
+* named_routes - NamedRouteCollection
+* default_scope - 外部から代入？ たぶん Hash 現在のデフォルト値みたいなもの
+* router - Journey::Router
+* disable_clear_and_finalize - Bool
+* resources_path_names - Hash
+* default_url_options - Hash
+* request_class - Class - デフオルトは ActionDispatch::Request。コンストラクタからうけとる
+
+### draw
+
+* draw(&block)
+
+`config/routes.rb` で呼ばれるメソッド
+disable_clear_and_finalize を true に設定しておけば clear! と finalized! が呼ばれない。
+ルーティングを評価する部分。評価する時のコンテキストは Mapper になる模様。
+
+必ず nil を返す。
+
+### append
+
+* append(&block)
+
+draw で定義したものの後ろに実行したいブロックを追加する。
+
+追加したブロックは`finalaized!`で利用される。
+
+### prepend
+
+* prepend(&block)
+
+draw で定義するより前に実行したいブロックを追加する。
+追加するブロックは `clear!` で利用される。
+
+### eval_block
+
+* eval_block(block)
+
+ブロックを評価する。
+
+
+### finalize!
+
+すでに finalized されてる場合はなにもしない。
+append によって追加されたブロックの実行と `@filnalized` を true に設定する。
+
+### clear!
+
+初期状態にもどす。
+named_routes と set と formatter を clear する。
+
+preppend によって追加されたブロックの実行をする。
+
+### mounted_helpers
+
+マウントしているすぺてのヘルパーと自分自身のヘルパーにアクセスできるらしい。
