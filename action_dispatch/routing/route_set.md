@@ -145,3 +145,29 @@ preppend によって追加されたブロックの実行をする。
 ### mounted_helpers
 
 マウントしているすぺてのヘルパーと自分自身のヘルパーにアクセスできるらしい。
+
+### define_mounted_helper
+
+* define_mounted_helper(name)
+
+RouteProxyを経由して `"_#{name}"` という名前のメソッドを作成しroutesへ処理を回すような形式のような気がする。
+``"#{name}"` で `"_#{name}"` の結果を保持しているようなメソッドも定義される。
+
+### url_helpers
+
+url_heperが定義されたモジュールを作成するメソッド。
+url_for と optimize_routes_generation? を routes に委譲するのと、named_routes.module を取り込みをする。
+routes にアクセスするための _routes も用意される。
+
+### empty?
+
+ルーティングが空っぽか確認する
+
+### add_route
+
+* add_route(app, conditions = {}, requirements = {}, defaults = {}, name = nil, anchor = true)
+
+引数を整理して path を作成、あとは @setに丸投げ。
+結果を named_routesに保存しておくという方法。戻り値は`@set.add_route` の結果を返す。
+
+Journey がかなり絡んでいる。
