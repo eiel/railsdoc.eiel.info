@@ -171,3 +171,36 @@ routes にアクセスするための _routes も用意される。
 結果を named_routesに保存しておくという方法。戻り値は`@set.add_route` の結果を返す。
 
 Journey がかなり絡んでいる。
+
+ActionDispatch::Routeing::RouteSet::Generator
+------------------------------------------------------------------------------
+ActionDispatch::Routeing::RouteSet#generate の処理を担う。
+このクラスを new して generate メソッドを呼び出すようになってる。
+
+主に formatter に渡すパラメータづくりをする。
+recall は以前読んだコントローラで使用されたオプションなどが入るんじゃないかと推測している。
+
+### PARAMETERIZE
+
+procオブジェクトが代入されている。
+第一引数が :controllerの時 value をそのまま返す。
+そうでなく、value が配列の場合は to_param したものを '/' でjoinしたものを返す。
+それ以外は value を to_param したものを返す。
+
+### recall
+
+コンストラクタの第二引数に渡される Hash
+
+### contoroller
+
+@options の :controller の値を返す。
+
+### current_controller
+
+@recaall の :controller の値を返す。
+
+### use_recall_for
+
+* use_recall_for(key)
+
+@options の値でなく recall の値を使うためのヘルパーのよう。
