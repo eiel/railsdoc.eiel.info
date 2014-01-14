@@ -81,6 +81,43 @@ UrlHelper を継承してる。
 こちらは オプションだけでURLが作成できるものになる感じの実装になっている。
 条件を満さない場合は UrlHelper と同じ挙動に。
 
+
+ActionDispatch::Routeing::RouteSet::Generator
+------------------------------------------------------------------------------
+ActionDispatch::Routeing::RouteSet#generate の処理を担う。
+このクラスを new して generate メソッドを呼び出すようになってる。
+
+主に formatter に渡すパラメータづくりをする。
+recall は以前読んだコントローラで使用されたオプションなどが入るんじゃないかと推測している。
+
+formatter は Journey::Formatter のインスタンス。
+
+### PARAMETERIZE
+
+procオブジェクトが代入されている。
+第一引数が :controllerの時 value をそのまま返す。
+そうでなく、value が配列の場合は to_param したものを '/' でjoinしたものを返す。
+それ以外は value を to_param したものを返す。
+
+### recall
+
+コンストラクタの第二引数に渡される Hash
+
+### contoroller
+
+@options の :controller の値を返す。
+
+### current_controller
+
+@recaall の :controller の値を返す。
+
+### use_recall_for
+
+* use_recall_for(key)
+
+@options の値でなく recall の値を使うためのヘルパーのよう。
+
+
 ActionDispatch::Routeing::RouteSet
 -------------------------------------------------------------------------------
 ルーティングの中心。ファサードになるのかなぁ。
@@ -172,35 +209,57 @@ routes にアクセスするための _routes も用意される。
 
 Journey がかなり絡んでいる。
 
-ActionDispatch::Routeing::RouteSet::Generator
-------------------------------------------------------------------------------
-ActionDispatch::Routeing::RouteSet#generate の処理を担う。
-このクラスを new して generate メソッドを呼び出すようになってる。
+### extra_keys
 
-主に formatter に渡すパラメータづくりをする。
-recall は以前読んだコントローラで使用されたオプションなどが入るんじゃないかと推測している。
+* extra_keys(options, recall={})
 
-### PARAMETERIZE
+generate_extras のふたつめの戻り値を返す。
+url 生成に必要なパラメータの一覧返す感じのような気がしている。
 
-procオブジェクトが代入されている。
-第一引数が :controllerの時 value をそのまま返す。
-そうでなく、value が配列の場合は to_param したものを '/' でjoinしたものを返す。
-それ以外は value を to_param したものを返す。
+### generate_extras
 
-### recall
+* generate_extras(options, recall={})
 
-コンストラクタの第二引数に渡される Hash
+generate の戻り値を少し編集して返す。
 
-### contoroller
+### generate
 
-@options の :controller の値を返す。
+* generate(options, recall = {})
 
-### current_controller
+path を生成するようである。
+実際の処理は Generator クラスにまとめられている。
 
-@recaall の :controller の値を返す。
+### mounted?
 
-### use_recall_for
+マウントされてるかどうかだと思うけど常に false を返してる。
+なにか include すると上書きされるんだろうか。
 
-* use_recall_for(key)
+### optimize_routes_generation?
 
-@options の値でなく recall の値を使うためのヘルパーのよう。
+最適されたルートを生成するか？
+
+何を指してるのかよくわかってないけど、マウントされてないこと と default_url_options が指定されていないこと。
+
+### _generate_prefix
+
+常に nil をかえしている。何かを include して上書きされるんだろうか。
+
+### url_for
+
+* url_for(options)
+
+`ActionDispatch::Http::URL.url_for` に渡すパラメータをつくって url を生成する。
+`generate` を使い path や params を生成する。
+そのためのパラメータを抽出したりなどの処理もする。
+
+### call
+
+* call(env)
+
+`@router` に処理を委譲します。
+
+### recognize_path
+
+* recognize_path(path, environment = {})
+
+path にマッチするルートがあるか確認する。戻り値はparams
