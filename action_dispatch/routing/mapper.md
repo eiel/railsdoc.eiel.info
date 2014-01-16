@@ -1,5 +1,5 @@
 ---
-title: ActionDispatch::Routing::Mapping
+title: ActionDispatch::Routing::Mapper
 ---
 
 ```
@@ -113,3 +113,32 @@ ActionDispatch::Routing::Mapper
 コンストラクタの引数には [ActionDispatch::Routing::RouteSet](action_dispatch/routing/route_set) のインスタンスが利用される。
 `config/routes.rb` で渡しているブロックはこのクラスのインスタンスで instance_eval される。
 `config/routes.rb` で利用できるDSLを定義している。
+
+* Base
+* HttpHelpers
+* Redirection
+* Scoping
+* Concerns
+* Resources
+
+を include して機能強化されます。
+
+初期化時に RouteSet のインスタンスをうけとり、これにルーティングを追加していく。
+scopeにはデフォルトで path_names が設定される。
+この値は最初に受けとった set の resources_path_names の戻り値を使う。
+resources_path_name のデフォルトでは `{ :new => 'new', :edit => 'edit' }` が設定されている。
+
+### .normalize_path
+
+* normalize_path(path)
+
+Journey::Router::Utils.normalize_path で path を修正します。
+
+`(:locale)` が `(/:locale)` になってしまうのを `/(:locale)` になおす模様
+
+### .normalize_name
+
+* normalize_name(name)
+
+normalaize_path を使い name をノーマライズし、`/` をアンダーラインに変更して名前に修正する。
+先頭の / もなくなる。
