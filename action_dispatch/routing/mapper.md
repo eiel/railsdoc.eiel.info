@@ -142,3 +142,84 @@ Journey::Router::Utils.normalize_path で path を修正します。
 
 normalaize_path を使い name をノーマライズし、`/` をアンダーラインに変更して名前に修正する。
 先頭の / もなくなる。
+
+ActionDispatch::Routing::Mapper::Base
+--------------------------------------------------------------------------------
+
+基本的なメソッドが実装されているっぽいけど、一番基本っぽい match は空の実装になってる。
+Resources にて実装されている。
+
+### root
+
+* root(options = {})
+
+"/" に対するルーティングを設定する。
+
+`match '/', { :as => :root, :via => :get }.merge!(options)`
+
+という実装になってる。as に使用してるのが root なので helper は root_path のようになる。
+
+### match
+
+* match(path, options=nil)
+
+ルーティングを作成する上で一番基本的なメソッド。
+大くのメソッドが match のラッパになっている。
+
+第1引数path にパスを指定する。
+もっとも基本的な使い方は `to` オプションに対して、rackオブジェクトが `controller名#action` という指定をする。
+
+使えるオプション
+
+* action
+* controller
+* path
+* module
+* as
+* via
+* to
+* on
+* constraits
+* defaults
+* anchor
+* format
+
+これらのオプションは scope を設定しておくとデフォルト値にできる。
+
+`path` オプションは pathのprefixになる。
+
+`as` オプションは helper を生成する時の名前になる。
+
+`module` オプションはコントローラの名前空間となる
+
+`via` オプションはうけつけるHTTPメソッドを設定する。
+
+`constraints` はpathにふくまれるパラメータに制約を設定できる。
+
+`anchor` はデフォルトで true になっているオプションで false に設定すると path ではじまるパスにマッチするようになる。
+
+## mount
+
+* (app, options = nil)
+
+Rackアプリケーションをとりこめる。
+
+`at` オプションで path を指定する。
+
+`as` オプションが指定されていない場合は、railtie_name メソッドを使い取得する。
+それでも取得できない場合は、クラス名から生成します。
+
+### default_url_options
+
+Mapper が生成する RouteSet のインスタンスの defoult_url_options を設定します。
+urlを生成する時のデフォルト値として使われるはず。
+
+### with_default_scope
+
+scope を付与した状態でルーティングを構築できます。
+
+### has_named_route?
+
+* has_named_route?(name)
+
+name のルーティングがあるか確かめます。
