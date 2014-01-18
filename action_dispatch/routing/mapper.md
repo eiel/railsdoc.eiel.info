@@ -223,3 +223,9 @@ scope を付与した状態でルーティングを構築できます。
 * has_named_route?(name)
 
 name のルーティングがあるか確かめます。
+
+ActionDispatch::Routing::Mapper::HttpHelpers
+--------------------------------------------------------------------------------
+
+HTTP メソッドに対応した get post patch put delete が実装されてる。
+どれも match メソッドの via オプションが設定されるようになっているだけ。
