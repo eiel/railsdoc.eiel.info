@@ -229,3 +229,96 @@ ActionDispatch::Routing::Mapper::HttpHelpers
 
 HTTP メソッドに対応した get post patch put delete が実装されてる。
 どれも match メソッドの via オプションが設定されるようになっているだけ。
+
+
+ActionDispatch::Routing::Mapper::Scoping
+--------------------------------------------------------------------------------
+
+scope とスコープを使って作られてる namespace, constraints, controler, defaults も実装されている。
+
+### scope
+
+パラメータを設定した状態を維持できる機能。コンテキストを作る。
+resources でネストしたりした際の情報の維持などにも使われる。
+
+```ruby
+scope as: 'hoge' do
+  get :mogu, to: 'hoge#mogu'
+end
+```
+
+と
+
+```ruby
+get :mogu, to: 'hoge#mogu', as: 'hoge'
+```
+
+が同じもののように動作する。
+
+### controller
+
+scope に controller オプションを設定する。
+
+```ruby
+controller 'hoge' do
+  ...
+end
+```
+
+は等価と言える。
+
+```ruby
+scope controller: 'hoge' do
+  ...
+end
+```
+
+
+### namespace
+
+名前空間をつかったコントローラへのルーティングを支援する機能。
+Hoge::MogusController への resourceを作る場合には
+
+```ruby
+namespace :hoge
+  resources :mogu
+end
+```
+
+のようになる。scopeで書き換えると
+
+```ruby
+scope path: :hoge, as: :hoge, module: :hoge, shallow_path: :hoge, shallow_prefix: :hoge do
+  resources :mogu
+end
+```
+
+となる模様。
+
+### constraints
+
+ルーティングへ制約を付与できる。
+パラメータに対し、制約をかくこともできるし true, false を返す call メソッドを持つオブジェクトを渡すことも可能。
+call メソッドが呼ばれる場合には、第1引数に request オブジェクトが渡される。
+
+```ruby
+constraints(id: /\d+\.\d+/) do
+  resources :posts
+end
+```
+
+のような使い方をする。この場合 id が 3.4 のような小数点をもつような形式である必要がある。
+
+これも scope でかきなおせる。
+
+```ruby
+scope constraints: {id: /\d+\.\d+/} do
+  resources :posts
+end
+```
+
+### defaults
+
+ルーティングに含まれるパラメータにデフォルト値を設定できる。
+
+これもscopeでかきなおせる。
