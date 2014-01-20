@@ -322,3 +322,123 @@ end
 ルーティングに含まれるパラメータにデフォルト値を設定できる。
 
 これもscopeでかきなおせる。
+
+ActionDispatch::routing::Mapper::Resources
+--------------------------------------------------------------------------------
+
+resources や resource, collection, member, nested, shallow といったDSLが定義されている。
+namespace も若干改良されたり、match も実装されている。
+
+
+### resource
+
+* resource(*resources, &block)
+
+単数リソースのためのルーティングを作成する。
+
+* new
+* create
+* show
+* edit
+* update
+* destroy
+
+の6つのルーティングが生成される。
+
+### resources
+
+* resources(*resources, &block)
+
+複数リソースのためのルーティングを作成する。
+
+* index
+* new
+* create
+* show
+* edit
+* update
+* destroy
+
+の8種類のルーティングを生成する。
+
+shallowオプションをを使うとネストしているリソースをネストしていない状態ものも合わせて定義される。
+
+```ruby
+resources :posts, shallow:true do
+  resources :commests
+end
+```
+
+は以下と等価
+
+```ruby
+resource :posts do
+  resources :comments
+end
+resources :comments
+```
+
+### collection
+
+resources コンテキストの中でのみ使えるDSL。
+リソースのルーティングにはリストに対しての操作と、個別の要素に対する操作が選択でき、リストに対しアクションを用意したい場合に利用する。
+
+```ruby
+resource :posts do
+  collection do
+    get :count
+  end
+end
+```
+
+であれば `/posts/count` というルーティングが作成できる。
+
+項別の要素に対して使う場合は member がある。
+
+
+### member
+
+resources コンテキストの中でのみ使えるDSL。
+リソースのルーティングにはリストに対しての操作と、個別の要素に対する操作が選択でき、個別の要素に対しアクションを指定したい場合はこちらを使う。
+
+```ruby
+resource :posts do
+  collection do
+    get :abstract
+  end
+end
+```
+
+であれば `/posts/1/abstract` というルーティングが作成できる。
+
+リストに対して使う場合は collection がある。
+
+### new
+
+colletion や member のようなもので new に対してアクションを追加できる。
+
+
+### nested
+
+これもリソーススコープ内でのみ使えるDSL。
+試してないのでよくわからない。namespace を リソーススコープで使うのに使われている模様。
+
+### shallow
+
+shallow を提供するためのDSL。
+shallow オプションを使用していない場合に一部だけ shallow にする場合に使える感じする。
+
+### match
+
+ルーティングを支えている。
+Base#match にも書いた。
+
+### add_route
+
+* add_route(action, options)
+
+match を支える技術。RouteSet に値を追加している部分。
+
+### root
+
+ネストしている場合にも使える進化した root が実装されているようです。
