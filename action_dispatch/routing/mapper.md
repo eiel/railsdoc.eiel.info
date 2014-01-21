@@ -442,3 +442,34 @@ match を支える技術。RouteSet に値を追加している部分。
 ### root
 
 ネストしている場合にも使える進化した root が実装されているようです。
+
+ActionDispatch::Routing::Mapper::Concerns
+--------------------------------------------------------------------------------
+
+Rails 4 からの新機能のはず。
+
+concern と concerns を提供する。
+concern が定義するほうで、 concerns が利用するほう。
+
+resouces と resouce には concerns オプションがあるのでこちらからも設定可能。
+
+ルーティングレイヤーの mixin みたいなもので、resources などに似たようなルーティングを付与する場合に使える。
+concern が module で concerns が include と考えるのがわかりやすそう。
+
+
+### concern
+
+* concern(name, callable = nil, &block)
+
+第1引数の name は concernsする時の名前となる。
+callable に call できるオブジェクトを渡す。
+callable を指定していない場合は block の情報を使う。
+
+callable を指定している場合は第1引数に ルーティングを記述するコンテキストの self が渡される。
+
+### concerns
+
+* concerns(*args)
+
+concern で作成した再利用可能なルーティングを利用する。
+引数args は concern の名前のリストと callable または block に渡すオプションを渡せる。
