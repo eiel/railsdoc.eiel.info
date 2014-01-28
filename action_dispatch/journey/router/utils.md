@@ -8,7 +8,7 @@ ruby 2.1.0p0 (2013-12-25 revision 44422) [x86_64-darwin13.0]
 ```
 
 ```
-bundle exec ruby -r active_support -e 'puts ActiveSupport::VERSION::STRING'
+bundle exec ruby -r action_pack -e 'puts ActionPack::VERSION::STRING'
 4.0.2
 ```
 
