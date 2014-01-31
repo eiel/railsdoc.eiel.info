@@ -26,6 +26,7 @@ Routes は制約を含めた上で request がマッチするかどうかを判�
 * constraints,conditions
 
 優先度である precedence が設定でき、デフォルトは0に設定されている。
+routes 側で設定されます。
 
 path は [ActionDispatch::Journey::Path::Pattern](action_dispatch/journey/path/pattern) のインスタンスでないかと思われる。
 
