@@ -12,7 +12,7 @@ bundle exec ruby -r action_pack -e 'puts ActionPack::VERSION::STRING'
 4.0.2
 ```
 
-* [ソースコード](https://github.com/rails/rails/blob/4-0-stable/actionpack/lib/action_dispatch/journey/rout.rb)
+* [ソースコード](https://github.com/rails/rails/blob/4-0-stable/actionpack/lib/action_dispatch/journey/route.rb)
 
 このクラスのインスタンスは[ActionDispatch::Joureny::Routes](action_dispatch/journey/routes) の1要素にになります。
 Routes は制約を含めた上で request がマッチするかどうかを判定する機能をもってるところがポイントになりそう。
