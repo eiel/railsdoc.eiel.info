@@ -1,5 +1,5 @@
 ---
-title: ActionDispatch::Nodes::Node
+title: ActionDispatch::Journey::Nodes::Node
 ---
 
 ```
