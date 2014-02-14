@@ -23,7 +23,12 @@ GET で応答できるものは HEAD でも応答ができるように route が
 
 call はアプリケーションとして動作してしまうので、 recognize メソッドを使えば有効なルートをうけとれる。
 
-`visualizer`メソッドでは GTG.Builder をつかって視覚化ができる。
+`visualizer`メソッドでは GTG.Builder をつかって`Routes FSM with NFA simulation`というHTMLする。
+どうやら dot言語を生成し svg を生成して html にする模様。
+
+```
+$ bundle exec rails runner "puts Rails.application.routes.router.visualizer" > viz.html
+```
 
 ActionDispatch::Journey::Router::RoutingError
 --------------------------------------------------------------------------------
