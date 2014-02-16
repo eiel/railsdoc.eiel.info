@@ -89,3 +89,8 @@ HTMLを作成する。CSSや必要なJavaScriptも。
 
 ### states
 
+状態の一覧を返す。
+
+### transitions
+
+2次元のリストに変換する模様。
