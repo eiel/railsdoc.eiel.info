@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem "activesupport", "= 4.0.2"
-gem "actionpack", "= 4.0.2"
+gem "activesupport", "= 4.1.0.rc1"
+gem "actionpack", "= 4.1.0.rc1"
 gem 'compass'
 gem 'launchy'
