@@ -18,7 +18,7 @@ ActionDispatch::Request に #cookie_jar メソッドを追加する。
 このメソッドは `env['action_dispatch.cookies']` に CookieJar のインスタンスを格納する。
 
 
-ActionDispatch::Cokkies::ChainedCookieJars
+ActionDispatch::Cookies::ChainedCookieJars
 --------------------------------------------------------------------------------
 
 ### permament
@@ -36,3 +36,17 @@ ActionDispatch::Cokkies::ChainedCookieJars
 ### signed_or_encrypted
 
 秘密鍵があれば暗号化に、そうでなければ署名になる。
+
+ActionDispatch::Cookies::VerifyAndUpgradeLegacySignedMessage
+--------------------------------------------------------------------------------
+
+古いタイプの署名をアップグレードするための仕組みがはいってるみたい。
+
+
+ActionDispatch::Cookies::CookieJar
+--------------------------------------------------------------------------------
+
+オブジェクトを作成するヘルパーとして .build がある。
+env より値を取り出してオブジェクトを構築する。
+
+Enumerable になっていて複数の cookie として保存した値を渡りあるける。
