@@ -50,3 +50,22 @@ ActionDispatch::Cookies::CookieJar
 env より値を取り出してオブジェクトを構築する。
 
 Enumerable になっていて複数の cookie として保存した値を渡りあるける。
+
+ActionDispatch::Cookies::PermanentCookieJar
+--------------------------------------------------------------------------------
+
+ChainedCookieJars をミックスインしてる。永続化したことを考えると「なるほどな」と思った。
+コンストラクタで渡してる key_generator はなにに使うんだ…
+
+ActionDispatch::Cookies::JsonSerializer
+--------------------------------------------------------------------------------
+
+クラスメソッドしかなくて JSON へのラッパしかない。
+.load と .dump がシリアライザとの規約になってるんだろうと思われる。
+
+ActionDispatch::Cookies::NullSerializer
+--------------------------------------------------------------------------------
+
+なにもしない。 .load と .dump というメソッドがあるだけ。
+
+
