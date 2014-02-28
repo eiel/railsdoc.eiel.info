@@ -69,3 +69,32 @@ ActionDispatch::Cookies::NullSerializer
 なにもしない。 .load と .dump というメソッドがあるだけ。
 
 
+ActionDispatch::Cookies::SerializedCookieJars
+--------------------------------------------------------------------------------
+
+シリアライズできる CookieJar をつくるときミックスインするんじゃないかと思う。
+シリアライザーは options[:serializer] で指定することができてデフォルトでは Marshal を利用する。
+
+:hypbrid や :json を指定すると JsonSerializer が使用されます。
+
+ActionDispatch::Cookies::SignedCookieJar
+--------------------------------------------------------------------------------
+
+署名された CookieJar を作りたいときに使用する
+
+
+ActionDispatch::Cookies::UpgradeLegacySignedCookieJar
+--------------------------------------------------------------------------------
+
+古い SingendCookieJar で作成されたものアップグレードする模様。
+
+
+ActionDispatch::Cookies::EncryptedCookieJar
+--------------------------------------------------------------------------------
+
+暗号化した CookieJar を作りたいときに使用する。
+
+ActionDispatch::Cookies::UpgradeLegacyEncryptedCookieJar
+--------------------------------------------------------------------------------
+
+古い EncryptedCookieJar で作成されたものをアップグレードする模様。
