@@ -1,5 +1,5 @@
 ---
-title: ActionDispatch::Callback
+title: ActionDispatch::Flash
 ---
 
 ```
