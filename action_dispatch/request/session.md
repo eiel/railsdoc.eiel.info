@@ -17,4 +17,4 @@ bundle exec ruby -r action_pack -e 'puts ActionPack::VERSION::STRING'
 
 `env[ENV_SESSION_KEY]` にセッション情報は保存されている。
 オプションがこれとは別に `env[ENV_SESSION_OPTIONS_KEY]` に保存されている。
-Hashのようにふるまったり、更新
+Hashのようのメソッドなどなどをもつ。
