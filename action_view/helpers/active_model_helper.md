@@ -1,5 +1,5 @@
 ---
-title: ActionView::LogSubscriber
+title: ActionView::Helpers::ActiveModelHelper
 ---
 
 ```
