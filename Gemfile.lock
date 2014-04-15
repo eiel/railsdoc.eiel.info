@@ -43,6 +43,7 @@ PLATFORMS
 
 DEPENDENCIES
   actionpack (= 4.1.0)
+  actionview (= 4.1.0)
   activesupport (= 4.1.0)
   compass
   launchy
