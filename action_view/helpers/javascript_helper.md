@@ -15,3 +15,5 @@ bundle exec ruby -e 'require "action_view"; puts ActionView.version'
 * [ソースコード](https://github.com/rails/rails/blob/v4.1.0/actionview/lib/action_view/helpers/javascript_helper.rb)
 
 javascript_tag と j というエイリアスのある escape_javascript ヘルパーを提供する。
+
+javascript_tag は CDATA でくくってくれます。
