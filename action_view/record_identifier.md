@@ -16,4 +16,4 @@ bundle exec ruby -e 'require "action_view"; puts ActionView.version'
 
 レコードからHTMLに使用する ID や CLASS ための文字列を生成する。
 
-id を作る場合は 新規オブジェクトの場合 new が接頭辞としてつく。
+ID を作る場合は 新規オブジェクトの場合 new が接頭辞としてつき、そうでないはレコードのIDが付与される。
