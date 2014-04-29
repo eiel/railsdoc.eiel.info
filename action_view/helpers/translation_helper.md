@@ -32,3 +32,8 @@ key に suffix として `.html` や `_html` をつけると HTML_SAFEな文字�
 オプションのデフォルトに symbol を挿入しておくと translate で変換されるようにラップされる。
 
 ### localize
+
+* localize(*args)
+
+localize は日付や時間を変換するのに利用するらしい。
+なにもせずに I18n.localize に渡す。
