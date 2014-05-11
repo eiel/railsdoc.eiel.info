@@ -1,5 +1,5 @@
 ---
-title: ActionView::Template
+title: ActionView::Context
 ---
 
 ```
