@@ -1,15 +1,15 @@
 ---
-title: ActionView::Template
+title: ActionView::TestCase
 ---
 
 ```
 $ ruby -v
-ruby 2.1.0dev (2013-09-22 trunk 43011) [x86_64-darwin12.5.0]
+ruby 2.1.2p95 (2014-05-08 revision 45877) [x86_64-darwin13.0]
 ```
 
 ```
-bundle exec ruby -r active_support -e 'puts ActiveSupport::VERSION::STRING'
-4.0.0
+bundle exec ruby -e 'require "action_view"; puts ActionView.version'
+4.1.1
 ```
 
 * [ソースコード](https://github.com/rails/rails/blob/v4.1.0/actionview/lib/action_view/test_case.rb)
