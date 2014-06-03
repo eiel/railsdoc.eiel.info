@@ -54,5 +54,3 @@ HttpAuthentication::Basic.authenticateに処理を委譲する。
 
 ブラウザに認証してくださいという情報を生成する部分。
 HttpAuthentication::Basic.authentication_request に委譲されてる。
-
-
