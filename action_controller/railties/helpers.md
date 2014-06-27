@@ -12,7 +12,7 @@ $ bundle exec ruby -r action_pack -e 'puts ActionPack.version'
 4.1.2
 ```
 
-* [ソースコード](https://github.com/rails/rails/tree/11645adf2561fe9c13015600406d212be85d902e/actionpack/lib/action_controller/railties)
+* [ソースコード](https://github.com/rails/rails/tree/v4.1.2/actionpack/lib/action_controller/railties)
 
 
 ActionController::Railties::Helpers
