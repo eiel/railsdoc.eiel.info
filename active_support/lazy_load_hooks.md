@@ -32,6 +32,10 @@ require 'active_support/lazy_load_hooks'
 
 ライブラリがこの機能に対応するには `ActiveSupport.run_load_hooks` 呼び出しをする必要があります。
 
+コンテキストは run_load_hooks の第2引数に指定したオブジェクトになります。
+yield オプションがあると引数にオブジェクトが渡された状態になります。
+
+
 例:
 
 ```ruby
