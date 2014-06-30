@@ -31,4 +31,4 @@ $ bundle exec ruby -r action_pack -e 'puts ActionPack.version'
 * expire_page.action_controller
 * write_page.action_controller
 
-`ctionController::LogSubscriber.attach_to :action_controller` でアタッチして対応する通知がメソッドに反応する。
+`ctionController::LogSubscriber.attach_to :action_controller` でアタッチして対応する通知に対しメソッドに反応する。

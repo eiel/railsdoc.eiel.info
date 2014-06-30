@@ -4,7 +4,7 @@ desc 'deploy'
 task :deploy do
   sh 'git rebase master deploy'
   Rake::Task['generate'].invoke
-  sh 'rsync -avz _site/ sakura:www/railsdoc'
+  sh 'rsync -avz _site/ ajisai:www/railsdoc'
   sh 'git checkout master'
 end
 
