@@ -30,7 +30,7 @@ Rails
 ### .logger
 
 
-### .configuretion
+### .configuration
 
 Rails.application.configuration のショートカット。
 
@@ -65,7 +65,7 @@ Rails.env の値と RAILS_GROUP の値を カンマでセパレートする。
 ```
 > Rails.groups
 [:default, "development"]
-> Rails.groups(hoge: [:development))
+> Rails.groups(hoge: [:development])
 [:default, "development", :hoge]
 > Rails.groups(hoge: [:test])
 [:default, "development"]
@@ -73,4 +73,4 @@ Rails.env の値と RAILS_GROUP の値を カンマでセパレートする。
 
 ### .public_path
 
-最初の pbulic_path を返す。
+最初の public_path を返す。
