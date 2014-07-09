@@ -50,8 +50,8 @@ Rails::Initializable::ClassMethods
 
 初期化処理を追加する。
 Initializer.new のラッパー。
-blk は必須で、name は初期化処理の名前。opts には before, after, graup を指定できる。
-なにも指定しない場合は after が児童生成する。
+blk は必須で、name は初期化処理の名前。opts には before, after, group を指定できる。
+なにも指定しない場合は after が自動生成する。
 
 Rails::Initializable::Initializer
 ---

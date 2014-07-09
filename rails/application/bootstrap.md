@@ -29,7 +29,7 @@ Rails::Application#initializers で利用される。
 必要があれば、initializer の option で before や after を使い、処理の挿入ができるのではないかと思う。
 実際 load_environment_hook はなにもしてない。
 
-### oad_active_support
+### load_active_support
 
 config.active_support.bare が false の場合 active_support/all を読み込みする
 true にしておくと、読みこまないことができるということっぽい。
