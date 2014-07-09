@@ -32,7 +32,7 @@ Rails
 
 ### .configuration
 
-Rails.application.configuration のショートカット。
+Rails.application.config のショートカット。
 
 
 ### .backtrace_cleaner
