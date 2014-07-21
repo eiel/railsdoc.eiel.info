@@ -117,6 +117,10 @@ ActionController と ActionMailer の同一コード部分をまとめたもの�
 
 * [ActionView::Resolver](/action_view/template/resolver)
 
+### 関連
+
+* [Thor](/thor) rails のコマンドラインインターフェイスを作成するために利用されているライブラリ
+
 ### 勉強会資料
 
 * [広島Ruby勉強会 #32](/hiroshimarb/22)
