@@ -16,7 +16,7 @@ $ bundle exec  ruby -r thor/version -e 'puts Thor::VERSION'
 
 [Thor::Option](/thor/parser/option/) が継承している。
 
-コマンドに渡る引数の情報をもっていて、ヘルプの生成に利用されたりする。
+コマンドに渡る引数のを表す。ヘルプの生成に利用されたりする。
 
 Thor::Argment
 ---
