@@ -1,5 +1,5 @@
 ---
-title: Thor::Shell
+title: Thor::Shell::Basic
 ---
 
 ```
@@ -17,7 +17,7 @@ $ bundle exec  ruby -r thor/version -e 'puts Thor::VERSION'
 [Thor::Shell](/thor/shell) が提供するもっとも単純なシェル環境を提供しつつ。いろいろ操作するためのメソッドを提供する。
 Rails Generator や Rails Template で使うファイルの中でも使える。
 
-Thor::Shell:Base
+Thor::Shell:Basic
 ---
 
 ### mute
