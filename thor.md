@@ -7,6 +7,7 @@ title: Thor
 * [Thor::Shell](/thor/shell)
 * [Thor::Shell::Basic](/thor/shell/basic)
 * [Thor::Util](/thor/util)
+* [Thor::Actions](/thor/actions)
 
 Parser
 ---
