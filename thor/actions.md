@@ -17,6 +17,7 @@ $ bundle exec  ruby -r thor/version -e 'puts Thor::VERSION'
 RailsTemplate などで使えるアクションが定義されている
 
 * [Thor::Actions::EmptyDirectory](/thor/actions/empty_directory)
+* [Thor::Actions::CreateDirectory](/thor/actions/create_directory)
 
 Thor::Actions
 ---
