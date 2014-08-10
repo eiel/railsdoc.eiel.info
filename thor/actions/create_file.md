@@ -1,5 +1,5 @@
 ---
-title: Thor::Actions::CreateDirectory
+title: Thor::Actions::CreateFile
 ---
 
 ```

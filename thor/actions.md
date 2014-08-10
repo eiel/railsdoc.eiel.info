@@ -18,6 +18,7 @@ RailsTemplate などで使えるアクションが定義されている
 
 * [Thor::Actions::EmptyDirectory](/thor/actions/empty_directory)
 * [Thor::Actions::CreateDirectory](/thor/actions/create_directory)
+* [Thor::Actions::CreateLink](/thor/actions/create_link.rb)
 
 Thor::Actions
 ---
