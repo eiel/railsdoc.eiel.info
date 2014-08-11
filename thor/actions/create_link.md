@@ -31,4 +31,4 @@ Thor::Actions::CreateLink
 
 [Thor::Actions::CreateFile](/thor/actions/create_file) を継承している。
 
-invoke! exists? identical? を上書きしている。リンク用に修正している。
+invoke! exists? identical? を上書きしている。

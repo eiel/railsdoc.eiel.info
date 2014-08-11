@@ -23,8 +23,37 @@ RailsTemplate などで使えるアクションが定義されている
 Thor::Actions
 ---
 
-### action
+### #action
 
 * action(instance)
 
 instance の invoke! メソッドを呼ぶ。behavior が :revoke なら revoke! メソッドがよばれる。
+
+### #destination_root
+
+### #destination_root=
+
+### #relative_to_original_destination_root
+
+### #source_paths
+
+`.source_paths_for_search` をつかって source_paths を取得する。
+クラスによって場所が変えられる
+
+### #find_in_source_paths
+
+* find_in_source_paths(file)
+
+file を source_paths から探す。file に `.tt` がついたものも該当する。
+
+### #inside
+
+### #in_root
+
+### #apply
+
+### #run
+
+### #run_ruby_script
+
+### #thor
