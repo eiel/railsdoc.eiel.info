@@ -20,6 +20,7 @@ RailsTemplate などで使えるアクションが定義されている
 * [Thor::Actions::CreateDirectory](/thor/actions/create_directory)
 * [Thor::Actions::CreateLink](/thor/actions/create_link)
 * [Thor::Actions::Directory](/thor/actions/directory)
+* [Thor::Actions::InjectIntoFile](/thor/actions/inject_into_file)
 
 Thor::Actions
 ---
