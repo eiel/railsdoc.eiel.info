@@ -24,3 +24,7 @@ RakeCompat を include したコンテキストで task を定義することで
 class Default < Thor
   include Thor::RakeCompat
 ```
+
+### task
+
+元の処理に加えてインスタンスメソッドを定義することでコマンドにしている。
