@@ -14,7 +14,7 @@ $ bundle exec ruby -r rails -e 'puts Rails.version'
 
 * [ソースコード](https://github.com/rails/rails/blob/v4.1.2/railties/lib/rails/generators.rb)
 
-Generator のための得意メソッドが実装されている。
+Generator のための特異メソッドが実装されている。
 generate コマンドはもちろん、destroy コマンドにも利用される。
 
 Rails::Generators
