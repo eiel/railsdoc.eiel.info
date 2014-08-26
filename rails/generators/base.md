@@ -1,5 +1,5 @@
 ---
-title: Rails::Generator::Base
+title: Rails::Generators::Base
 ---
 
 ```
@@ -21,12 +21,12 @@ Thor::Groupのメソッドがいくつか改良されていて、desc が USAGE 
 余った引数は利用されない。
 force pretend quiet skip というオプションは自然に追加される。
 
-::Generators::Error
+Rails::Generators::Error
 ---
 
 Thor::Error を継承してるエラーを示すクラス
 
-Rails::Generator::Base
+Rails::Generators::Base
 ---
 
 ### .source_root
