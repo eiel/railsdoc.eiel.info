@@ -17,5 +17,7 @@ $ bundle exec ruby -r rails -e 'puts Rails.version'
 [rails/cli](/rails/cli/) からload され [Rails::Generators::AppGenerator](/rails/app/app_generator)を起動する。
 アプリケーションの雛形を生成する。
 
+[Rails::Commands::CommandsTasks](/rails/commands/commands_task) からも起動される。
+
 起動する前に Rails::Generators::AppGenerator.exit_on_failure? が true に上書きされる。
 失敗すると停止するようになる。
