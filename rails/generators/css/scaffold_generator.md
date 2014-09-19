@@ -14,4 +14,6 @@ $ bundle exec ruby -r rails -e 'puts Rails.version'
 
 * [ソースコード](https://github.com/rails/rails/blob/v4.2.0.beta1/railties/lib/rails/generators/css/assets/assets_generator.rb)
 
-`rails g css:assets` の中身。第1引数に指定した名前のcssファイルを生成する。
+`rails g css:scaffold` の中身。第1引数に指定した名前のcssファイルを生成する。
+
+app/assets/stylesheets/scaffold.css を生成するだけ
