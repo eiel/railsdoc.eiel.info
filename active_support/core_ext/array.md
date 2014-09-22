@@ -149,7 +149,7 @@ require 'active_support/core_ext/array/conversion'
 `array.join(',')` では余りに機械的すぎる場合によさそう。
 Rails環境で、`i18n` に対応していれば、日本語化なども可能。
 
-オプションを指定することで、振舞いを変更できる。無効なオプションを指定すると
+オプションを指定することで、振舞いを変更できる。無効なオプションを指定するとArgumentErrorが発生する。
 
 ```ruby
 [].to_sentence                      # => ""
