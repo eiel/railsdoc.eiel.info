@@ -41,7 +41,7 @@ require 'active_support/core_ext/string/access'
 * at(position)
 
 position番目の文字を返します。最初の文字は0番目になります。`self[position]`と等価。
-Rangeオブジェクトモ渡せます。
+Rangeオブジェクトも渡せます。
 
 ### #from
 
