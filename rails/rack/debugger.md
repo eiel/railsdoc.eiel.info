@@ -1,5 +1,5 @@
 ---
-title: Rails::Generators::ResourceRouteGenerator
+title: Rails::Rack::Debugger
 ---
 
 ```
