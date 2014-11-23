@@ -1,5 +1,5 @@
 ---
-title: Rails::TestUnit::Raitie
+title: Rails::TestUnit::Railtie
 ---
 
 ```
@@ -14,3 +14,5 @@ $ bundle exec ruby -r rails -e 'puts Rails.version'
 
 * [ソースコード](https://github.com/rails/rails/blob/v4.2.0.beta4/railties/lib/rails/test_unit/railtie.rb)
 
+TestUnitのための Railtie。
+読み込みしてたときに Rake.pallication が定義されていて test用のタスクがあれば RAILS_ENV をtestにする仕組みがある。
