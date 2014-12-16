@@ -136,7 +136,7 @@ Conversions
 この機能のみ読み込みたい場合は:
 
 ```ruby
-require 'active_support/core_ext/array/conversion'
+require 'active_support/core_ext/array/conversions'
 ```
 
 [ソースコード](https://github.com/rails/rails/blob/v4.0.0.rc1/activesupport/lib/active_support/core_ext/array/conversions.rb)
