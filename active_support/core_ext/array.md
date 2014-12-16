@@ -427,7 +427,7 @@ require 'active_support/core_ext/array/wrap'
 
 ```ruby
 Array.wrap(nil) # => []
-Array.wrap(1) # => [1] [1]
+Array.wrap(1) # => [1]
 Array.wrap([1,2,3]) # => [1,2,3]
 ```
 
