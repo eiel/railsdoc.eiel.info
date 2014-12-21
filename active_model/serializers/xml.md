@@ -19,3 +19,4 @@ $ bundle exec ruby -r rails -e 'puts Rails.version'
 XMLからモデルオブジェクトをつくったり、モデルオブジェクトをXMLにしたりする。
 
 to_xmlするときのoptionには `:builder` で構築するビルダーを変更したり、`:indent`でインデントの量を調節したり,`:namespace`で名前空間の指定もできる。
+`:skip_types`オブションではtype情報を出力しないようにもできる。
