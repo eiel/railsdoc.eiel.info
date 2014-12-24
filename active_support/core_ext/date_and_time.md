@@ -69,7 +69,7 @@ Calculations
 
 ### #days_since(days)
 
-引数`day`'日後のオブジェクトを返します。
+引数`day`日後のオブジェクトを返します。
 
 ### #weeks_ago(weeks)
 
@@ -81,7 +81,7 @@ Calculations
 
 ### #months_ago(months)
 
-引数 `months' 月前のオブジェクトを返します。
+引数 `months`月前のオブジェクトを返します。
 
 ### #month_since(months)
 
@@ -166,7 +166,7 @@ last_week という別名があります。
 ### #beginning_of_week(start_day = Date.beginning_of_week)
 
 その週の最初の日を返します。デフォルトでは月曜日を返します。
-引数 `start_day にシンボルを渡すと、別の曜日に変更できます。`
+引数 `start_day` にシンボルを渡すと、別の曜日に変更できます。
 
 at_beginning_of_week という別名があります。
 
