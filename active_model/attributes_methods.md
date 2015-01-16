@@ -12,6 +12,8 @@ $ bundle exec ruby -r rails -e 'puts Rails.version'
 4.2.0
 ```
 
+* [ソースコード](https://github.com/rails/rails/blob/v4.2.0/activemodel/lib/active_model/attribute_methods.rb)
+
 attribute_methodに関する操作のメソッドが定義されています。
 
 attribute_methodはもっている属性に関するメソッドをまとめて実装できる機能です。
@@ -20,7 +22,7 @@ prefix や suffix をつけてもっている属性すべてに同じメソッ�
 `@generated_attribute_methods`に格納されたモジュールにメattirbute|methodが定義されている。
 attribute_method_mathecrsに追加されているmatherが組み合わせて最終的なメソッド名が決まる。
 
-* [ソースコード](https://github.com/rails/rails/blob/v4.2.0/activemodel/lib/active_model/attribute_methods.rb)
+[ActiveModel::Dirty](active_model/dirty)なんかで使われているので具体例をみたい場合はそちらを見るとよい。
 
 # ActiveModel::ClassMethods
 
