@@ -16,4 +16,7 @@ $ bundle exec ruby -r rails -e 'puts Rails.version'
 
 属性が変更されたかどうかを確認できるようになるモジュール。
 
-代入する前に 属性名_will_change! メソッドをよぶと元の状態を別に保存する。
+代入する前に 属性名_will_change! メソッドをよぶと元の状態を別の場所に保存する。
+保存先はchanged_attributes。この値を変更したり。元にもどしたりするのが主な役目。
+
+[ActiveModel::AttributeMethods](active_model/attribute_methods)を使って実装されている。
